@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Title -->
-  <title>Signup | Front - Multipurpose Responsive Template</title>
+  <title>Insurably | We're getting ready to launch!</title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="./favicon.ico">
@@ -117,7 +117,7 @@
               <!-- Form -->
               <div class="mb-4">
                 <label class="form-label" for="hireUsFormFirstName">First name</label>
-                <input type="text" class="form-control form-control-lg" name="first_name" id="hireUsFormFirstName" placeholder="First name" aria-label="First name">
+                <input type="text" class="form-control form-control-lg" name="first_name" id="hireUsFormFirstName" autocomplete="given-name" placeholder="First name" aria-label="First name">
               </div>
               <!-- End Form -->
             </div>
@@ -125,8 +125,8 @@
             <div class="col-sm-6">
               <!-- Form -->
               <div class="mb-4">
-                <label class="form-label" for="hireUsFormLasttName">Last name</label>
-                <input type="text" class="form-control form-control-lg" name="last_name" id="hireUsFormLasttName" placeholder="Last name" aria-label="Last name">
+                <label class="form-label" for="hireUsFormLastName">Last name</label>
+                <input type="text" class="form-control form-control-lg" name="last_name" id="hireUsFormLastName" autocomplete="family-name" placeholder="Last name" aria-label="Last name">
               </div>
               <!-- End Form -->
             </div>
@@ -136,21 +136,21 @@
           <!-- Form -->
           <div class="mb-4">
             <label class="form-label" for="hireUsFormWorkEmail">Email address</label>
-            <input type="email" class="form-control form-control-lg" name="email" id="hireUsFormWorkEmail" placeholder="email@site.com" aria-label="email@site.com">
+            <input type="email" class="form-control form-control-lg" name="email" id="hireUsFormWorkEmail" autocomplete="email" placeholder="email@site.com" aria-label="email@site.com">
           </div>
           <!-- End Form -->
 
           <!-- Form -->
           <div class="mb-4">
             <label class="form-label" for="hireUsFormCompanyName">Company name</label>
-            <input type="text" class="form-control form-control-lg" name="company" id="hireUsFormCompanyName" aria-label="Htmlstream">
+            <input type="text" class="form-control form-control-lg" name="company" id="hireUsFormCompanyName" autocomplete="organization" aria-label="Company Name">
           </div>
           <!-- End Form -->
 
           <!-- Form -->
           <div class="mb-4">
             <label class="form-label" for="hireUsFormMobileNumber">Mobile number</label>
-            <input type="text" class="form-control form-control-lg" name="tel" id="hireUsFormMobileNumber">
+            <input type="tel" class="form-control form-control-lg" name="tel" id="hireUsFormMobileNumber" autocomplete="tel" aria-label="Mobile Number">
           </div>
           <!-- End Form -->
 
@@ -227,30 +227,45 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Autofill fields from localStorage
-    const fields = {
-      'hireUsFormFirstName': 'firstName',
-      'hireUsFormLasttName': 'lastName',
-      'hireUsFormWorkEmail': 'email',
-      'hireUsFormCompanyName': 'companyName',
-      'hireUsFormMobileNumber': 'mobileNumber'
-    };
-
-    for (const id in fields) {
-      const value = localStorage.getItem(fields[id]);
-      if (value) {
-        document.getElementById(id).value = value;
+      // Function to get a cookie value by name
+      function getCookie(name) {
+          const value = `; ${document.cookie}`;
+          const parts = value.split(`; ${name}=`);
+          if (parts.length === 2) return parts.pop().split(';').shift();
       }
-    }
-
-    // Save form data to localStorage on input
-    for (const id in fields) {
-      document.getElementById(id).addEventListener('input', function() {
-        localStorage.setItem(fields[id], this.value);
-      });
-    }
+  
+      // Function to set a cookie
+      function setCookie(name, value, days) {
+          const date = new Date();
+          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+          const expires = "expires="+date.toUTCString();
+          document.cookie = `${name}=${value}; ${expires}; path=/`;
+      }
+  
+      // Autofill fields from cookies with better naming conventions
+      const fields = {
+          'hireUsFormFirstName': 'insurably_firstName',
+          'hireUsFormLastName': 'insurably_lastName', 
+          'hireUsFormWorkEmail': 'insurably_email',
+          'hireUsFormCompanyName': 'insurably_companyName',
+          'hireUsFormMobileNumber': 'insurably_mobileNumber'
+      };
+  
+      for (const id in fields) {
+          const value = getCookie(fields[id]);
+          if (value) {
+              document.getElementById(id).value = value;
+          }
+      }
+  
+      // Save form data to cookies on input
+      for (const id in fields) {
+          document.getElementById(id).addEventListener('input', function() {
+              setCookie(fields[id], this.value, 365); // Store cookie for 1 year
+          });
+      }
   });
-</script>
+  </script>
 
 </body>
 </html>
