@@ -117,7 +117,7 @@
               <!-- Form -->
               <div class="mb-4">
                 <label class="form-label" for="hireUsFormFirstName">First name</label>
-                <input type="text" class="form-control form-control-lg" name="hireUsFormNameFirstName" id="hireUsFormFirstName" placeholder="First name" aria-label="First name">
+                <input type="text" class="form-control form-control-lg" name="first_name" id="hireUsFormFirstName" placeholder="First name" aria-label="First name">
               </div>
               <!-- End Form -->
             </div>
@@ -126,7 +126,7 @@
               <!-- Form -->
               <div class="mb-4">
                 <label class="form-label" for="hireUsFormLasttName">Last name</label>
-                <input type="text" class="form-control form-control-lg" name="hireUsFormNameLastName" id="hireUsFormLasttName" placeholder="Last name" aria-label="Last name">
+                <input type="text" class="form-control form-control-lg" name="last_name" id="hireUsFormLasttName" placeholder="Last name" aria-label="Last name">
               </div>
               <!-- End Form -->
             </div>
@@ -136,21 +136,21 @@
           <!-- Form -->
           <div class="mb-4">
             <label class="form-label" for="hireUsFormWorkEmail">Email address</label>
-            <input type="email" class="form-control form-control-lg" name="hireUsFormNameWorkEmail" id="hireUsFormWorkEmail" placeholder="email@site.com" aria-label="email@site.com">
+            <input type="email" class="form-control form-control-lg" name="email" id="hireUsFormWorkEmail" placeholder="email@site.com" aria-label="email@site.com">
           </div>
           <!-- End Form -->
 
           <!-- Form -->
           <div class="mb-4">
             <label class="form-label" for="hireUsFormCompanyName">Company name</label>
-            <input type="text" class="form-control form-control-lg" name="hireUsFormNameCompanyName" id="hireUsFormCompanyName" aria-label="Htmlstream">
+            <input type="text" class="form-control form-control-lg" name="company" id="hireUsFormCompanyName" aria-label="Htmlstream">
           </div>
           <!-- End Form -->
 
           <!-- Form -->
           <div class="mb-4">
             <label class="form-label" for="hireUsFormMobileNumber">Mobile number</label>
-            <input type="text" class="form-control form-control-lg" name="hireUsFormNameMobileNumber" id="hireUsFormMobileNumber">
+            <input type="text" class="form-control form-control-lg" name="tel" id="hireUsFormMobileNumber">
           </div>
           <!-- End Form -->
 
@@ -224,44 +224,33 @@
       new HSTogglePassword('.js-toggle-password')
     })()
   </script>
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Check if data exists in localStorage and pre-fill the form
-    if (localStorage.getItem('firstName')) {
-      document.getElementById('hireUsFormFirstName').value = localStorage.getItem('firstName');
-    }
-    if (localStorage.getItem('lastName')) {
-      document.getElementById('hireUsFormLasttName').value = localStorage.getItem('lastName');
-    }
-    if (localStorage.getItem('email')) {
-      document.getElementById('hireUsFormWorkEmail').value = localStorage.getItem('email');
-    }
-    if (localStorage.getItem('companyName')) {
-      document.getElementById('hireUsFormCompanyName').value = localStorage.getItem('companyName');
-    }
-    if (localStorage.getItem('mobileNumber')) {
-      document.getElementById('hireUsFormMobileNumber').value = localStorage.getItem('mobileNumber');
-    }
-  });
+    // Autofill fields from localStorage
+    const fields = {
+      'hireUsFormFirstName': 'firstName',
+      'hireUsFormLasttName': 'lastName',
+      'hireUsFormWorkEmail': 'email',
+      'hireUsFormCompanyName': 'companyName',
+      'hireUsFormMobileNumber': 'mobileNumber'
+    };
 
-  // Optionally, you can save user input into localStorage for future visits
-  document.getElementById('hireUsFormFirstName').addEventListener('input', function() {
-    localStorage.setItem('firstName', this.value);
-  });
-  document.getElementById('hireUsFormLasttName').addEventListener('input', function() {
-    localStorage.setItem('lastName', this.value);
-  });
-  document.getElementById('hireUsFormWorkEmail').addEventListener('input', function() {
-    localStorage.setItem('email', this.value);
-  });
-  document.getElementById('hireUsFormCompanyName').addEventListener('input', function() {
-    localStorage.setItem('companyName', this.value);
-  });
-  document.getElementById('hireUsFormMobileNumber').addEventListener('input', function() {
-    localStorage.setItem('mobileNumber', this.value);
+    for (const id in fields) {
+      const value = localStorage.getItem(fields[id]);
+      if (value) {
+        document.getElementById(id).value = value;
+      }
+    }
+
+    // Save form data to localStorage on input
+    for (const id in fields) {
+      document.getElementById(id).addEventListener('input', function() {
+        localStorage.setItem(fields[id], this.value);
+      });
+    }
   });
 </script>
-
 
 </body>
 </html>
