@@ -111,13 +111,13 @@
       <!-- Form -->
       <div class="mx-auto" style="max-width: 35rem;">
         <!-- Form -->
-        <form>
+        <form action="https://formspree.io/f/xpwakbdd" method="POST">
           <div class="row">
             <div class="col-sm-6">
               <!-- Form -->
               <div class="mb-4">
-                <label class="form-label" for="hireUsFormFirstName">First name</label>
-                <input type="text" class="form-control form-control-lg" name="first_name" id="hireUsFormFirstName" autocomplete="given-name" placeholder="First name" aria-label="First name">
+                <label class="form-label" for="earlyAccessFormFirstName">First name</label>
+                <input type="text" class="form-control form-control-lg" name="first_name" id="earlyAccessFormFirstName" autocomplete="given-name" placeholder="First name" aria-label="First name" required>
               </div>
               <!-- End Form -->
             </div>
@@ -125,8 +125,8 @@
             <div class="col-sm-6">
               <!-- Form -->
               <div class="mb-4">
-                <label class="form-label" for="hireUsFormLastName">Last name</label>
-                <input type="text" class="form-control form-control-lg" name="last_name" id="hireUsFormLastName" autocomplete="family-name" placeholder="Last name" aria-label="Last name">
+                <label class="form-label" for="earlyAccessFormLastName">Last name</label>
+                <input type="text" class="form-control form-control-lg" name="last_name" id="earlyAccessFormLastName" autocomplete="family-name" placeholder="Last name" aria-label="Last name" required>
               </div>
               <!-- End Form -->
             </div>
@@ -135,51 +135,63 @@
 
           <!-- Form -->
           <div class="mb-4">
-            <label class="form-label" for="hireUsFormWorkEmail">Email address</label>
-            <input type="email" class="form-control form-control-lg" name="email" id="hireUsFormWorkEmail" autocomplete="email" placeholder="email@site.com" aria-label="email@site.com">
+            <label class="form-label" for="earlyAccessFormWorkEmail">Email address</label>
+            <input type="email" class="form-control form-control-lg" name="email" id="earlyAccessFormWorkEmail" autocomplete="email" placeholder="email@site.com" aria-label="email@site.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
           </div>
           <!-- End Form -->
 
           <!-- Form -->
           <div class="mb-4">
-            <label class="form-label" for="hireUsFormCompanyName">Company name</label>
-            <input type="text" class="form-control form-control-lg" name="company" id="hireUsFormCompanyName" autocomplete="organization" aria-label="Company Name">
+            <label class="form-label" for="earlyAccessFormCompanyName">Company name</label>
+            <input type="text" class="form-control form-control-lg" name="company" id="earlyAccessFormCompanyName" autocomplete="organization" placeholder="If applicable" aria-label="Company Name">
           </div>
           <!-- End Form -->
 
           <!-- Form -->
           <div class="mb-4">
-            <label class="form-label" for="hireUsFormMobileNumber">Mobile number</label>
-            <input type="tel" class="form-control form-control-lg" name="tel" id="hireUsFormMobileNumber" autocomplete="tel" aria-label="Mobile Number">
+            <label class="form-label" for="earlyAccessFormMobileNumber">Mobile number</label>
+            <input type="tel" class="form-control form-control-lg" name="tel" id="earlyAccessFormMobileNumber" autocomplete="tel" aria-label="Mobile Number" required>
           </div>
           <!-- End Form -->
 
           <!-- Select -->
           <div class="mb-4">
-            <label class="form-label" for="hireUsFormPremium">Premium</label>
-            <select name="hireUsFormNamePremium" id="hireUsFormPremium" class="form-select form-select-lg" aria-label="Tell us about your current premium">
-              <option selected>Tell us about your current premium</option>
-              <option value="1">$1,000 - $10,000</option>
-              <option value="2">$10,000 - $20,000</option>
-              <option value="3">$20,000 - $30,000</option>
-              <option value="4">$30,000 - $40,000</option>
-              <option value="5">$40,000 - $50,000</option>
-              <option value="6">$50,000 - and more</option>
-            </select>
-          </div>
-          <!-- End Select -->
-
-          <!-- Select -->
-          <div class="mb-4">
-            <label class="form-label" for="hireUsFormTrade">Category</label>
-            <select name="hireUsFormNameTrade" id="hireUsFormTrade" class="form-select form-select-lg" aria-label="What type of insurance do you need?">
+            <label class="form-label" for="earlyAccessFormTrade">Category</label>
+            <select name="earlyAccessFormNameTrade" id="earlyAccessFormTrade" class="form-select form-select-lg" aria-label="What type of insurance do you need?" required>
               <option selected>What type of insurance do you need?</option>
               <option value="1">Business</option>
               <option value="2">Landlord</option>
               <option value="3">Home</option>
             </select>
           </div>
-          <!-- End Select -->          
+          <!-- End Select -->
+           
+          <!-- Select -->
+          <div class="mb-4">
+            <label class="form-label" for="earlyAccessFormStartDate">Roughly when do you need insurance in place from?</label>
+            <input type="date" name="earlyAccessFormNameStartDate" id="earlyAccessFormStartDate" class="form-control form-control-lg" aria-label="Roughly when do you need insurance in place from?" required>
+          </div>
+          <!-- End Select -->
+
+          <!-- Select -->
+          <div class="mb-4">
+            <label class="form-label" for="earlyAccessFormPremium">Current Premium</label>
+            <select name="earlyAccessFormNamePremium" id="earlyAccessFormPremium" class="form-select form-select-lg" aria-label="Tell us about your current premium">
+              <option selected>Tell us about your current premium</option>
+              <option value="1">Less than £500</option>
+              <option value="2">£500 - £1,000</option>
+              <option value="3">£1,000 - £2,000</option>
+              <option value="4">£2,000 - £3,000</option>
+              <option value="5">£3,000 - £4,000</option>
+              <option value="6">£4,000 - £5,000</option>
+              <option value="7">£5,000 - £7,500</option>
+              <option value="8">£7,500 - £10,000</option>
+              <option value="9">£10,000 - £15,000</option>
+              <option value="10">£15,000 - £20,000</option>
+              <option value="11">Over £20,000</option>
+            </select>
+          </div>
+          <!-- End Select -->        
 
           <div class="d-grid mb-2">
             <button type="submit" class="btn btn-primary btn-lg">Send inquiry</button>
@@ -244,11 +256,11 @@
   
       // Autofill fields from cookies with better naming conventions
       const fields = {
-          'hireUsFormFirstName': 'insurably_firstName',
-          'hireUsFormLastName': 'insurably_lastName', 
-          'hireUsFormWorkEmail': 'insurably_email',
-          'hireUsFormCompanyName': 'insurably_companyName',
-          'hireUsFormMobileNumber': 'insurably_mobileNumber'
+          'earlyAccessFormFirstName': 'insurably_firstName',
+          'earlyAccessFormLastName': 'insurably_lastName', 
+          'earlyAccessFormWorkEmail': 'insurably_email',
+          'earlyAccessFormCompanyName': 'insurably_companyName',
+          'earlyAccessFormMobileNumber': 'insurably_mobileNumber'
       };
   
       for (const id in fields) {
