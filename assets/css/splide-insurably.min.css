@@ -153,7 +153,7 @@
     border-radius: 8px;           /* Rounded corners */
     padding: 1em;                 /* Padding inside the text boxes */
     font-weight: 600;             /* Semi-bold font */
-    font-size: 20px;              /* Font size */
+    font-size: 22px;              /* Font size */
     color: rgba(0, 0, 0, 0.5);    /* 50% opacity for non-active text */
     transition: background-color 0.3s, color 0.3s; /* Smooth transition */
     overflow: hidden;             /* Ensures overflow content is hidden */
