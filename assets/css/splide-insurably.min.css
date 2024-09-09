@@ -163,9 +163,13 @@
 }
 
 .splide__slide.is-active {
-    background-color: #377dff;   /* Active box color */
-    color: #ffffff;                 /* Full opacity for active text */
+    background-color: #f3fbfc
+    border: 4px solid #377dff; /* Thick blue border for active slide */
+    color: #377dff; /* Blue color for text on the active slide */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    transition: border-color 0.3s, color 0.3s; /* Smooth transition for border color */
 }
+
 
 .splide__slide:focus {
     outline: 0;
