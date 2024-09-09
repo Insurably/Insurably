@@ -165,8 +165,8 @@
 
 /* Active Slide Styles with Blue Border */
 .splide__slide.is-active {
-    background-color: transparent !important; /* Transparent background for active slide */
-    border: 4px solid #377dff !important; /* Thick blue border for active slide */
+    background-color: f3fbfc !important; /* Transparent background for active slide */
+    border: 8px solid #377dff !important; /* Thick blue border for active slide */
     color: #377dff !important; /* Blue color for text on the active slide */
     box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
     transition: border-color 0.3s, color 0.3s; /* Smooth transition for border color */
