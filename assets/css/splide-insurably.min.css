@@ -147,12 +147,13 @@
     align-items: flex-end;
     height: 200px;                /* Fixed height for the text boxes */
     background-color: #f3fbfc;    /* Default background color for non-active boxes */
+    border: 3px solid transparent; /* Transparent border by default */
     border-radius: 8px;           /* Rounded corners */
     padding: 1em;                 /* Padding inside the text boxes */
     font-weight: 600;             /* Semi-bold font */
     font-size: 22px;              /* Font size */
     color: rgba(0, 0, 0, 0.2);    /* 50% opacity for non-active text */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    transition: border-color 0.3s, color 0.3s; /* Smooth transition */
     overflow: hidden;             /* Ensures overflow content is hidden */
     white-space: normal;          /* Allows text to wrap */
     word-wrap: break-word;        /* Breaks long words to prevent overflow */
@@ -163,8 +164,8 @@
 }
 
 .splide__slide.is-active {
-    background-color: #f3fbfc
-    border: 4px solid #377dff; /* Thick blue border for active slide */
+    background-color: f3fbfc;
+    border: 3px solid #377dff; /* Thick blue border for active slide */
     color: #377dff; /* Blue color for text on the active slide */
     box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
     transition: border-color 0.3s, color 0.3s; /* Smooth transition for border color */
