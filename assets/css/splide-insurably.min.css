@@ -1,3 +1,4 @@
+
 .splide__track--nav > .splide__list > .splide__slide {
     border: 3px solid transparent;
     border-radius: 4px;
@@ -166,11 +167,11 @@
 /* Active Slide Styles with Blue Border */
 .splide__slide.is-active {
     background-color: #f3fbfc !important; /* Background color for active slide */
-    border: 2px solid #377dff !important; /* Thin blue border for active slide */
-    color: #377dff !important; /* Blue color for text on the active slide */
+    border: 3px solid #377dff !important; /* Thin blue border for active slide */
+    color: #000000 !important; /* Blue color for text on the active slide */
     box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
     transition: border-color 0.3s, color 0.3s, box-shadow 0.3s; /* Smooth transition for border color and shadow */
-    box-shadow: 2px 8px 8px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
 }
 
 
