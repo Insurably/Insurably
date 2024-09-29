@@ -11963,6 +11963,23 @@ to{stroke-dasharray:477 477}
       order: 2; /* Original order for large screens */
     }
   }
+
+  .covered-list {
+    text-align: center;
+    padding-left: 20px;
+    list-style: none; /* Remove bullet points */
+  }
+
+  #suggestionsContainer {
+    display: none; /* Hide by default */
+    position: absolute;
+    z-index: 1000;
+    width: 100%; /* Match the input width */
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    background-color: white;
+  }
   
   
   
