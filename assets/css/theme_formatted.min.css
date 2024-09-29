@@ -215,7 +215,7 @@ progress{vertical-align:baseline}
 
 .blockquote-footer{margin-top:0;margin-bottom:0;font-size:1.25rem;color:#1e2022}
 
-.blockquote-footer::before{content:"— "}
+.blockquote-footer::before{content:"— "}
 
 .img-fluid{max-width:100%;height:auto}
 
@@ -11962,12 +11962,6 @@ to{stroke-dasharray:477 477}
     .navbar-collapse {
       order: 2; /* Original order for large screens */
     }
-  }
-
-  .covered-list {
-    text-align: center;
-    padding-left: 20px;
-    list-style: none; /* Remove bullet points */
   }
 
   #suggestionsContainer {
