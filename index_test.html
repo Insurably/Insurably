@@ -226,20 +226,21 @@
           </div>
           <!-- End Title & Description -->
 
-                <!-- Input Card -->
-                <div class="input-card">
-                  <div class="input-card-form">
-                    <label for="searchTradeForm" class="form-label visually-hidden">Search trade</label>
-                    <div class="input-group input-group-merge">
-                      <span class="input-group-prepend input-group-text">
-                        <i class="bi-search"></i>
-                      </span>
-                      <input type="text" class="form-control form-control-lg" id="searchTradeForm" placeholder="What's your trade / profession?" aria-label="Enter location">
-                    </div>
-                  </div>
-                  <button type="button" class="btn btn-primary btn-lg">Search</button>
-                </div>
-                <!-- End Input Card -->
+<!-- Input Card -->
+<div class="input-card">
+  <div class="input-card-form">
+    <label for="searchTradeForm" class="form-label visually-hidden">Search trade</label>
+    <div class="input-group input-group-merge">
+      <span class="input-group-prepend input-group-text">
+        <i class="bi-search"></i>
+      </span>
+      <input type="text" class="form-control form-control-lg" id="searchTradeForm" placeholder="What's your trade / profession?" aria-label="Enter trade" oninput="searchTrades()">
+    </div>
+  </div>
+  <div id="suggestionsContainer" class="dropdown-menu show" style="width: 100%;"></div> <!-- Container for suggestions -->
+</div>
+<!-- End Input Card -->
+
           
         </div>
       </div>
@@ -1280,61 +1281,64 @@
 
     // SUPABASE SEARCH FUNCTIONALITY
     // =======================================================
-    // Supabase credentials
-    const supabaseUrl = 'https://dcsjyxqjdsydieyjrber.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRjc2p5eHFqZHN5ZGlleWpyYmVyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjc1MDg3NTQsImV4cCI6MjA0MzA4NDc1NH0.H4K-BrqL5Zz_DrcX_CltleHeWW2W5hq-mqnROKeeiek';
-    const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+// Supabase credentials
+const supabaseUrl = 'https://dcsjyxqjdsydieyjrber.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRjc2p5eHFqZHN5ZGlleWpyYmVyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjc1MDg3NTQsImV4cCI6MjA0MzA4NDc1NH0.H4K-BrqL5Zz_DrcX_CltleHeWW2W5hq-mqnROKeeiek';
+const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-    // Function to search trades and display results
-    async function searchTrades() {
-      // Get the search input value
-      const searchQuery = document.getElementById('searchTradeForm').value.trim().toLowerCase();
-      
-      if (!searchQuery) {
-        alert('Please enter a trade/profession to search for.');
-        return;
-      }
+// Function to search trades and display suggestions
+async function searchTrades() {
+  const searchQuery = document.getElementById('searchTradeForm').value.trim().toLowerCase();
+  const suggestionsContainer = document.getElementById('suggestionsContainer');
+  suggestionsContainer.innerHTML = ''; // Clear previous suggestions
 
-      // Query Supabase to search for trades
-      let { data, error } = await supabase
-        .from('Trades_products')
-        .select('*')
-        .ilike('trade_name', `%${searchQuery}%`);  // case-insensitive search
+  if (!searchQuery) {
+    return; // Don't search if input is empty
+  }
 
-      if (error) {
-        console.error('Error fetching data:', error);
-        alert('There was an error fetching data. Please try again.');
-        return;
-      }
+  // Query Supabase to search for trades
+  let { data, error } = await supabase
+    .from('Trades_products')
+    .select('*')
+    .ilike('trade_name', `%${searchQuery}%`);  // case-insensitive search
 
-      // Display the results
-      displayResults(data);
-    }
+  if (error) {
+    console.error('Error fetching data:', error);
+    return;
+  }
 
-    // Function to display results
-    function displayResults(data) {
-      const resultsContainer = document.getElementById('resultsContainer');
-      resultsContainer.innerHTML = '';  // Clear previous results
+  if (data.length === 0) {
+    suggestionsContainer.innerHTML = '<div class="dropdown-item">No matches found</div>';
+    return;
+  }
 
-      if (data.length === 0) {
-        resultsContainer.innerHTML = '<p>No results found for your search.</p>';
-        return;
-      }
+  // Split data into exact matches and suggested matches
+  const exactMatches = data.filter(item => item.trade_name.toLowerCase() === searchQuery);
+  const suggestedMatches = data.filter(item => item.trade_name.toLowerCase() !== searchQuery);
 
-      // Create cards for each result
-      data.forEach(item => {
-        const resultCard = `
-          <div class="card mb-3">
-            <div class="card-body">
-              <h5 class="card-title">${item.trade_name}</h5>
-              <p class="card-text">Product Type: ${item.product_type}</p>
-              <a href="${item.quote_form_url}" class="btn btn-primary">Get a Quote</a>
-            </div>
-          </div>
-        `;
-        resultsContainer.innerHTML += resultCard;
-      });
-    }
+  // Populate exact matches
+  if (exactMatches.length > 0) {
+    suggestionsContainer.innerHTML += '<div class="dropdown-header">EXACT MATCHES FOR YOUR SEARCH</div>';
+    exactMatches.forEach(item => {
+      suggestionsContainer.innerHTML += `
+        <a href="${item.quote_form_url}" class="dropdown-item">
+          ${item.trade_name}
+        </a>`;
+    });
+  }
+
+  // Populate suggested matches
+  if (suggestedMatches.length > 0) {
+    suggestionsContainer.innerHTML += '<div class="dropdown-header">SUGGESTED MATCHES FOR YOUR SEARCH</div>';
+    suggestedMatches.forEach(item => {
+      suggestionsContainer.innerHTML += `
+        <a href="${item.quote_form_url}" class="dropdown-item">
+          ${item.trade_name}
+        </a>`;
+    });
+  }
+}
+
   </script>
 
   
