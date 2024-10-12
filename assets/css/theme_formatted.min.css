@@ -11967,10 +11967,43 @@ to{stroke-dasharray:477 477}
   #suggestionsContainer {
     display: none; /* Hide by default */
     position: absolute;
-    z-index: 1000;
-    width: 100%; /* Match the input width */
-    max-height: 300px;
-    overflow-y: auto;
-    border: 1px solid #ddd;
-    background-color: white;
+    z-index: 9999;
+    width: 100%; /* Match the width of the input box exactly */
+    max-height: 300px; /* Maximum height for overflow scrolling */
+    overflow-y: auto; /* Add scroll if the suggestions exceed max height */
+    border: 1px solid #ddd; /* Light border to distinguish */
+    background-color: #ffffff; /* White background for visibility */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add slight shadow for better visibility */
+    border-radius: 4px; /* Rounded corners for a modern look */
+    top: 100%; /* Ensure it starts right below the input */
+    left: 0; /* Align it to the left of the input */
+    margin-top: 5px; /* Add some space between the input and the suggestions */
+}
+
+.position-relative.bg-primary.overflow-hidden {
+    position: relative; /* Establish relative positioning context */
+    z-index: 1; /* Lower z-index if necessary */
   }
+
+#suggestionsContainer .dropdown-item {
+    padding: 10px 15px; /* Add padding to make items more clickable */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+    border-bottom: 1px solid #f0f0f0; /* Subtle separator for each suggestion */
+}
+
+#suggestionsContainer .dropdown-item:last-child {
+    border-bottom: none; /* Remove border for the last item */
+}
+
+#suggestionsContainer .dropdown-item:hover {
+    background-color: #f7f7f7; /* Light gray background for hover effect */
+    color: #007bff; /* Optional: add color to the text on hover */
+}
+
+.border-bottom {
+    position: relative;
+    z-index: 1; /* Lower the z-index so it won't interfere with the dropdown */
+  }
+
+  
