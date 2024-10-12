@@ -210,20 +210,20 @@
             <!-- End Heading -->
 
             <form>
-                <!-- Input Card -->
-                <div class="input-card">
-                  <div class="input-card-form">
-                    <label for="searchTradeForm" class="form-label visually-hidden">Search trade</label>
-                    <div class="input-group input-group-merge">
-                      <span class="input-group-prepend input-group-text">
-                        <i class="bi-search"></i>
-                      </span>
-                      <input type="text" class="form-control form-control-lg" id="searchTradeForm" placeholder="What's your trade / profession?" aria-label="Enter trade">
-                    </div>
-                  </div>
-                  <button type="button" class="btn btn-primary btn-lg">Search</button>
-                </div>
-                <!-- End Input Card -->
+<!-- Input Card -->
+<div class="input-card" style="position: relative;"> <!-- Ensure relative positioning -->
+  <div class="input-card-form">
+    <label for="searchTradeForm" class="form-label visually-hidden">Search trade</label>
+    <div class="input-group input-group-merge">
+      <span class="input-group-prepend input-group-text">
+        <i class="bi-search"></i>
+      </span>
+      <input type="text" class="form-control form-control-lg" id="searchTradeForm" placeholder="Search your Trade or 'Landlord' or 'Home Insurance'" aria-label="Enter trade">
+    </div>
+  </div>
+  <div id="suggestionsContainer" class="dropdown-menu" style="display: none;"></div> <!-- Suggestions container -->
+</div>
+<!-- End Input Card -->
             </form>
             
             <p class="form-text">2,905 Business Types Covered</p>
@@ -585,6 +585,8 @@
   <script src="./assets/vendor/aos/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
 
+  <!-- External JavaScript Files -->
+  <script type="module" src="./assets/js/firebase_search.js"></script>
 
   <!-- JS Front -->
   <script src="./assets/js/theme.min.js"></script>

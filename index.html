@@ -35,89 +35,6 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.insurably.co.uk">
 
-  <!-- Supabase CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // Supabase credentials from your project
-      const supabaseUrl = 'https://dcsjyxqjdsydieyjrber.supabase.co';
-      const supabaseSecretKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRjc2p5eHFqZHN5ZGlleWpyYmVyIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcyNzUwODc1NCwiZXhwIjoyMDQzMDg0NzU0fQ.hJ_f3SKGla6lgTOum8JObM8a5v2zU7hNxYgd1QB-TuA';
-  
-      // Initialize Supabase client
-      const supabase = createClient(supabaseUrl, supabaseSecretKey);
-  
-      // Function to test connection
-      async function testConnection() {
-        try {
-          const { data, error } = await supabase
-            .from('trades_products') // Ensure table name is correct
-            .select('*')
-            .limit(1); // Querying just one row for testing
-  
-          if (error) {
-            console.error("Connection failed:", error);
-          } else {
-            console.log("Connected successfully! Here is a sample:", data);
-          }
-        } catch (error) {
-          console.error("Unexpected error:", error);
-        }
-      }
-  
-      // Call the test connection function
-      testConnection();
-  
-      // Function to search trades and display suggestions
-      async function searchTrades() {
-        const searchQuery = document.getElementById('searchTradeForm').value.trim().toLowerCase();
-        const suggestionsContainer = document.getElementById('suggestionsContainer');
-        suggestionsContainer.innerHTML = ''; // Clear previous suggestions
-  
-        if (!searchQuery) return; // Don't search if input is empty
-  
-        // Query Supabase to search for trades
-        const { data, error } = await supabase
-          .from('trades_products')
-          .select('*')
-          .ilike('trade_name', `%${searchQuery}%`);  // case-insensitive search
-  
-        if (error) {
-          console.error('Error fetching data:', error);
-          return;
-        }
-  
-        if (data.length === 0) {
-          suggestionsContainer.innerHTML = '<div class="dropdown-item">No matches found</div>';
-          return;
-        }
-  
-        // Split data into exact matches and suggested matches
-        const exactMatches = data.filter(item => item.trade_name.toLowerCase() === searchQuery);
-        const suggestedMatches = data.filter(item => item.trade_name.toLowerCase() !== searchQuery);
-  
-        // Populate exact matches
-        if (exactMatches.length > 0) {
-          suggestionsContainer.innerHTML += '<div class="dropdown-header">EXACT MATCHES FOR YOUR SEARCH</div>';
-          exactMatches.forEach(item => {
-            suggestionsContainer.innerHTML += `<a href="${item.quote_form_url}" class="dropdown-item">${item.trade_name}</a>`;
-          });
-        }
-  
-        // Populate suggested matches
-        if (suggestedMatches.length > 0) {
-          suggestionsContainer.innerHTML += '<div class="dropdown-header">SUGGESTED MATCHES FOR YOUR SEARCH</div>';
-          suggestedMatches.forEach(item => {
-            suggestionsContainer.innerHTML += `<a href="${item.quote_form_url}" class="dropdown-item">${item.trade_name}</a>`;
-          });
-        }
-      }
-  
-      // Attach event listener to the input field
-      document.getElementById('searchTradeForm').addEventListener('input', searchTrades);
-    });
-  </script>  
-
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
@@ -287,8 +204,8 @@
   <!-- ========== MAIN CONTENT ========== -->
   <main id="content" role="main">
     <!-- Hero -->
-    <div class="position-relative bg-primary overflow-hidden">
-      <div class="container position-relative zi-2 content-space-3 content-space-md-3">
+    <div class="position-relative bg-primary overflow-hidden" style="position: relative;">
+      <div class="container position-relative zi-2 content-space-3 content-space-md-3" style="position: relative;">
         <div class="w-md-75 w-xl-65 text-center mx-md-auto">
           <!-- Heading -->
           <div class="mb-7">
@@ -310,23 +227,20 @@
           <!-- End Title & Description -->
 
 <!-- Input Card -->
-<div class="input-card">
+<div class="input-card" style="position: relative;"> <!-- Ensure relative positioning -->
   <div class="input-card-form">
     <label for="searchTradeForm" class="form-label visually-hidden">Search trade</label>
     <div class="input-group input-group-merge">
       <span class="input-group-prepend input-group-text">
         <i class="bi-search"></i>
       </span>
-      <input type="text" class="form-control form-control-lg" id="searchTradeForm" placeholder="What's your trade / profession?" aria-label="Enter trade" oninput="searchTrades()">
+      <input type="text" class="form-control form-control-lg" id="searchTradeForm" placeholder="Search your Trade or 'Landlord' or 'Home Insurance'" aria-label="Enter trade">
     </div>
   </div>
-  <div id="suggestionsContainer" class="dropdown-menu show" style="width: 100%;"></div> <!-- Container for suggestions -->
-  <button type="button" class="btn btn-primary btn-lg" onclick="searchTrades()">Search</button> <!-- Ensure this button stays visible -->
+  <div id="suggestionsContainer" class="dropdown-menu" style="display: none;"></div> <!-- Suggestions container -->
 </div>
 <!-- End Input Card -->
 
-
-          
         </div>
       </div>
 
@@ -348,7 +262,6 @@
         </svg>
       </figure>
      <!-- End Background Shape -->
-  
 
       <!-- Shape -->
       <div class="shape shape-bottom zi-1" style="margin-bottom: -.125rem">
@@ -1297,6 +1210,12 @@
   <!-- JS Global Compulsory  -->
   <script src="./assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
+  <!-- External JavaScript Files -->
+  <script type="module" src="./assets/js/firebase_search.js"></script>
+  <script src="./animations.js" defer></script>
+  <script src="./header.js" defer></script>
+  <script src="./validation.js" defer></script>  
+
   <!-- JS Implementing Plugins -->
   <script src="./assets/vendor/hs-header/dist/hs-header.min.js"></script>
   <script src="./assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.js"></script>
@@ -1305,69 +1224,10 @@
   <script src="./assets/vendor/aos/dist/aos.js"></script>
   <script src="./assets/vendor/hs-toggle-switch/dist/hs-toggle-switch.min.js"></script>
   <script src="./assets/vendor/typed.js/lib/typed.min.js"></script>
-  <script src="./assets/vendor/typed.js/lib/hs.typed.js"></script>
+
 
   <!-- JS Front -->
   <script src="./assets/js/theme.min.js"></script>
 
-  <!-- JS Plugins Init. -->
-  <script>
-    (function() {
-      // INITIALIZATION OF HEADER
-      // =======================================================
-      new HSHeader('#header').init()
-
-
-      // INITIALIZATION OF MEGA MENU
-      // =======================================================
-      new HSMegaMenu('.js-mega-menu', {
-          desktop: {
-            position: 'left'
-          }
-        })
-
-
-      // INITIALIZATION OF SHOW ANIMATIONS
-      // =======================================================
-      new HSShowAnimation('.js-animation-link')
-
-
-      // INITIALIZATION OF BOOTSTRAP VALIDATION
-      // =======================================================
-      HSBsValidation.init('.js-validate', {
-        onSubmit: data => {
-          data.event.preventDefault()
-          alert('Submited')
-        }
-      })
-
-
-      // INITIALIZATION OF BOOTSTRAP DROPDOWN
-      // =======================================================
-      HSBsDropdown.init()
-
-
-      // INITIALIZATION OF GO TO
-      // =======================================================
-      new HSGoTo('.js-go-to')
-
-
-      // INITIALIZATION OF AOS
-      // =======================================================
-      AOS.init({
-        duration: 650,
-        once: true
-      });
-
-      // INITIALIZATION OF TEXT ANIMATION (TYPING)
-      // =======================================================
-      HSCore.components.HSTyped.init('.js-typedjs')
-
-      // INITIALIZATION OF TOGGLE SWITCH
-      // =======================================================
-      new HSToggleSwitch('.js-toggle-switch')
-    })()
-  </script>
-  
 </body>
 </html>
