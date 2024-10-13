@@ -5,12 +5,12 @@ import { getFirestore, collection, query, where, getDocs } from "https://www.gst
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  apiKey: "AIzaSyCs_0Z_Cj2Zee3VlU0LRqyeH-tKSmJS-vo",
+  authDomain: "trade-selector-f459f.firebaseapp.com",
+  projectId: "trade-selector-f459f",
+  storageBucket: "trade-selector-f459f.appspot.com",
+  messagingSenderId: "139697343231",
+  appId: "1:139697343231:web:5e4438311591ff9a2f9aca"
 };
 
 // Initialize Firebase
