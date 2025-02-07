@@ -16,24 +16,49 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .catch(error => console.error("Error loading footer:", error));
 
-  // Helper function to scroll an element into view with an offset (useful if you have a fixed header)
+  // ------------------------------------------------------------
+  // HELPER FUNCTIONS
+  // ------------------------------------------------------------
+
+  // Scroll a given element into view with an offset (e.g. to account for a fixed header)
   function scrollToElementWithOffset(element, offset = 80) {
     const elementRect = element.getBoundingClientRect();
     const offsetPosition = elementRect.top + window.pageYOffset - offset;
     window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
   }
 
-  // Helper function to scroll to the top of the form (or any designated element)
-  function scrollToTop(el = '.js-step-form', offset = 30) {
-    const element = document.querySelector(el);
-    if (element) {
-      window.scrollTo({
-        top: (element.getBoundingClientRect().top + window.scrollY) - offset,
-        left: 0,
-        behavior: 'smooth'
-      });
+  // Scroll so that the progress bar (or its container) is in view.
+  // In our example we assume the progress bar has the id "quoteProgressBar".
+  function scrollToProgress() {
+    const progressBar = document.getElementById('quoteProgressBar');
+    if (progressBar) {
+      // Scroll so that the progress bar is near the top (adjust offset if needed)
+      scrollToElementWithOffset(progressBar, 30);
+    } else {
+      // Fallback: scroll to the top of the step form.
+      const stepForm = document.querySelector('.js-step-form');
+      if (stepForm) {
+        window.scrollTo({ top: stepForm.offsetTop, behavior: 'smooth' });
+      }
     }
   }
+
+  // Given the current question container element, find the next question container (if any)
+  // and scroll it into view.
+  function scrollToNextQuestion(currentContainer) {
+    let nextContainer = currentContainer.nextElementSibling;
+    // Look for the next sibling that has the class "question-container"
+    while (nextContainer && !nextContainer.classList.contains('question-container')) {
+      nextContainer = nextContainer.nextElementSibling;
+    }
+    if (nextContainer) {
+      scrollToElementWithOffset(nextContainer, 80);
+    }
+  }
+
+  // ------------------------------------------------------------
+  // INITIALIZATION OF PAGE COMPONENTS & FORM BEHAVIOR
+  // ------------------------------------------------------------
 
   function initializePageComponents() {
     // INITIALIZATION OF MEGA MENU
@@ -58,20 +83,22 @@ document.addEventListener("DOMContentLoaded", function () {
         : null
     });
 
-    // INITIALIZATION OF STEP FORM (Ensuring Proper Execution Order)
+    // INITIALIZATION OF THE STEP FORM
+    // (Allow a short delay so the step form is fully ready.)
     setTimeout(() => {
       const stepForm = new HSStepForm('.js-step-form', {
         onNextStep: () => {
-          // When advancing to the next step, scroll to the top of the form (or desired element)
-          scrollToTop();
-          setTimeout(updateProgress, 100); // Delay update to ensure transition completes
+          // When advancing to the next step (e.g. after answering the last question in a section),
+          // scroll so that the progress bar is in view.
+          scrollToProgress();
+          setTimeout(updateProgress, 100); // Delay to let the transition complete.
         },
         onPrevStep: () => {
-          scrollToTop();
+          scrollToProgress();
           setTimeout(updateProgress, 100);
         },
         finish: () => {
-          console.log("Form finished, displaying success message."); // Debug log
+          console.log("Form finished, displaying success message.");
 
           // Hide all step cards
           document.querySelectorAll('#quoteStepFormContent .card').forEach(card => {
@@ -90,10 +117,10 @@ document.addEventListener("DOMContentLoaded", function () {
             stepIndex.style.display = 'none';
           }
 
-          // Hide the progress bar (Small Screens) - COMPLETELY REMOVE SPACE
+          // Hide the progress bar (Small Screens) – removes any extra space
           const progressBarContainer = document.querySelector('.progress');
           if (progressBarContainer) {
-            progressBarContainer.style.display = 'none'; // Ensures no space is left
+            progressBarContainer.style.display = 'none';
           }
 
           // Ensure the form container takes the full width
@@ -111,33 +138,33 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("Success message content not found!");
           }
 
-          // Scroll to top to ensure success message is visible
+          // Finally, scroll to the very top so the progress bar comes into view.
           setTimeout(() => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }, 300);
         }
       });
 
-      setTimeout(updateProgress, 300); // Final delay to ensure step detection works
-    }, 500); // Allow step form to fully initialize
+      setTimeout(updateProgress, 300); // Allow final delay for step detection.
+    }, 500);
 
-    // Auto-advance when selecting an insurance type and update both Step 2 and Step 3 question containers
+    // ------------------------------------------------------------
+    // INSURANCE TYPE AUTO-ADVANCE (For Business, Landlord, Home)
+    // ------------------------------------------------------------
+
     const insuranceRadios = document.querySelectorAll('input[name="insuranceType"]');
     insuranceRadios.forEach(function (radio) {
       radio.addEventListener('change', function (e) {
-        // Update Step 2 question containers
+        // Update Step 2 question containers (hide all first)
         const businessQuestions = document.getElementById("BusinessQuestions");
         const landlordQuestions = document.getElementById("LandlordQuestions");
         const homeQuestions = document.getElementById("HomeQuestions");
-
-        // Hide all Step 2 question containers first
         if (businessQuestions) businessQuestions.style.display = "none";
         if (landlordQuestions) landlordQuestions.style.display = "none";
         if (homeQuestions) homeQuestions.style.display = "none";
 
-        // Get the selected insurance type (e.g., "Business", "Landlord", or "Home")
+        // Show only the container corresponding to the selected type
         const selectedType = e.target.value;
-        // Show only the corresponding container for Step 2
         if (selectedType === "Business" && businessQuestions) {
           businessQuestions.style.display = "block";
         } else if (selectedType === "Landlord" && landlordQuestions) {
@@ -146,17 +173,14 @@ document.addEventListener("DOMContentLoaded", function () {
           homeQuestions.style.display = "block";
         }
 
-        // Update Step 3 question containers
+        // Update Step 3 question containers similarly
         const businessQuestions2 = document.getElementById("BusinessQuestions2");
         const landlordQuestions2 = document.getElementById("LandlordQuestions2");
         const homeQuestions2 = document.getElementById("HomeQuestions2");
-
-        // Hide all Step 3 question containers first
         if (businessQuestions2) businessQuestions2.style.display = "none";
         if (landlordQuestions2) landlordQuestions2.style.display = "none";
         if (homeQuestions2) homeQuestions2.style.display = "none";
 
-        // Show only the corresponding container for Step 3
         if (selectedType === "Business" && businessQuestions2) {
           businessQuestions2.style.display = "block";
         } else if (selectedType === "Landlord" && landlordQuestions2) {
@@ -165,7 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
           homeQuestions2.style.display = "block";
         }
 
-        // Auto-advance to the next step
+        // Auto-advance to the next step by programmatically clicking the next button.
         const autoNextButton = document.getElementById('autoStepNext');
         if (autoNextButton) {
           autoNextButton.click();
@@ -182,40 +206,45 @@ document.addEventListener("DOMContentLoaded", function () {
               stepElements[currentStepIndex].scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
           }, 500);
-          setTimeout(updateProgress, 500); // Delay to ensure step transition
+          setTimeout(updateProgress, 500);
         }
       });
     });
 
-    // Optionally, if you have individual question elements that should trigger scrolling when clicked,
-    // for example if each question has the class 'question', you can add:
-    document.querySelectorAll('.question').forEach((question, index, questions) => {
-      question.addEventListener('click', function () {
-        const nextQuestion = questions[index + 1];
-        if (nextQuestion) {
-          nextQuestion.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // ------------------------------------------------------------
+    // SCROLL ON ANSWER BUTTON CLICKS (for each question)
+    // ------------------------------------------------------------
+    // (Make sure your HTML for each question wraps its content in an element
+    // with the class "question-container" and that each answer button inside
+    // has the class "answer-btn".)
+    document.querySelectorAll('.question-container .answer-btn').forEach(button => {
+      button.addEventListener('click', function () {
+        // After a short delay (to allow UI updates) scroll the next question container into view.
+        const currentContainer = this.closest('.question-container');
+        if (currentContainer) {
+          setTimeout(() => {
+            scrollToNextQuestion(currentContainer);
+          }, 300);
         }
       });
     });
 
-    // Function to update the progress bar based on the active step
+    // ------------------------------------------------------------
+    // PROGRESS BAR UPDATES
+    // ------------------------------------------------------------
     function updateProgress(forcedValue = null) {
       const progressBar = document.getElementById('quoteProgressBar');
-
       let progressPercentage = 0;
       if (forcedValue !== null) {
         progressPercentage = forcedValue;
       } else {
         const stepElements = document.querySelectorAll('#quoteStepFormContent > div');
         let currentStepIndex = 0;
-
         stepElements.forEach((step, index) => {
           if (window.getComputedStyle(step).display !== 'none') {
             currentStepIndex = index + 1;
           }
         });
-
-        // Set progress percentage based on the step number
         if (currentStepIndex === 1) {
           progressPercentage = 33;
         } else if (currentStepIndex === 2) {
@@ -225,21 +254,20 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
 
-      // If the success message is visible, set progress to 100%
+      // If the success message is showing, set progress to 100%
       const successMessage = document.getElementById("successMessageContent");
       if (successMessage && successMessage.style.display === "block") {
         progressPercentage = 100;
       }
 
       console.log(`Updating progress: ${progressPercentage}%`);
-
       if (progressBar) {
         progressBar.style.width = `${progressPercentage}%`;
         progressBar.setAttribute('aria-valuenow', progressPercentage);
       }
     }
 
-    // Ensure progress bar updates initially (after a delay to allow step detection)
+    // Ensure the progress bar is updated initially.
     setTimeout(updateProgress, 1000);
   }
 });
