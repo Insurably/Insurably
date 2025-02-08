@@ -1,4 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {  
+    // Helper: Wait for jQuery and bootstrap-datepicker to load.
+    function waitForjQuery(callback, interval = 50, maxAttempts = 100) {
+      let attempts = 0;
+      const timer = setInterval(function() {
+        if (window.jQuery && $.fn.datepicker) {
+          clearInterval(timer);
+          callback();
+        }
+        attempts++;
+        if (attempts >= maxAttempts) {
+          clearInterval(timer);
+          console.error("jQuery or bootstrap-datepicker didn't load in time");
+        }
+      }, interval);
+    }
+  
     // Dynamically load Header
     fetch("header.html")
       .then(response => response.text())
@@ -28,14 +44,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   
     // Scroll so that the progress bar (or its container) is in view.
-    // In our example we assume the progress bar has the id "quoteProgressBar".
     function scrollToProgress() {
       const progressBar = document.getElementById('quoteProgressBar');
       if (progressBar) {
-        // Scroll so that the progress bar is near the top (adjust offset if needed)
         scrollToElementWithOffset(progressBar, 30);
       } else {
-        // Fallback: scroll to the top of the step form.
         const stepForm = document.querySelector('.js-step-form');
         if (stepForm) {
           window.scrollTo({ top: stepForm.offsetTop, behavior: 'smooth' });
@@ -47,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // and scroll it into view.
     function scrollToNextQuestion(currentContainer) {
       let nextContainer = currentContainer.nextElementSibling;
-      // Look for the next sibling that has the class "question-container"
       while (nextContainer && !nextContainer.classList.contains('question-container')) {
         nextContainer = nextContainer.nextElementSibling;
       }
@@ -75,6 +87,22 @@ document.addEventListener("DOMContentLoaded", function () {
       // INITIALIZATION OF GO TO
       new HSGoTo('.js-go-to');
   
+      // INITIALIZATION OF DATE PICKER
+      function initializeDatePickers() {
+        // Now that jQuery is available, attach datepicker to all elements with the .datepicker class.
+        $('.datepicker').datepicker({
+          format: 'dd/mm/yyyy',
+          autoclose: true,
+          todayHighlight: true,
+          startDate: new Date()
+        });
+      }
+      // Use our helper to wait until jQuery and its datepicker plugin are loaded.
+      waitForjQuery(initializeDatePickers);
+  
+      // INITIALIZATION OF SELECT
+      HSCore.components.HSTomSelect.init('.js-select-trades');
+  
       // INITIALIZATION OF STICKY BLOCKS
       new HSStickyBlock('.js-sticky-block', {
         targetSelector: (document.getElementById('header') &&
@@ -84,37 +112,30 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   
       // INITIALIZATION OF THE STEP FORM
-      // (Allow a short delay so the step form is fully ready.)
       setTimeout(() => {
         const stepForm = new HSStepForm('.js-step-form', {
-            onNextStep: () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-                // Wait for scroll to finish before updating progress bar
-                let scrollTimeout;
-                window.addEventListener('scroll', function scrollHandler() {
-                    clearTimeout(scrollTimeout);
-                    scrollTimeout = setTimeout(() => {
-                        updateProgress(); // Update progress only after scrolling stops
-                        window.removeEventListener('scroll', scrollHandler); // Remove listener after execution
-                    }, 100);
-                });
-            },
-            
-            onPrevStep: () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-                // Wait for scroll to finish before updating progress bar
-                let scrollTimeout;
-                window.addEventListener('scroll', function scrollHandler() {
-                    clearTimeout(scrollTimeout);
-                    scrollTimeout = setTimeout(() => {
-                        updateProgress(); // Update progress only after scrolling stops
-                        window.removeEventListener('scroll', scrollHandler); // Remove listener after execution
-                    }, 100);
-                });
-            },
-                     
+          onNextStep: () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            let scrollTimeout;
+            window.addEventListener('scroll', function scrollHandler() {
+              clearTimeout(scrollTimeout);
+              scrollTimeout = setTimeout(() => {
+                updateProgress();
+                window.removeEventListener('scroll', scrollHandler);
+              }, 100);
+            });
+          },
+          onPrevStep: () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            let scrollTimeout;
+            window.addEventListener('scroll', function scrollHandler() {
+              clearTimeout(scrollTimeout);
+              scrollTimeout = setTimeout(() => {
+                updateProgress();
+                window.removeEventListener('scroll', scrollHandler);
+              }, 100);
+            });
+          },
           finish: () => {
             console.log("Form finished, displaying success message.");
   
@@ -209,29 +230,21 @@ document.addEventListener("DOMContentLoaded", function () {
   
           // Auto-advance to the next step by programmatically clicking the next button.
           const autoNextButton = document.getElementById('autoStepNext');
-if (autoNextButton) {
-    autoNextButton.click();
-
-    // Ensure the page stays at the top when auto-advancing from step 1
-    setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 300); // Adjust delay if needed
-
-    setTimeout(updateProgress, 500);
-}
-
+          if (autoNextButton) {
+            autoNextButton.click();
+            setTimeout(() => {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 300);
+            setTimeout(updateProgress, 500);
+          }
         });
       });
   
       // ------------------------------------------------------------
       // SCROLL ON ANSWER BUTTON CLICKS (for each question)
       // ------------------------------------------------------------
-      // (Make sure your HTML for each question wraps its content in an element
-      // with the class "question-container" and that each answer button inside
-      // has the class "answer-btn".)
       document.querySelectorAll('.question-container .answer-btn').forEach(button => {
         button.addEventListener('click', function () {
-          // After a short delay (to allow UI updates) scroll the next question container into view.
           const currentContainer = this.closest('.question-container');
           if (currentContainer) {
             setTimeout(() => {
@@ -283,3 +296,4 @@ if (autoNextButton) {
       setTimeout(updateProgress, 1000);
     }
   });
+  

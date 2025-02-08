@@ -25,6 +25,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
 
+  <!-- JS Plugins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+  
   <!-- CSS Front Template -->
   <link rel="stylesheet" href="./assets/css/theme_formatted.min.css">
 
@@ -74,14 +78,13 @@
     }
 
     .question-container {
-    background-color: #f8f9fa; /* Light grey for contrast */
-    padding: 20px;
-    border-radius: 10px;
-}
-.btn-lg {
-    background-color: #ffffff; /* White background by default */
-}
-
+      background-color: #f8f9fa; /* Light grey for contrast */
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .btn-lg {
+      background-color: #ffffff; /* White background by default */
+    }
   </style>
 </head>
 
@@ -184,21 +187,21 @@
                         <div class="row g-2">
                           <!-- Business Insurance -->
                           <div class="col-md-4">
-                            <input type="radio" class="btn-check" name="insuranceType" id="businessInsurance" autocomplete="off" value="Business">
+                            <input type="radio" class="btn-check " name="insuranceType" id="businessInsurance" autocomplete="off" value="Business" required>
                             <label class="btn btn-outline-primary btn-lg w-100 answer-btn" for="businessInsurance">
                               <i class="bi bi-briefcase-fill me-2"></i> Business
                             </label>
                           </div>
                           <!-- Landlord Insurance -->
                           <div class="col-md-4">
-                            <input type="radio" class="btn-check" name="insuranceType" id="landlordInsurance" autocomplete="off" value="Landlord">
+                            <input type="radio" class="btn-check " name="insuranceType" id="landlordInsurance" autocomplete="off" value="Landlord" required>
                             <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="landlordInsurance">
                               <i class="bi bi-building me-2"></i> Landlord
                             </label>
                           </div>
                           <!-- Home Insurance -->
                           <div class="col-md-4">
-                            <input type="radio" class="btn-check" name="insuranceType" id="homeInsurance" autocomplete="off" value="Home">
+                            <input type="radio" class="btn-check " name="insuranceType" id="homeInsurance" autocomplete="off" value="Home" required>
                             <label class="btn btn-outline-warning btn-lg w-100 answer-btn" for="homeInsurance">
                               <i class="bi bi-house-fill me-2"></i> Home
                             </label>
@@ -236,14 +239,20 @@
 
                 <!-- Body for Business Questions -->
                 <div id="BusinessQuestions" class="card-body">
-                  <!-- Question: What's your trade / profession? (no auto-scroll on select dropdown) -->
+                  <!-- Question: What's your trade / profession? -->
                   <div class="mb-4 question-container">
-                    <label class="form-label fw-bold">What's your trade / profession?</label>
-                    <select class="form-select">
-                      <option value="">Select Trade</option>
-                      <option value="Retail">Retail</option>
-                      <option value="Construction">Construction</option>
-                    </select>
+                    <label for="educationLabel" class="form-label fw-bold">What's your trade / profession?</label>
+                    <div class="tom-select-custom tom-select-custom-with-tags">
+                      <select class="js-select-trades form-select " autocomplete="off" multiple required
+                              data-hs-tom-select-options='{
+                                "placeholder": "Select your trades..."
+                              }'>
+                            <option value="">Select a trade...</option>
+                            <option value="1">Air Conditioning &/Or Ventilation Installation, Service & Repair</option>
+                            <option value="2">CCTV Installation, Service & Repair</option>
+                            <option value="3">Cable TV Installation Inc Cable Laying</option>
+                      </select>
+                    </div>
                   </div>
                   <!-- Question: What's your Business Type? -->
                   <div class="mb-4 question-container">
@@ -252,21 +261,21 @@
                       <div class="row g-2">
                         <!-- Sole Trader -->
                         <div class="col-md-4">
-                          <input type="radio" class="btn-check" name="businessType" id="businessTypeSole" autocomplete="off" value="Sole Trader">
+                          <input type="radio" class="btn-check " name="businessType" id="businessTypeSole" autocomplete="off" value="Sole Trader" required>
                           <label class="btn btn-outline-primary btn-lg w-100 answer-btn" for="businessTypeSole">
                             <i class="bi bi-person-arms-up me-2"></i> Sole Trader
                           </label>
                         </div>
                         <!-- Partnership -->
                         <div class="col-md-4">
-                          <input type="radio" class="btn-check" name="businessType" id="businessTypePartnership" autocomplete="off" value="Partnership">
+                          <input type="radio" class="btn-check " name="businessType" id="businessTypePartnership" autocomplete="off" value="Partnership" required>
                           <label class="btn btn-outline-primary btn-lg w-100 answer-btn" for="businessTypePartnership">
                             <i class="bi bi-people-fill me-2"></i> Partnership
                           </label>
                         </div>
                         <!-- Ltd Company -->
                         <div class="col-md-4">
-                          <input type="radio" class="btn-check" name="businessType" id="businessTypeLtd" autocomplete="off" value="Ltd Company">
+                          <input type="radio" class="btn-check " name="businessType" id="businessTypeLtd" autocomplete="off" value="Ltd Company" required>
                           <label class="btn btn-outline-primary btn-lg w-100 answer-btn" for="businessTypeLtd">
                             <i class="bi bi-briefcase-fill me-2"></i> Ltd Company
                           </label>
@@ -281,28 +290,28 @@
                       <div class="row g-2">
                         <!-- None -->
                         <div class="col-md-4">
-                          <input type="radio" class="btn-check" name="employees" id="employeesNone" autocomplete="off" value="None">
+                          <input type="radio" class="btn-check " name="employees" id="employeesNone" autocomplete="off" value="None" required>
                           <label class="btn btn-outline-primary btn-lg w-100 answer-btn" for="employeesNone">
                             <i class="bi bi-person-fill-dash me-2"></i> None
                           </label>
                         </div>
                         <!-- 1-5 -->
                         <div class="col-md-4">
-                          <input type="radio" class="btn-check" name="employees" id="employees1to5" autocomplete="off" value="1-5">
+                          <input type="radio" class="btn-check " name="employees" id="employees1to5" autocomplete="off" value="1-5" required>
                           <label class="btn btn-outline-primary btn-lg w-100 answer-btn" for="employees1to5">
                             <i class="bi bi-people me-2"></i> 1-5
                           </label>
                         </div>
                         <!-- 6-20 -->
                         <div class="col-md-4">
-                          <input type="radio" class="btn-check" name="employees" id="employees6to20" autocomplete="off" value="6-20">
+                          <input type="radio" class="btn-check " name="employees" id="employees6to20" autocomplete="off" value="6-20" required>
                           <label class="btn btn-outline-primary btn-lg w-100 answer-btn" for="employees6to20">
                             <i class="bi bi-people-fill me-2"></i> 6-20
                           </label>
                         </div>
                         <!-- 21+ -->
                         <div class="col-md-4">
-                          <input type="radio" class="btn-check" name="employees" id="employees21plus" autocomplete="off" value="21+">
+                          <input type="radio" class="btn-check " name="employees" id="employees21plus" autocomplete="off" value="21+" required>
                           <label class="btn btn-outline-primary btn-lg w-100 answer-btn" for="employees21plus">
                             <i class="bi bi-person-hearts me-2"></i> 21+
                           </label>
@@ -317,32 +326,32 @@
                       <div class="row g-2">
                         <!-- Under £50k -->
                         <div class="col-md-4">
-                          <input type="radio" class="btn-check" name="turnover" id="turnoverUnder50k" autocomplete="off" value="Under £50k">
+                          <input type="radio" class="btn-check " name="turnover" id="turnoverUnder50k" autocomplete="off" value="Under £50k" required>
                           <label class="btn btn-outline-primary btn-lg w-100 answer-btn" for="turnoverUnder50k">Under £50k</label>
                         </div>
                         <!-- £50k - £100k -->
                         <div class="col-md-4">
-                          <input type="radio" class="btn-check" name="turnover" id="turnover50k100k" autocomplete="off" value="£50k - £100k">
+                          <input type="radio" class="btn-check " name="turnover" id="turnover50k100k" autocomplete="off" value="£50k - £100k" required>
                           <label class="btn btn-outline-primary btn-lg w-100 answer-btn" for="turnover50k100k">£50k - £100k</label>
                         </div>
                         <!-- £100k - £500k -->
                         <div class="col-md-4">
-                          <input type="radio" class="btn-check" name="turnover" id="turnover100k500k" autocomplete="off" value="£100k - £500k">
+                          <input type="radio" class="btn-check " name="turnover" id="turnover100k500k" autocomplete="off" value="£100k - £500k" required>
                           <label class="btn btn-outline-primary btn-lg w-100 answer-btn" for="turnover100k500k">£100k - £500k</label>
                         </div>
                         <!-- £500k - £1m -->
                         <div class="col-md-4">
-                          <input type="radio" class="btn-check" name="turnover" id="turnover500k1m" autocomplete="off" value="£500k - £1m">
+                          <input type="radio" class="btn-check " name="turnover" id="turnover500k1m" autocomplete="off" value="£500k - £1m" required>
                           <label class="btn btn-outline-primary btn-lg w-100 answer-btn" for="turnover500k1m">£500k - £1m</label>
                         </div>
                         <!-- £1m - £2m -->
                         <div class="col-md-4">
-                          <input type="radio" class="btn-check" name="turnover" id="turnover1m2m" autocomplete="off" value="£1m - £2m">
+                          <input type="radio" class="btn-check " name="turnover" id="turnover1m2m" autocomplete="off" value="£1m - £2m" required>
                           <label class="btn btn-outline-primary btn-lg w-100 answer-btn" for="turnover1m2m">£1m - £2m</label>
                         </div>
                         <!-- £2m+ -->
                         <div class="col-md-4">
-                          <input type="radio" class="btn-check" name="turnover" id="turnover2mplus" autocomplete="off" value="£2m+">
+                          <input type="radio" class="btn-check " name="turnover" id="turnover2mplus" autocomplete="off" value="£2m+" required>
                           <label class="btn btn-outline-primary btn-lg w-100 answer-btn" for="turnover2mplus">£2m+</label>
                         </div>
                       </div>
@@ -351,7 +360,7 @@
                   <!-- Question: Policy Start Date (input; no answer button needed) -->
                   <div class="mb-4 question-container">
                     <label class="form-label fw-bold">Policy Start Date</label>
-                    <input type="text" class="form-control datepicker">
+                    <input type="text" class="form-control datepicker " required>
                   </div>
                 </div>
                 <!-- End BusinessQuestions -->
@@ -365,21 +374,21 @@
                       <div class="row g-2">
                         <!-- Residential -->
                         <div class="col-md-4">
-                          <input type="radio" class="btn-check" name="tenantType" id="tenantResidential" autocomplete="off" value="Residential">
+                          <input type="radio" class="btn-check " name="tenantType" id="tenantResidential" autocomplete="off" value="Residential" required>
                           <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="tenantResidential">
                             <i class="bi bi-house-door-fill me-2"></i> Residential
                           </label>
                         </div>
                         <!-- Commercial -->
                         <div class="col-md-4">
-                          <input type="radio" class="btn-check" name="tenantType" id="tenantCommercial" autocomplete="off" value="Commercial">
+                          <input type="radio" class="btn-check " name="tenantType" id="tenantCommercial" autocomplete="off" value="Commercial" required>
                           <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="tenantCommercial">
                             <i class="bi bi-shop-window me-2"></i> Commercial
                           </label>
                         </div>
                         <!-- Residential & Commercial -->
                         <div class="col-md-4">
-                          <input type="radio" class="btn-check" name="tenantType" id="tenantBoth" autocomplete="off" value="Residential & Commercial">
+                          <input type="radio" class="btn-check " name="tenantType" id="tenantBoth" autocomplete="off" value="Residential & Commercial" required>
                           <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="tenantBoth">
                             <i class="bi bi-buildings-fill me-2"></i> Residential & Commercial
                           </label>
@@ -394,14 +403,14 @@
                       <div class="row g-2">
                         <!-- Yes -->
                         <div class="col-md-6">
-                          <input type="radio" class="btn-check" name="holidayLet" id="holidayLetYes" autocomplete="off" value="Yes">
+                          <input type="radio" class="btn-check " name="holidayLet" id="holidayLetYes" autocomplete="off" value="Yes" required>
                           <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="holidayLetYes">
                             <i class="bi bi-check-lg me-2"></i> Yes
                           </label>
                         </div>
                         <!-- No -->
                         <div class="col-md-6">
-                          <input type="radio" class="btn-check" name="holidayLet" id="holidayLetNo" autocomplete="off" value="No">
+                          <input type="radio" class="btn-check " name="holidayLet" id="holidayLetNo" autocomplete="off" value="No" required>
                           <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="holidayLetNo">
                             <i class="bi bi-x-lg me-2"></i> No
                           </label>
@@ -412,7 +421,7 @@
                   <!-- Question: How many buy-to-let properties do you have? (select dropdown) -->
                   <div class="mb-4 question-container">
                     <label class="form-label fw-bold">How many buy-to-let properties do you have?</label>
-                    <select class="form-select">
+                    <select class="form-select " required>
                       <option value="">Select</option>
                       <option value="1">1</option>
                       <option value="2-5">2-5</option>
@@ -426,14 +435,14 @@
                       <div class="row g-2">
                         <!-- Yes -->
                         <div class="col-md-6">
-                          <input type="radio" class="btn-check" name="propertyOccupied" id="occupiedYes" autocomplete="off" value="Yes">
+                          <input type="radio" class="btn-check " name="propertyOccupied" id="occupiedYes" autocomplete="off" value="Yes" required>
                           <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="occupiedYes">
                             <i class="bi bi-house-door me-2"></i> Yes
                           </label>
                         </div>
                         <!-- No -->
                         <div class="col-md-6">
-                          <input type="radio" class="btn-check" name="propertyOccupied" id="occupiedNo" autocomplete="off" value="No">
+                          <input type="radio" class="btn-check " name="propertyOccupied" id="occupiedNo" autocomplete="off" value="No" required>
                           <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="occupiedNo">
                             <i class="bi bi-house-slash me-2"></i> No
                           </label>
@@ -444,7 +453,7 @@
                   <!-- Question: Policy Start Date (input) -->
                   <div class="mb-4 question-container">
                     <label class="form-label fw-bold">Policy Start Date</label>
-                    <input type="text" class="form-control datepicker">
+                    <input type="text" class="form-control datepicker " required>
                   </div>
                 </div>
                 <!-- End LandlordQuestions -->
@@ -458,21 +467,21 @@
                       <div class="row g-2">
                         <!-- Detached -->
                         <div class="col-md-4">
-                          <input type="radio" class="btn-check" name="propertyType" id="propertyDetached" autocomplete="off" value="Detached">
+                          <input type="radio" class="btn-check " name="propertyType" id="propertyDetached" autocomplete="off" value="Detached" required>
                           <label class="btn btn-outline-warning btn-lg w-100 answer-btn" for="propertyDetached">
                             <i class="bi bi-house me-2"></i> Detached
                           </label>
                         </div>
                         <!-- Semi-Detached -->
                         <div class="col-md-4">
-                          <input type="radio" class="btn-check" name="propertyType" id="propertySemi" autocomplete="off" value="Semi-Detached">
+                          <input type="radio" class="btn-check " name="propertyType" id="propertySemi" autocomplete="off" value="Semi-Detached" required>
                           <label class="btn btn-outline-warning btn-lg w-100 answer-btn" for="propertySemi">
                             <i class="bi bi-houses me-2"></i> Semi-Detached
                           </label>
                         </div>
                         <!-- Terraced -->
                         <div class="col-md-4">
-                          <input type="radio" class="btn-check" name="propertyType" id="propertyTerraced" autocomplete="off" value="Terraced">
+                          <input type="radio" class="btn-check " name="propertyType" id="propertyTerraced" autocomplete="off" value="Terraced" required>
                           <label class="btn btn-outline-warning btn-lg w-100 answer-btn" for="propertyTerraced">
                             <i class="bi bi-houses-fill me-2"></i> Terraced
                           </label>
@@ -487,14 +496,14 @@
                       <div class="row g-2">
                         <!-- Yes -->
                         <div class="col-md-6">
-                          <input type="radio" class="btn-check" name="thatchedRoof" id="thatchedYes" autocomplete="off" value="Yes">
+                          <input type="radio" class="btn-check " name="thatchedRoof" id="thatchedYes" autocomplete="off" value="Yes" required>
                           <label class="btn btn-outline-warning btn-lg w-100 answer-btn" for="thatchedYes">
                             <i class="bi bi-check-lg me-2"></i> Yes
                           </label>
                         </div>
                         <!-- No -->
                         <div class="col-md-6">
-                          <input type="radio" class="btn-check" name="thatchedRoof" id="thatchedNo" autocomplete="off" value="No">
+                          <input type="radio" class="btn-check " name="thatchedRoof" id="thatchedNo" autocomplete="off" value="No" required>
                           <label class="btn btn-outline-warning btn-lg w-100 answer-btn" for="thatchedNo">
                             <i class="bi bi-x-lg me-2"></i> No
                           </label>
@@ -505,7 +514,7 @@
                   <!-- Question: Home Address (input) -->
                   <div class="mb-4 question-container">
                     <label class="form-label fw-bold">Home Address</label>
-                    <input type="text" class="form-control" placeholder="Enter address">
+                    <input type="text" class="form-control " placeholder="Enter address" required>
                   </div>
                   <!-- Question: Are there building works in progress? -->
                   <div class="mb-4 question-container">
@@ -514,14 +523,14 @@
                       <div class="row g-2">
                         <!-- Yes -->
                         <div class="col-md-6">
-                          <input type="radio" class="btn-check" name="buildingWorks" id="buildingYes" autocomplete="off" value="Yes">
+                          <input type="radio" class="btn-check " name="buildingWorks" id="buildingYes" autocomplete="off" value="Yes" required>
                           <label class="btn btn-outline-warning btn-lg w-100 answer-btn" for="buildingYes">
                             <i class="bi bi-hammer me-2"></i> Yes
                           </label>
                         </div>
                         <!-- No -->
                         <div class="col-md-6">
-                          <input type="radio" class="btn-check" name="buildingWorks" id="buildingNo" autocomplete="off" value="No">
+                          <input type="radio" class="btn-check " name="buildingWorks" id="buildingNo" autocomplete="off" value="No" required>
                           <label class="btn btn-outline-warning btn-lg w-100 answer-btn" for="buildingNo">
                             <i class="bi bi-house-door me-2"></i> No
                           </label>
@@ -532,7 +541,7 @@
                   <!-- Question: Policy Start Date (input) -->
                   <div class="mb-4 question-container">
                     <label class="form-label fw-bold">Policy Start Date</label>
-                    <input type="text" class="form-control datepicker">
+                    <input type="text" class="form-control datepicker " required>
                   </div>
                 </div>
                 <!-- End HomeQuestions -->
@@ -572,7 +581,7 @@
                     <!-- Question: Business / Trading Name (input) -->
                     <div class="mb-4 question-container">
                       <label class="form-label fw-bold">Business / Trading Name</label>
-                      <input type="text" class="form-control" placeholder="Enter business name">
+                      <input type="text" class="form-control " placeholder="Enter business name" required>
                     </div>
                     <!-- Question: Any claims in the last 5 years? -->
                     <div class="mb-4 question-container">
@@ -580,13 +589,13 @@
                       <div class="container">
                         <div class="row g-2">
                           <div class="col-md-6">
-                            <input type="radio" class="btn-check" name="businessClaims" id="businessClaimsYes" autocomplete="off" value="Yes">
+                            <input type="radio" class="btn-check " name="businessClaims" id="businessClaimsYes" autocomplete="off" value="Yes" required>
                             <label class="btn btn-outline-primary btn-lg w-100 answer-btn" for="businessClaimsYes">
                               <i class="bi bi-check-lg me-2"></i> Yes
                             </label>
                           </div>
                           <div class="col-md-6">
-                            <input type="radio" class="btn-check" name="businessClaims" id="businessClaimsNo" autocomplete="off" value="No">
+                            <input type="radio" class="btn-check " name="businessClaims" id="businessClaimsNo" autocomplete="off" value="No" required>
                             <label class="btn btn-outline-primary btn-lg w-100 answer-btn" for="businessClaimsNo">
                               <i class="bi bi-x-lg me-2"></i> No
                             </label>
@@ -597,17 +606,17 @@
                     <!-- Question: Your Name (input) -->
                     <div class="mb-4 question-container">
                       <label class="form-label fw-bold">Your Name</label>
-                      <input type="text" class="form-control" placeholder="Enter your name">
+                      <input type="text" class="form-control " placeholder="Enter your name" required>
                     </div>
                     <!-- Question: Email Address (input) -->
                     <div class="mb-4 question-container">
                       <label class="form-label fw-bold">Email Address</label>
-                      <input type="email" class="form-control" placeholder="Enter email address">
+                      <input type="email" class="form-control " placeholder="Enter email address" required>
                     </div>
                     <!-- Question: Telephone Number (input) -->
                     <div class="mb-4 question-container">
                       <label class="form-label fw-bold">Telephone Number</label>
-                      <input type="tel" class="form-control" placeholder="Enter phone number">
+                      <input type="tel" class="form-control " placeholder="Enter phone number" required>
                     </div>
                   </div>
                   <!-- End BusinessQuestions2 -->
@@ -620,13 +629,13 @@
                       <div class="container">
                         <div class="row g-2">
                           <div class="col-md-6">
-                            <input type="radio" class="btn-check" name="landlordClaims" id="landlordClaimsYes" autocomplete="off" value="Yes">
+                            <input type="radio" class="btn-check " name="landlordClaims" id="landlordClaimsYes" autocomplete="off" value="Yes" required>
                             <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="landlordClaimsYes">
                               <i class="bi bi-check-lg me-2"></i> Yes
                             </label>
                           </div>
                           <div class="col-md-6">
-                            <input type="radio" class="btn-check" name="landlordClaims" id="landlordClaimsNo" autocomplete="off" value="No">
+                            <input type="radio" class="btn-check " name="landlordClaims" id="landlordClaimsNo" autocomplete="off" value="No" required>
                             <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="landlordClaimsNo">
                               <i class="bi bi-x-lg me-2"></i> No
                             </label>
@@ -640,13 +649,13 @@
                       <div class="container">
                         <div class="row g-2">
                           <div class="col-md-6">
-                            <input type="radio" class="btn-check" name="propertyFlooded" id="propertyFloodedYes" autocomplete="off" value="Yes">
+                            <input type="radio" class="btn-check " name="propertyFlooded" id="propertyFloodedYes" autocomplete="off" value="Yes" required>
                             <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="propertyFloodedYes">
                               <i class="bi bi-check-lg me-2"></i> Yes
                             </label>
                           </div>
                           <div class="col-md-6">
-                            <input type="radio" class="btn-check" name="propertyFlooded" id="propertyFloodedNo" autocomplete="off" value="No">
+                            <input type="radio" class="btn-check " name="propertyFlooded" id="propertyFloodedNo" autocomplete="off" value="No" required>
                             <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="propertyFloodedNo">
                               <i class="bi bi-x-lg me-2"></i> No
                             </label>
@@ -660,13 +669,13 @@
                       <div class="container">
                         <div class="row g-2">
                           <div class="col-md-6">
-                            <input type="radio" class="btn-check" name="propertySubsidence" id="propertySubsidenceYes" autocomplete="off" value="Yes">
+                            <input type="radio" class="btn-check " name="propertySubsidence" id="propertySubsidenceYes" autocomplete="off" value="Yes" required>
                             <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="propertySubsidenceYes">
                               <i class="bi bi-check-lg me-2"></i> Yes
                             </label>
                           </div>
                           <div class="col-md-6">
-                            <input type="radio" class="btn-check" name="propertySubsidence" id="propertySubsidenceNo" autocomplete="off" value="No">
+                            <input type="radio" class="btn-check " name="propertySubsidence" id="propertySubsidenceNo" autocomplete="off" value="No" required>
                             <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="propertySubsidenceNo">
                               <i class="bi bi-x-lg me-2"></i> No
                             </label>
@@ -677,17 +686,17 @@
                     <!-- Question: Your Name (input) -->
                     <div class="mb-4 question-container">
                       <label class="form-label fw-bold">Your Name</label>
-                      <input type="text" class="form-control" placeholder="Enter your name">
+                      <input type="text" class="form-control " placeholder="Enter your name" required>
                     </div>
                     <!-- Question: Email Address (input) -->
                     <div class="mb-4 question-container">
                       <label class="form-label fw-bold">Email Address</label>
-                      <input type="email" class="form-control" placeholder="Enter email address">
+                      <input type="email" class="form-control " placeholder="Enter email address" required>
                     </div>
                     <!-- Question: Telephone Number (input) -->
                     <div class="mb-4 question-container">
                       <label class="form-label fw-bold">Telephone Number</label>
-                      <input type="tel" class="form-control" placeholder="Enter phone number">
+                      <input type="tel" class="form-control " placeholder="Enter phone number" required>
                     </div>
                   </div>
                   <!-- End LandlordQuestions2 -->
@@ -700,13 +709,13 @@
                       <div class="container">
                         <div class="row g-2">
                           <div class="col-md-6">
-                            <input type="radio" class="btn-check" name="homeClaims" id="homeClaimsYes" autocomplete="off" value="Yes">
+                            <input type="radio" class="btn-check " name="homeClaims" id="homeClaimsYes" autocomplete="off" value="Yes" required>
                             <label class="btn btn-outline-warning btn-lg w-100 answer-btn" for="homeClaimsYes">
                               <i class="bi bi-check-lg me-2"></i> Yes
                             </label>
                           </div>
                           <div class="col-md-6">
-                            <input type="radio" class="btn-check" name="homeClaims" id="homeClaimsNo" autocomplete="off" value="No">
+                            <input type="radio" class="btn-check " name="homeClaims" id="homeClaimsNo" autocomplete="off" value="No" required>
                             <label class="btn btn-outline-warning btn-lg w-100 answer-btn" for="homeClaimsNo">
                               <i class="bi bi-x-lg me-2"></i> No
                             </label>
@@ -720,13 +729,13 @@
                       <div class="container">
                         <div class="row g-2">
                           <div class="col-md-6">
-                            <input type="radio" class="btn-check" name="homeFlooded" id="homeFloodedYes" autocomplete="off" value="Yes">
+                            <input type="radio" class="btn-check " name="homeFlooded" id="homeFloodedYes" autocomplete="off" value="Yes" required>
                             <label class="btn btn-outline-warning btn-lg w-100 answer-btn" for="homeFloodedYes">
                               <i class="bi bi-check-lg me-2"></i> Yes
                             </label>
                           </div>
                           <div class="col-md-6">
-                            <input type="radio" class="btn-check" name="homeFlooded" id="homeFloodedNo" autocomplete="off" value="No">
+                            <input type="radio" class="btn-check " name="homeFlooded" id="homeFloodedNo" autocomplete="off" value="No" required>
                             <label class="btn btn-outline-warning btn-lg w-100 answer-btn" for="homeFloodedNo">
                               <i class="bi bi-x-lg me-2"></i> No
                             </label>
@@ -737,17 +746,17 @@
                     <!-- Question: Your Name (input) -->
                     <div class="mb-4 question-container">
                       <label class="form-label fw-bold">Your Name</label>
-                      <input type="text" class="form-control" placeholder="Enter your name">
+                      <input type="text" class="form-control " placeholder="Enter your name" required>
                     </div>
                     <!-- Question: Email Address (input) -->
                     <div class="mb-4 question-container">
                       <label class="form-label fw-bold">Email Address</label>
-                      <input type="email" class="form-control" placeholder="Enter email address">
+                      <input type="email" class="form-control " placeholder="Enter email address" required>
                     </div>
                     <!-- Question: Telephone Number (input) -->
                     <div class="mb-4 question-container">
                       <label class="form-label fw-bold">Telephone Number</label>
-                      <input type="tel" class="form-control" placeholder="Enter phone number">
+                      <input type="tel" class="form-control " placeholder="Enter phone number" required>
                     </div>
                   </div>
                   <!-- End HomeQuestions2 -->
@@ -834,6 +843,7 @@
   <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- JS Implementing Plugins -->
+  <script src="./assets/vendor/tom-select/dist/js/tom-select.complete.min.js"></script>
   <script src="./assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.js"></script>
   <script src="./assets/vendor/hs-show-animation/dist/hs-show-animation.min.js"></script>
   <script src="./assets/vendor/hs-go-to/dist/hs-go-to.min.js"></script>
@@ -842,13 +852,9 @@
   <script src="./assets/vendor/hs-add-field/dist/hs-add-field.min.js"></script>
   <script src="./assets/vendor/imask/dist/imask.min.js"></script>
   <script src="./assets/vendor/quill/dist/quill.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="./assets/vendor/tom-select/dist/js/tom-select.complete.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
   <!-- JS Front -->
-  <script src="../assets/js/theme.min.js"></script>
+  <script src="./assets/js/theme.min.js"></script>
 </body>
 </html>
