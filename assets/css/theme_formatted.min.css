@@ -12051,4 +12051,8 @@ to{stroke-dasharray:477 477}
     z-index: 1; /* Lower the z-index so it won't interfere with the dropdown */
   }
 
-  
+  .btn-large {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 1.2rem; /* Optional: Increase text size */
+}
