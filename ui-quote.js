@@ -67,6 +67,78 @@ document.addEventListener("DOMContentLoaded", function () {
         scrollToElementWithOffset(nextContainer, 80);
       }
     }
+
+    // ------------------------------------------------------------
+    // TRADE SEARCH FUNCTIONALITY (NEWLY ADDED)
+    // ------------------------------------------------------------
+    function initializeTradeSearch() {
+        const tradeInput = document.getElementById("tradeInput");
+        const tradeSuggestions = document.getElementById("tradeSuggestions");
+        const tradeSelected = document.getElementById("tradeSelected");
+        const tradeName = document.getElementById("tradeName");
+        const changeTrade = document.getElementById("changeTrade");
+
+        // Placeholder for trades (replace with Supabase fetch later)
+        const trades = ["Builder", "Plumber", "Electrician", "Consultant", "Carpenter", "Painter", "Mechanic", "Landscaper"];
+
+        // Function to filter and display suggestions
+        tradeInput.addEventListener("input", function () {
+            const query = this.value.toLowerCase();
+            tradeSuggestions.innerHTML = "";
+
+            if (query.length < 2) {
+                tradeSuggestions.classList.add("d-none");
+                return;
+            }
+
+            const filteredTrades = trades.filter(trade => trade.toLowerCase().includes(query));
+            if (filteredTrades.length > 0) {
+                filteredTrades.forEach(trade => {
+                    const suggestionItem = document.createElement("button");
+                    suggestionItem.classList.add("list-group-item", "list-group-item-action");
+                    suggestionItem.textContent = trade;
+                    suggestionItem.onclick = () => selectTrade(trade);
+                    tradeSuggestions.appendChild(suggestionItem);
+                });
+                tradeSuggestions.classList.remove("d-none");
+            } else {
+                tradeSuggestions.classList.add("d-none");
+            }
+        });
+
+        // Function to handle trade selection
+        // Function to handle trade selection
+        function selectTrade(trade) {
+            tradeInput.value = "";
+            tradeInput.setAttribute("disabled", "true"); // Disable input so browser ignores it
+            tradeInput.classList.add("d-none"); // Hide input field
+            tradeSuggestions.classList.add("d-none"); // Hide suggestions
+            tradeSelected.classList.remove("d-none"); // Show confirmation message
+            tradeName.textContent = trade;
+        
+            // REMOVE INVALID STATE & FORCE HIDE TOOLTIP
+            tradeInput.classList.remove("is-invalid"); 
+            tradeInput.blur(); // Remove focus to kill validation popup
+            document.activeElement.blur(); // Force the browser to stop focusing on invalid fields
+        }        
+        
+        // Change trade functionality
+        changeTrade.addEventListener("click", function (event) {
+            event.preventDefault();
+            tradeSelected.classList.add("d-none"); // Hide confirmation message
+            tradeInput.classList.remove("d-none"); // Show input field again
+            tradeInput.removeAttribute("disabled"); // Re-enable validation
+            tradeInput.classList.remove("is-invalid"); // Remove any validation errors
+            tradeInput.focus();
+        });                       
+
+        // Hide suggestions when clicking outside
+        document.addEventListener("click", function (event) {
+            if (!tradeInput.contains(event.target) && !tradeSuggestions.contains(event.target)) {
+                tradeSuggestions.classList.add("d-none");
+            }
+        });
+    }
   
     // ------------------------------------------------------------
     // INITIALIZATION OF PAGE COMPONENTS & FORM BEHAVIOR
@@ -294,6 +366,8 @@ document.addEventListener("DOMContentLoaded", function () {
   
       // Ensure the progress bar is updated initially.
       setTimeout(updateProgress, 1000);
+    
+    initializeTradeSearch();
     }
   });
   
