@@ -139,6 +139,53 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+    // ----------------------------------------
+    // ADDRESS AUTOCOMPLETE FUNCTIONALITY
+    // ----------------------------------------
+    function initializeGoogleAutocomplete() {
+      console.log("Google Places API initialized.");
+  
+      // Ensure Google API is loaded
+      if (typeof google === "undefined" || !google.maps) {
+          console.error("Google Maps API not loaded yet.");
+          return;
+      }
+  
+      // Use the correct input ID (from your HTML file)
+      const input = document.getElementById("homeAddress"); 
+  
+      if (!input) {
+          console.error("Autocomplete input field not found.");
+          return;
+      }
+  
+      const autocomplete = new google.maps.places.Autocomplete(input, {
+          types: ["address"], // <-- Fetches full addresses instead of just areas
+          componentRestrictions: { country: "UK" },
+      });
+  
+      autocomplete.addListener("place_changed", function () {
+          const place = autocomplete.getPlace();
+  
+          if (!place || !place.formatted_address) {
+              alert("Please select a valid address from the suggestions.");
+              return;
+          }
+  
+          input.value = place.formatted_address; // Set the input value to the selected address
+          console.log("Selected address:", place.formatted_address);
+      });
+  }
+  
+  // Ensure script loads AFTER Google Maps API is fully available
+  window.addEventListener("load", function () {
+      if (typeof google !== "undefined" && google.maps) {
+          initializeGoogleAutocomplete();
+      } else {
+          console.error("Google Maps API not loaded on page load.");
+      }
+  }); 
   
     // ------------------------------------------------------------
     // INITIALIZATION OF PAGE COMPONENTS & FORM BEHAVIOR

@@ -28,6 +28,7 @@
   <!-- JS Plugins -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA10PhriJQwaPRGnoAh67X8KlRxMSJ1iGY&libraries=places"></script>
   
   <!-- CSS Front Template -->
   <link rel="stylesheet" href="./assets/css/theme_formatted.min.css">
@@ -510,8 +511,10 @@
                   <!-- Question: Home Address (input) -->
                   <div class="mb-4 question-container">
                     <label class="form-label fw-bold">Home Address</label>
-                    <input type="text" class="form-control " placeholder="Enter address" required>
-                  </div>
+                    <div class="input-group">
+                      <input type="text" id="homeAddress" class="form-control" placeholder="Start typing your address" autocomplete="off" name="fake_homeAddress" required>
+                    </div>
+                </div>  
                   <!-- Question: Are there building works in progress? -->
                   <div class="mb-4 question-container">
                     <label class="form-label fw-bold">Are there building works in progress?</label>
