@@ -1,8 +1,8 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
 // Supabase credentials
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabaseUrl = 'https://isgkixzpsjvofwcujgkg.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlzZ2tpeHpwc2p2b2Z3Y3VqZ2tnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzU5ODE3NzUsImV4cCI6MjA1MTU1Nzc3NX0.vH0tTrhoCzhyM8GjDd0LdE2cpf3uBb4hVRcRftBs0W8';
 
 // Initialize Supabase client
 const supabase = createClient(supabaseUrl, supabaseKey);
@@ -50,94 +50,98 @@ async function fetchAllTrades() {
  * Capture form submission and send data to Supabase.
  */
 async function submitQuote() {
-  // Identify which section is filled (only one is active per submission)
-  const insuranceType = document.querySelector('input[name="insuranceType"]:checked')?.value || null;
+    // Identify which section is filled (only one is active per submission)
+    const insuranceType = document.querySelector('input[name="insuranceType"]:checked')?.value || null;
 
-  // Shared Fields (Only one section is completed per form submission)
-  const fullName = document.querySelector(`#${insuranceType}Questions2 input[placeholder="Enter your name"]`)?.value || null;
-  const email = document.querySelector(`#${insuranceType}Questions2 input[placeholder="Enter email address"]`)?.value || null;
-  const phoneNumber = document.querySelector(`#${insuranceType}Questions2 input[placeholder="Enter phone number"]`)?.value || null;
+    // Shared Fields (Only one section is completed per form submission)
+    const fullName = document.querySelector(`#${insuranceType}Questions2 input[placeholder="Enter your name"]`)?.value || null;
+    const email = document.querySelector(`#${insuranceType}Questions2 input[placeholder="Enter email address"]`)?.value || null;
+    const phoneNumber = document.querySelector(`#${insuranceType}Questions2 input[placeholder="Enter phone number"]`)?.value || null;
 
-  // Common Fields
-  const policyStartDateRaw = document.getElementById(`${insuranceType}PolicyStartDate`)?.value || null;
-  const policyStartDate = policyStartDateRaw && policyStartDateRaw.includes("/")
-      ? policyStartDateRaw.split("/").reverse().join("-")
-      : policyStartDateRaw;
+    // Common Fields
+    const policyStartDateRaw = document.getElementById(`${insuranceType}PolicyStartDate`)?.value || null;
+    const policyStartDate = policyStartDateRaw && policyStartDateRaw.includes("/")
+        ? policyStartDateRaw.split("/").reverse().join("-")
+        : policyStartDateRaw;
 
-  const anyClaims = document.querySelector(`#${insuranceType}Questions2 input[name$="Claims"]:checked`)?.value || null;
-  const propertyFlooded = document.querySelector('input[name="propertyFlooded"]:checked')?.value || null;
-  const propertySubsidence = document.querySelector('input[name="propertySubsidence"]:checked')?.value || null;
+    const anyClaims = document.querySelector(`#${insuranceType}Questions2 input[name$="Claims"]:checked`)?.value || null;
+    const propertyFlooded = document.querySelector('input[name="propertyFlooded"]:checked')?.value || null;
+    const propertySubsidence = document.querySelector('input[name="propertySubsidence"]:checked')?.value || null;
 
-  // Business Insurance Fields
-  const trade = document.getElementById('tradeName')?.textContent || null;
-  const businessType = document.querySelector('input[name="businessType"]:checked')?.value || null;
-  const employees = document.querySelector('input[name="employees"]:checked')?.value || null;
-  const turnover = document.querySelector('input[name="turnover"]:checked')?.value || null;
-  const businessName = document.querySelector(`#${insuranceType}Questions2 input[placeholder="Enter business name"]`)?.value || null;
+    // Business Insurance Fields
+    const trade = document.getElementById('tradeName')?.textContent || null;
+    const businessType = document.querySelector('input[name="businessType"]:checked')?.value || null;
+    const employees = document.querySelector('input[name="employees"]:checked')?.value || null;
+    const turnover = document.querySelector('input[name="turnover"]:checked')?.value || null;
+    const businessName = document.querySelector(`#${insuranceType}Questions2 input[placeholder="Enter business name"]`)?.value || null;
 
-  // Landlord Insurance Fields
-  const tenantType = document.querySelector('input[name="tenantType"]:checked')?.value || null;
-  const holidayLet = document.querySelector('input[name="holidayLet"]:checked')?.value || null;
-  const buyToLetCount = document.querySelector('select[name="buyToLetCount"]')?.value || null;
-  const propertyOccupied = document.querySelector('input[name="propertyOccupied"]:checked')?.value || null;
+    // Landlord Insurance Fields
+    const tenantType = document.querySelector('input[name="tenantType"]:checked')?.value || null;
+    const holidayLet = document.querySelector('input[name="holidayLet"]:checked')?.value || null;
+    const buyToLetCount = document.querySelector('select[name="buyToLetCount"]')?.value || null;
+    const propertyOccupied = document.querySelector('input[name="propertyOccupied"]:checked')?.value || null;
 
-  // Home Insurance Fields
-  const propertyType = document.querySelector('input[name="propertyType"]:checked')?.value || null;
-  const thatchedRoof = document.querySelector('input[name="thatchedRoof"]:checked')?.value || null;
-  const homeAddress = document.getElementById('homeAddress')?.value || null;
-  const buildingWorks = document.querySelector('input[name="buildingWorks"]:checked')?.value || null;
+    // Home Insurance Fields
+    const propertyType = document.querySelector('input[name="propertyType"]:checked')?.value || null;
+    const thatchedRoof = document.querySelector('input[name="thatchedRoof"]:checked')?.value || null;
+    const homeAddress = document.getElementById('homeAddress')?.value || null;
+    const buildingWorks = document.querySelector('input[name="buildingWorks"]:checked')?.value || null;
 
-  // Construct the submission object
-  const quoteData = {
-      insurance_type: insuranceType,
-      full_name: fullName,
-      email: email,
-      phone_number: phoneNumber,
-      policy_start_date: policyStartDate,
-      any_claims: anyClaims === 'Yes',
-      property_flooded: propertyFlooded === 'Yes',
-      property_subsidence: propertySubsidence === 'Yes',
+    // Construct the submission object
+    const quoteData = {
+        insurance_type: insuranceType,
+        full_name: fullName,
+        email: email,
+        phone_number: phoneNumber,
+        policy_start_date: policyStartDate,
+        any_claims: anyClaims === 'Yes',
+        property_flooded: propertyFlooded === 'Yes',
+        property_subsidence: propertySubsidence === 'Yes',
 
-      // Business Insurance
-      trade: trade,
-      business_type: businessType,
-      employees: employees,
-      turnover: turnover,
-      business_name: businessName,
+        // Business Insurance
+        trade: trade,
+        business_type: businessType,
+        employees: employees,
+        turnover: turnover,
+        business_name: businessName,
 
-      // Landlord Insurance
-      tenant_type: tenantType,
-      holiday_let: holidayLet === 'Yes',
-      buy_to_let_count: buyToLetCount,
-      property_occupied: propertyOccupied === 'Yes',
+        // Landlord Insurance
+        tenant_type: tenantType,
+        holiday_let: holidayLet === 'Yes',
+        buy_to_let_count: buyToLetCount,
+        property_occupied: propertyOccupied === 'Yes',
 
-      // Home Insurance
-      property_type: propertyType,
-      thatched_roof: thatchedRoof === 'Yes',
-      home_address: homeAddress,
-      building_works: buildingWorks === 'Yes',
-  };
+        // Home Insurance
+        property_type: propertyType,
+        thatched_roof: thatchedRoof === 'Yes',
+        home_address: homeAddress,
+        building_works: buildingWorks === 'Yes',
+    };
 
-  console.log("Submitting data:", quoteData);
+    console.log("Submitting data:", quoteData);
 
-  // Send to Supabase
-  const { data, error } = await supabase
-      .from("quote_requests")
-      .insert([quoteData]);
+    // Send to Supabase
+    const { data, error } = await supabase
+        .from("quote_requests")
+        .insert([quoteData]);
 
-  if (error) {
-      console.error("Error submitting quote:", error.message);
-      alert("An error occurred while submitting your quote. Please try again.");
-  } else {
-      console.log("Quote submitted successfully:", data);
-      document.querySelectorAll('#quoteStepFormContent .card').forEach(card => {
-          card.style.display = 'none';
-      });
-      document.getElementById("successMessageContent").style.display = "block";
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+    if (error) {
+        console.error("Error submitting quote:", error.message);
+        alert("An error occurred while submitting your quote. Please try again.");
+    } else {
+        console.log("Quote submitted successfully:", data);
+        // Instead of hiding the entire form container, hide only the step cards:
+        document.querySelectorAll('#quoteStepFormContent .card').forEach(card => {
+            card.style.display = 'none';
+        });
+        // Show the success message
+        document.getElementById("successMessageContent").style.display = "block";
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 }
 
+
+// Attach event listener to "Get Quote" button
 document.addEventListener("DOMContentLoaded", function () {
     const quoteButton = document.getElementById("quoteFinishBtn");
     if (quoteButton) {
