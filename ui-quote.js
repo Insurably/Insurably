@@ -1,3 +1,5 @@
+import { fetchAllTrades } from "./supaquote.js";
+
 document.addEventListener("DOMContentLoaded", function () {  
     // Helper: Wait for jQuery and bootstrap-datepicker to load.
     function waitForjQuery(callback, interval = 50, maxAttempts = 100) {
@@ -71,74 +73,75 @@ document.addEventListener("DOMContentLoaded", function () {
     // ------------------------------------------------------------
     // TRADE SEARCH FUNCTIONALITY (NEWLY ADDED)
     // ------------------------------------------------------------
-    function initializeTradeSearch() {
-        const tradeInput = document.getElementById("tradeInput");
-        const tradeSuggestions = document.getElementById("tradeSuggestions");
-        const tradeSelected = document.getElementById("tradeSelected");
-        const tradeName = document.getElementById("tradeName");
-        const changeTrade = document.getElementById("changeTrade");
+    async function initializeTradeSearch() {
+    const tradeInput = document.getElementById("tradeInput");
+    const tradeSuggestions = document.getElementById("tradeSuggestions");
+    const tradeSelected = document.getElementById("tradeSelected");
+    const tradeName = document.getElementById("tradeName");
+    const changeTrade = document.getElementById("changeTrade");
 
-        // Placeholder for trades (replace with Supabase fetch later)
-        const trades = ["Builder", "Plumber", "Electrician", "Consultant", "Carpenter", "Painter", "Mechanic", "Landscaper"];
+    let trades = await fetchAllTrades(); // Fetch all trades with pagination
 
-        // Function to filter and display suggestions
-        tradeInput.addEventListener("input", function () {
-            const query = this.value.toLowerCase();
-            tradeSuggestions.innerHTML = "";
+    // Function to filter and display suggestions
+    tradeInput.addEventListener("input", function () {
+        const query = this.value.toLowerCase();
+        tradeSuggestions.innerHTML = "";
 
-            if (query.length < 2) {
-                tradeSuggestions.classList.add("d-none");
-                return;
-            }
+        if (query.length < 2) {
+            tradeSuggestions.classList.add("d-none");
+            return;
+        }
 
-            const filteredTrades = trades.filter(trade => trade.toLowerCase().includes(query));
-            if (filteredTrades.length > 0) {
-                filteredTrades.forEach(trade => {
-                    const suggestionItem = document.createElement("button");
-                    suggestionItem.classList.add("list-group-item", "list-group-item-action");
-                    suggestionItem.textContent = trade;
-                    suggestionItem.onclick = () => selectTrade(trade);
-                    tradeSuggestions.appendChild(suggestionItem);
-                });
-                tradeSuggestions.classList.remove("d-none");
-            } else {
-                tradeSuggestions.classList.add("d-none");
-            }
-        });
+        const filteredTrades = trades.filter(trade => trade.toLowerCase().includes(query));
+        if (filteredTrades.length > 0) {
+            filteredTrades.forEach(trade => {
+                const suggestionItem = document.createElement("button");
+                suggestionItem.classList.add("list-group-item", "list-group-item-action");
+                suggestionItem.textContent = trade;
+                suggestionItem.onclick = () => selectTrade(trade);
+                tradeSuggestions.appendChild(suggestionItem);
+            });
+            tradeSuggestions.classList.remove("d-none");
+        } else {
+            tradeSuggestions.classList.add("d-none");
+        }
+    });
 
-        // Function to handle trade selection
-        // Function to handle trade selection
-        function selectTrade(trade) {
-            tradeInput.value = "";
-            tradeInput.setAttribute("disabled", "true"); // Disable input so browser ignores it
-            tradeInput.classList.add("d-none"); // Hide input field
-            tradeSuggestions.classList.add("d-none"); // Hide suggestions
-            tradeSelected.classList.remove("d-none"); // Show confirmation message
-            tradeName.textContent = trade;
-        
-            // REMOVE INVALID STATE & FORCE HIDE TOOLTIP
-            tradeInput.classList.remove("is-invalid"); 
-            tradeInput.blur(); // Remove focus to kill validation popup
-            document.activeElement.blur(); // Force the browser to stop focusing on invalid fields
-        }        
-        
-        // Change trade functionality
-        changeTrade.addEventListener("click", function (event) {
-            event.preventDefault();
-            tradeSelected.classList.add("d-none"); // Hide confirmation message
-            tradeInput.classList.remove("d-none"); // Show input field again
-            tradeInput.removeAttribute("disabled"); // Re-enable validation
-            tradeInput.classList.remove("is-invalid"); // Remove any validation errors
-            tradeInput.focus();
-        });                       
+    // Function to handle trade selection
+    function selectTrade(trade) {
+        tradeInput.value = "";
+        tradeInput.setAttribute("disabled", "true");
+        tradeInput.classList.add("d-none");
+        tradeSuggestions.classList.add("d-none");
+        tradeSelected.classList.remove("d-none");
+        tradeName.textContent = trade;
 
-        // Hide suggestions when clicking outside
-        document.addEventListener("click", function (event) {
-            if (!tradeInput.contains(event.target) && !tradeSuggestions.contains(event.target)) {
-                tradeSuggestions.classList.add("d-none");
-            }
-        });
+        // Remove invalid state & force hide tooltip
+        tradeInput.classList.remove("is-invalid");
+        tradeInput.blur();
+        document.activeElement.blur();
     }
+
+    // Change trade functionality
+    changeTrade.addEventListener("click", function (event) {
+        event.preventDefault();
+        tradeSelected.classList.add("d-none");
+        tradeInput.classList.remove("d-none");
+        tradeInput.removeAttribute("disabled");
+        tradeInput.classList.remove("is-invalid");
+        tradeInput.focus();
+    });
+
+    // Hide suggestions when clicking outside
+    document.addEventListener("click", function (event) {
+        if (!tradeInput.contains(event.target) && !tradeSuggestions.contains(event.target)) {
+            tradeSuggestions.classList.add("d-none");
+        }
+    });
+}
+
+// Call the function
+initializeTradeSearch();   
 
     // ----------------------------------------
     // ADDRESS AUTOCOMPLETE FUNCTIONALITY

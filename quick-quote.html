@@ -24,11 +24,13 @@
   <link rel="stylesheet" href="./assets/css/dropzone.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="/assets/css/cookie-consent.css">
 
   <!-- JS Plugins -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA10PhriJQwaPRGnoAh67X8KlRxMSJ1iGY&libraries=places"></script>
+  <script src="/assets/js/cookie-consent.js" defer></script> 
   
   <!-- CSS Front Template -->
   <link rel="stylesheet" href="./assets/css/theme_formatted.min.css">
@@ -357,7 +359,7 @@
                   <!-- Question: Policy Start Date (input; no answer button needed) -->
                   <div class="mb-4 question-container">
                     <label class="form-label fw-bold">Policy Start Date</label>
-                    <input type="text" class="form-control datepicker " required>
+                    <input type="text" id="BusinessPolicyStartDate" class="form-control datepicker" required>
                   </div>
                 </div>
                 <!-- End BusinessQuestions -->
@@ -450,7 +452,7 @@
                   <!-- Question: Policy Start Date (input) -->
                   <div class="mb-4 question-container">
                     <label class="form-label fw-bold">Policy Start Date</label>
-                    <input type="text" class="form-control datepicker " required>
+                    <input type="text" id="LandlordPolicyStartDate" class="form-control datepicker" required>
                   </div>
                 </div>
                 <!-- End LandlordQuestions -->
@@ -540,7 +542,7 @@
                   <!-- Question: Policy Start Date (input) -->
                   <div class="mb-4 question-container">
                     <label class="form-label fw-bold">Policy Start Date</label>
-                    <input type="text" class="form-control datepicker " required>
+                    <input type="text" id="HomePolicyStartDate" class="form-control datepicker" required>
                   </div>
                 </div>
                 <!-- End HomeQuestions -->
@@ -786,11 +788,11 @@
                 <div class="text-center">
                   <img class="img-fluid mb-3" src="./assets/svg/illustrations/account-creation.svg" alt="Image Description" style="max-width: 15rem;">
                   <div class="mb-4">
-                    <h2>We're already on it!</h2>
+                    <h2>We're on it!</h2>
                     <p>Our expert team have your details and will be in touch shortly.</p>
                   </div>
                   <div class="d-flex justify-content-center">
-                    <a class="btn btn-primary" href="../demo-jobs/employee.html">
+                    <a class="btn btn-primary" href="../demo-jobs/employee.html" style="display: none;">
                       Need to speak to us sooner? Click to Call <i class="bi-chevron-right small ms-1"></i>
                     </a>
                   </div>
