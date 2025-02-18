@@ -417,15 +417,34 @@
                       </div>
                     </div>
                   </div>
-                  <!-- Question: How many buy-to-let properties do you have? (select dropdown) -->
+                  <!-- Question: How many buy-to-let properties do you have? -->
                   <div class="mb-4 question-container">
                     <label class="form-label fw-bold">How many buy-to-let properties do you have?</label>
-                    <select class="form-select " required>
-                      <option value="">Select</option>
-                      <option value="1">1</option>
-                      <option value="2-5">2-5</option>
-                      <option value="6+">6+</option>
-                    </select>
+                    <div class="container">
+                      <div class="row g-2">
+                        <!-- 1 -->
+                        <div class="col-md-4">
+                          <input type="radio" class="btn-check " name="buyToLetCount" id="landlordSingle" autocomplete="off" value="1" required>
+                          <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="landlordSingle">
+                            <i class="bi bi-house me-2"></i> 1
+                          </label>
+                        </div>
+                        <!-- 2-5 -->
+                        <div class="col-md-4">
+                          <input type="radio" class="btn-check " name="buyToLetCount" id="landlordMultiple" autocomplete="off" value="2 - 5" required>
+                          <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="landlordMultiple">
+                            <i class="bi bi-houses me-2"></i> 2 - 5
+                          </label>
+                        </div>
+                        <!-- 6+ -->
+                        <div class="col-md-4">
+                          <input type="radio" class="btn-check " name="buyToLetCount" id="landlordPortfolio" autocomplete="off" value="6+" required>
+                          <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="landlordPortfolio">
+                            <i class="bi bi-houses-fill me-2"></i> 6+
+                          </label>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <!-- Question: Will the property be occupied when the policy starts? -->
                   <div class="mb-4 question-container">
@@ -490,33 +509,26 @@
                   </div>
                   <!-- Question: Do you have a thatched roof? -->
                   <div class="mb-4 question-container">
-                    <label class="form-label fw-bold">Do you have a thatched roof?</label>
+                    <label class="form-label fw-bold">Are the walls built of brick stone or concrete and roofed only with slate, tile or concrete?</label>
                     <div class="container">
                       <div class="row g-2">
                         <!-- Yes -->
                         <div class="col-md-6">
-                          <input type="radio" class="btn-check " name="thatchedRoof" id="thatchedYes" autocomplete="off" value="Yes" required>
-                          <label class="btn btn-outline-warning btn-lg w-100 answer-btn" for="thatchedYes">
+                          <input type="radio" class="btn-check " name="construction" id="constructionYes" autocomplete="off" value="Yes" required>
+                          <label class="btn btn-outline-warning btn-lg w-100 answer-btn" for="constructionYes">
                             <i class="bi bi-check-lg me-2"></i> Yes
                           </label>
                         </div>
                         <!-- No -->
                         <div class="col-md-6">
-                          <input type="radio" class="btn-check " name="thatchedRoof" id="thatchedNo" autocomplete="off" value="No" required>
-                          <label class="btn btn-outline-warning btn-lg w-100 answer-btn" for="thatchedNo">
+                          <input type="radio" class="btn-check " name="construction" id="constructionNo" autocomplete="off" value="No" required>
+                          <label class="btn btn-outline-warning btn-lg w-100 answer-btn" for="constructionNo">
                             <i class="bi bi-x-lg me-2"></i> No
                           </label>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <!-- Question: Home Address (input) -->
-                  <div class="mb-4 question-container">
-                    <label class="form-label fw-bold">Home Address</label>
-                    <div class="input-group">
-                      <input type="text" id="homeAddress" class="form-control" placeholder="Start typing your address" autocomplete="off" name="fake_homeAddress" required>
-                    </div>
-                </div>  
                   <!-- Question: Are there building works in progress? -->
                   <div class="mb-4 question-container">
                     <label class="form-label fw-bold">Are there building works in progress?</label>
@@ -539,6 +551,13 @@
                       </div>
                     </div>
                   </div>
+                  <!-- Question: Home Address (input) -->
+                  <div class="mb-4 question-container">
+                    <label class="form-label fw-bold">Home Address</label>
+                    <div class="input-group">
+                      <input type="text" id="homeAddress" class="form-control" placeholder="Start typing your address" autocomplete="off" name="fake_homeAddress" required>
+                    </div>
+                  </div> 
                   <!-- Question: Policy Start Date (input) -->
                   <div class="mb-4 question-container">
                     <label class="form-label fw-bold">Policy Start Date</label>
@@ -579,11 +598,6 @@
                 <!-- Body -->
                   <!-- BusinessQuestions2 -->
                   <div id="BusinessQuestions2" class="card-body">
-                    <!-- Question: Business / Trading Name (input) -->
-                    <div class="mb-4 question-container">
-                      <label class="form-label fw-bold">Business / Trading Name</label>
-                      <input type="text" class="form-control " placeholder="Enter business name" required>
-                    </div>
                     <!-- Question: Any claims in the last 5 years? -->
                     <div class="mb-4 question-container">
                       <label class="form-label fw-bold">Any claims in the last 5 years?</label>
@@ -603,6 +617,11 @@
                           </div>
                         </div>
                       </div>
+                    </div>
+                    <!-- Question: Business / Trading Name (input) -->
+                    <div class="mb-4 question-container">
+                      <label class="form-label fw-bold">Business / Trading Name</label>
+                      <input type="text" class="form-control " placeholder="Enter business name" required>
                     </div>
                     <!-- Question: Your Name (input) -->
                     <div class="mb-4 question-container">
@@ -644,46 +663,53 @@
                         </div>
                       </div>
                     </div>
-                    <!-- Question: Has the property ever flooded? -->
+                    <!-- Question: Has the property ever flooded or suffered from subsidence? -->
                     <div class="mb-4 question-container">
-                      <label class="form-label fw-bold">Has the property ever flooded?</label>
+                      <label class="form-label fw-bold">Has the property ever flooded or suffered from subsidence?</label>
                       <div class="container">
                         <div class="row g-2">
                           <div class="col-md-6">
-                            <input type="radio" class="btn-check " name="propertyFlooded" id="propertyFloodedYes" autocomplete="off" value="Yes" required>
-                            <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="propertyFloodedYes">
+                            <input type="radio" class="btn-check " name="propertyRepair" id="propertyRepairYes" autocomplete="off" value="Yes" required>
+                            <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="propertyRepairYes">
                               <i class="bi bi-check-lg me-2"></i> Yes
                             </label>
                           </div>
                           <div class="col-md-6">
-                            <input type="radio" class="btn-check " name="propertyFlooded" id="propertyFloodedNo" autocomplete="off" value="No" required>
-                            <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="propertyFloodedNo">
+                            <input type="radio" class="btn-check " name="propertyRepair" id="propertyRepairNo" autocomplete="off" value="No" required>
+                            <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="propertyRepairNo">
                               <i class="bi bi-x-lg me-2"></i> No
                             </label>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <!-- Question: Has the property ever suffered from subsidence? -->
+                    <!-- Question: Are the walls built of brick stone or concrete and roofed only with slate, tile or concrete? -->
                     <div class="mb-4 question-container">
-                      <label class="form-label fw-bold">Has the property ever suffered from subsidence?</label>
+                      <label class="form-label fw-bold">Are the walls built of brick stone or concrete and roofed only with slate, tile or concrete?</label>
                       <div class="container">
                         <div class="row g-2">
                           <div class="col-md-6">
-                            <input type="radio" class="btn-check " name="propertySubsidence" id="propertySubsidenceYes" autocomplete="off" value="Yes" required>
-                            <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="propertySubsidenceYes">
+                            <input type="radio" class="btn-check " name="propertyConstruction" id="propertyConstructionYes" autocomplete="off" value="Yes" required>
+                            <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="propertyConstructionYes">
                               <i class="bi bi-check-lg me-2"></i> Yes
                             </label>
                           </div>
                           <div class="col-md-6">
-                            <input type="radio" class="btn-check " name="propertySubsidence" id="propertySubsidenceNo" autocomplete="off" value="No" required>
-                            <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="propertySubsidenceNo">
+                            <input type="radio" class="btn-check " name="propertyConstruction" id="propertyConstructionNo" autocomplete="off" value="No" required>
+                            <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="propertyConstructionNo">
                               <i class="bi bi-x-lg me-2"></i> No
                             </label>
                           </div>
                         </div>
                       </div>
                     </div>
+                    <!-- Question: Landlord Address (input) -->
+                    <div class="mb-4 question-container">
+                      <label class="form-label fw-bold">Property Address</label>
+                      <div class="input-group">
+                       <input type="text" id="propertyAddress" class="form-control" placeholder="Start typing the address" autocomplete="off" name="fake_propertyAddress" required>
+                      </div>
+                    </div> 
                     <!-- Question: Your Name (input) -->
                     <div class="mb-4 question-container">
                       <label class="form-label fw-bold">Your Name</label>

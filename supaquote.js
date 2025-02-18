@@ -65,8 +65,8 @@ async function submitQuote() {
         : policyStartDateRaw;
 
     const anyClaims = document.querySelector(`#${insuranceType}Questions2 input[name$="Claims"]:checked`)?.value || null;
-    const propertyFlooded = document.querySelector('input[name="propertyFlooded"]:checked')?.value || null;
-    const propertySubsidence = document.querySelector('input[name="propertySubsidence"]:checked')?.value || null;
+    const propertyRepair = document.querySelector('input[name="propertyRepair"]:checked')?.value || null;
+    const propertyConstruction = document.querySelector('input[name="propertyConstruction"]:checked')?.value || null;
 
     // Business Insurance Fields
     const trade = document.getElementById('tradeName')?.textContent || null;
@@ -78,12 +78,13 @@ async function submitQuote() {
     // Landlord Insurance Fields
     const tenantType = document.querySelector('input[name="tenantType"]:checked')?.value || null;
     const holidayLet = document.querySelector('input[name="holidayLet"]:checked')?.value || null;
-    const buyToLetCount = document.querySelector('select[name="buyToLetCount"]')?.value || null;
+    const buyToLetCount = document.querySelector('input[name="buyToLetCount"]:checked')?.value || null;
     const propertyOccupied = document.querySelector('input[name="propertyOccupied"]:checked')?.value || null;
+    const propertyAddress = document.getElementById('propertyAddress')?.value || null;
 
     // Home Insurance Fields
     const propertyType = document.querySelector('input[name="propertyType"]:checked')?.value || null;
-    const thatchedRoof = document.querySelector('input[name="thatchedRoof"]:checked')?.value || null;
+    const construction = document.querySelector('input[name="construction"]:checked')?.value || null;
     const homeAddress = document.getElementById('homeAddress')?.value || null;
     const buildingWorks = document.querySelector('input[name="buildingWorks"]:checked')?.value || null;
 
@@ -95,8 +96,8 @@ async function submitQuote() {
         phone_number: phoneNumber,
         policy_start_date: policyStartDate,
         any_claims: anyClaims === 'Yes',
-        property_flooded: propertyFlooded === 'Yes',
-        property_subsidence: propertySubsidence === 'Yes',
+        property_repair: propertyRepair === 'Yes',
+        property_construction: propertyConstruction === 'Yes',
 
         // Business Insurance
         trade: trade,
@@ -109,11 +110,12 @@ async function submitQuote() {
         tenant_type: tenantType,
         holiday_let: holidayLet === 'Yes',
         buy_to_let_count: buyToLetCount,
+        landlord_address: propertyAddress,
         property_occupied: propertyOccupied === 'Yes',
 
         // Home Insurance
         property_type: propertyType,
-        thatched_roof: thatchedRoof === 'Yes',
+        construction: construction === 'Yes',
         home_address: homeAddress,
         building_works: buildingWorks === 'Yes',
     };

@@ -155,31 +155,35 @@ initializeTradeSearch();
           return;
       }
   
-      // Use the correct input ID (from your HTML file)
-      const input = document.getElementById("homeAddress"); 
+      // Define input field IDs
+      const inputIds = ["homeAddress", "propertyAddress"];
   
-      if (!input) {
-          console.error("Autocomplete input field not found.");
-          return;
-      }
+      inputIds.forEach((id) => {
+          const input = document.getElementById(id);
   
-      const autocomplete = new google.maps.places.Autocomplete(input, {
-          types: ["address"], // <-- Fetches full addresses instead of just areas
-          componentRestrictions: { country: "UK" },
-      });
-  
-      autocomplete.addListener("place_changed", function () {
-          const place = autocomplete.getPlace();
-  
-          if (!place || !place.formatted_address) {
-              alert("Please select a valid address from the suggestions.");
+          if (!input) {
+              console.error(`Autocomplete input field not found: ${id}`);
               return;
           }
   
-          input.value = place.formatted_address; // Set the input value to the selected address
-          console.log("Selected address:", place.formatted_address);
+          const autocomplete = new google.maps.places.Autocomplete(input, {
+              types: ["address"], // Fetches full addresses instead of just areas
+              componentRestrictions: { country: "UK" },
+          });
+  
+          autocomplete.addListener("place_changed", function () {
+              const place = autocomplete.getPlace();
+  
+              if (!place || !place.formatted_address) {
+                  alert("Please select a valid address from the suggestions.");
+                  return;
+              }
+  
+              input.value = place.formatted_address; // Set the input value to the selected address
+              console.log(`Selected address for ${id}:`, place.formatted_address);
+          });
       });
-  }
+  }  
   
   // Ensure script loads AFTER Google Maps API is fully available
   window.addEventListener("load", function () {
