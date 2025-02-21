@@ -12059,3 +12059,26 @@ to{stroke-dasharray:477 477}
 figcaption {
     display: none;
 }
+
+@media (max-width: 991px) { /* Apply styles for medium and small screens */
+    .quote-container .btn {
+        white-space: nowrap; /* Prevent text from wrapping */
+        width: auto; /* Adjust width to fit content */
+        min-width: 150px; /* Ensure button doesn't get too small */
+        padding: 10px 20px; /* Adjust padding for better fit */
+        font-size: 16px; /* Ensure readable text */
+        text-align: center; /* Ensure text stays centered */
+    }
+
+    .quote-container .btn {
+        display: block;
+        width: 80%;
+        max-width: 300px;
+        margin: 10px auto;
+    }
+
+    .quote-container .form-text {
+        text-align: center;
+        width: 100%;
+    }
+}
