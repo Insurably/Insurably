@@ -12056,3 +12056,6 @@ to{stroke-dasharray:477 477}
     padding-bottom: 15px;
     font-size: 1.2rem; /* Optional: Increase text size */
 }
+figcaption {
+    display: none;
+}
