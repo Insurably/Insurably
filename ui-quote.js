@@ -74,74 +74,110 @@ document.addEventListener("DOMContentLoaded", function () {
     // TRADE SEARCH FUNCTIONALITY (NEWLY ADDED)
     // ------------------------------------------------------------
     async function initializeTradeSearch() {
-    const tradeInput = document.getElementById("tradeInput");
-    const tradeSuggestions = document.getElementById("tradeSuggestions");
-    const tradeSelected = document.getElementById("tradeSelected");
-    const tradeName = document.getElementById("tradeName");
-    const changeTrade = document.getElementById("changeTrade");
-
-    let trades = await fetchAllTrades(); // Fetch all trades with pagination
-
-    // Function to filter and display suggestions
-    tradeInput.addEventListener("input", function () {
-        const query = this.value.toLowerCase();
-        tradeSuggestions.innerHTML = "";
-
-        if (query.length < 2) {
-            tradeSuggestions.classList.add("d-none");
-            return;
-        }
-
-        const filteredTrades = trades.filter(trade => trade.toLowerCase().includes(query));
-        if (filteredTrades.length > 0) {
-            filteredTrades.forEach(trade => {
-                const suggestionItem = document.createElement("button");
-                suggestionItem.classList.add("list-group-item", "list-group-item-action");
-                suggestionItem.textContent = trade;
-                suggestionItem.onclick = () => selectTrade(trade);
-                tradeSuggestions.appendChild(suggestionItem);
-            });
-            tradeSuggestions.classList.remove("d-none");
-        } else {
-            tradeSuggestions.classList.add("d-none");
-        }
-    });
-
-    // Function to handle trade selection
-    function selectTrade(trade) {
-        tradeInput.value = "";
-        tradeInput.setAttribute("disabled", "true");
-        tradeInput.classList.add("d-none");
-        tradeSuggestions.classList.add("d-none");
-        tradeSelected.classList.remove("d-none");
-        tradeName.textContent = trade;
-
-        // Remove invalid state & force hide tooltip
-        tradeInput.classList.remove("is-invalid");
-        tradeInput.blur();
-        document.activeElement.blur();
-    }
-
-    // Change trade functionality
-    changeTrade.addEventListener("click", function (event) {
-        event.preventDefault();
-        tradeSelected.classList.add("d-none");
-        tradeInput.classList.remove("d-none");
-        tradeInput.removeAttribute("disabled");
-        tradeInput.classList.remove("is-invalid");
-        tradeInput.focus();
-    });
-
-    // Hide suggestions when clicking outside
-    document.addEventListener("click", function (event) {
-        if (!tradeInput.contains(event.target) && !tradeSuggestions.contains(event.target)) {
-            tradeSuggestions.classList.add("d-none");
-        }
-    });
-}
-
-// Call the function
-initializeTradeSearch();   
+      const tradeInput = document.getElementById("tradeInput");
+      const tradeSuggestions = document.getElementById("tradeSuggestions");
+      const tradeSelected = document.getElementById("tradeSelected");
+      const tradeName = document.getElementById("tradeName");
+      const changeTrade = document.getElementById("changeTrade");
+  
+      let trades = await fetchAllTrades(); // Fetch all trades with pagination
+  
+      let filteredTrades = []; // Store filtered trades
+  
+      // Function to filter and display suggestions
+      tradeInput.addEventListener("input", function () {
+          const query = this.value.toLowerCase();
+          tradeSuggestions.innerHTML = "";
+  
+          if (query.length < 2) {
+              tradeSuggestions.classList.add("d-none");
+              return;
+          }
+  
+          // Rank matches: exact first, then partial matches
+          filteredTrades = trades.filter(trade => trade.toLowerCase().includes(query));
+          filteredTrades.sort((a, b) => {
+              // Exact match should come first
+              if (a.toLowerCase() === query) return -1;
+              if (b.toLowerCase() === query) return 1;
+  
+              // Prioritize matches that start with the query
+              if (a.toLowerCase().startsWith(query) && !b.toLowerCase().startsWith(query)) return -1;
+              if (!a.toLowerCase().startsWith(query) && b.toLowerCase().startsWith(query)) return 1;
+  
+              return 0; // Keep natural order otherwise
+          });
+  
+          if (filteredTrades.length > 0) {
+              filteredTrades.forEach((trade, index) => {
+                  const suggestionItem = document.createElement("button");
+                  suggestionItem.classList.add("list-group-item", "list-group-item-action");
+                  suggestionItem.textContent = trade;
+                  suggestionItem.onclick = () => selectTrade(trade);
+                  tradeSuggestions.appendChild(suggestionItem);
+  
+                  // Auto-highlight the first suggestion
+                  if (index === 0) {
+                      suggestionItem.classList.add("active");
+                  }
+              });
+              tradeSuggestions.classList.remove("d-none");
+          } else {
+              tradeSuggestions.classList.add("d-none");
+          }
+      });
+  
+      // Function to handle trade selection
+      function selectTrade(trade) {
+          tradeInput.value = "";
+          tradeInput.setAttribute("disabled", "true");
+          tradeInput.classList.add("d-none");
+          tradeSuggestions.classList.add("d-none");
+          tradeSelected.classList.remove("d-none");
+          tradeName.textContent = trade;
+  
+          // Remove invalid state & force hide tooltip
+          tradeInput.classList.remove("is-invalid");
+          tradeInput.blur();
+          document.activeElement.blur();
+      }
+  
+      // Auto-select the best match when pressing Enter
+      tradeInput.addEventListener("keydown", function (event) {
+          if (event.key === "Enter" && filteredTrades.length > 0) {
+              event.preventDefault(); // Prevent form submission
+              selectTrade(filteredTrades[0]); // Picks the best match
+          }
+      });
+  
+      // Auto-select the best match when clicking away
+      tradeInput.addEventListener("blur", function () {
+          if (filteredTrades.length > 0) {
+              selectTrade(filteredTrades[0]); // Picks the best match
+          }
+      });
+  
+      // Change trade functionality
+      changeTrade.addEventListener("click", function (event) {
+          event.preventDefault();
+          tradeSelected.classList.add("d-none");
+          tradeInput.classList.remove("d-none");
+          tradeInput.removeAttribute("disabled");
+          tradeInput.classList.remove("is-invalid");
+          tradeInput.focus();
+      });
+  
+      // Hide suggestions when clicking outside
+      document.addEventListener("click", function (event) {
+          if (!tradeInput.contains(event.target) && !tradeSuggestions.contains(event.target)) {
+              tradeSuggestions.classList.add("d-none");
+          }
+      });
+  }
+  
+  // Call the function
+  initializeTradeSearch();
+  
 
     // ----------------------------------------
     // ADDRESS AUTOCOMPLETE FUNCTIONALITY
