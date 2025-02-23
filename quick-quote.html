@@ -118,12 +118,12 @@
     <div class="container content-space-t-md-2 content-space-b-2">
       <!-- Step Form -->
       <form class="js-step-form"
-            data-hs-step-form-options='{
-              "progressSelector": "#quoteStepFormProgress",
-              "stepsSelector": "#quoteStepFormContent",
-              "endSelector": "#quoteFinishBtn",
-              "isValidate": false
-            }'>
+      data-hs-step-form-options='{
+        "progressSelector": "#quoteStepFormProgress",
+        "stepsSelector": "#quoteStepFormContent",
+        "endSelector": "#quoteFinishBtn",
+        "isValidate": false
+      }'>
         <div class="row">
           <!-- Left column: Step progress list (visible on large screens only) -->
           <div class="col-lg-4 d-none d-lg-block">
@@ -258,17 +258,6 @@
 
                 <!-- Body for Business Questions -->
                 <div id="BusinessQuestions" class="card-body">
-                  <!-- Question: What's your trade / profession? -->
-                  <div class="mb-4 question-container">
-                    <label for="tradeInput" class="form-label fw-bold">What's your trade/profession?</label>
-                    <input type="text" id="tradeInput" class="form-control" placeholder="Start typing to find your trade." autocomplete="off">
-                    <div id="tradeSuggestions" class="list-group mt-2 d-none"></div>
-                    <p id="tradeSelected" class="mt-2 text-success d-none">
-                        You have selected '<span id="tradeName"></span>' as your trade/profession. 
-                        <a href="#" id="changeTrade" class="text-primary">Change</a>
-                    </p>
-                </div>                           
-
                   <!-- Question: What's your Business Type? -->
                   <div class="mb-4 question-container">
                     <label class="form-label fw-bold">What's your Business Type?</label>
@@ -276,21 +265,21 @@
                       <div class="row g-2">
                         <!-- Sole Trader -->
                         <div class="col-md-4">
-                          <input type="radio" class="btn-check " name="businessType" id="businessTypeSole" autocomplete="off" value="Sole Trader" required>
+                          <input type="radio" class="btn-check " name="businessType" id="businessTypeSole" autocomplete="off" value="Sole Trader">
                           <label class="btn btn-outline-primary btn-lg w-100 answer-btn" for="businessTypeSole">
                             <i class="bi bi-person-arms-up me-2"></i> Sole Trader
                           </label>
                         </div>
                         <!-- Partnership -->
                         <div class="col-md-4">
-                          <input type="radio" class="btn-check " name="businessType" id="businessTypePartnership" autocomplete="off" value="Partnership" required>
+                          <input type="radio" class="btn-check " name="businessType" id="businessTypePartnership" autocomplete="off" value="Partnership">
                           <label class="btn btn-outline-primary btn-lg w-100 answer-btn" for="businessTypePartnership">
                             <i class="bi bi-people-fill me-2"></i> Partnership
                           </label>
                         </div>
                         <!-- Ltd Company -->
                         <div class="col-md-4">
-                          <input type="radio" class="btn-check " name="businessType" id="businessTypeLtd" autocomplete="off" value="Ltd Company" required>
+                          <input type="radio" class="btn-check " name="businessType" id="businessTypeLtd" autocomplete="off" value="Ltd Company">
                           <label class="btn btn-outline-primary btn-lg w-100 answer-btn" for="businessTypeLtd">
                             <i class="bi bi-briefcase-fill me-2"></i> Ltd Company
                           </label>
@@ -372,6 +361,18 @@
                       </div>
                     </div>
                   </div>
+
+                  <!-- Question: What's your trade / profession? -->
+                  <div class="mb-4 question-container">
+                    <label for="tradeInput" class="form-label fw-bold">What's your trade/profession?</label>
+                    <input type="text" id="tradeInput" class="form-control" placeholder="Start typing to find your trade." autocomplete="off">
+                    <div id="tradeSuggestions" class="list-group mt-2 d-none"></div>
+                    <p id="tradeSelected" class="mt-2 text-success d-none">
+                        You have selected '<span id="tradeName"></span>' as your trade/profession. 
+                        <a href="#" id="changeTrade" class="text-primary">Change</a>
+                    </p>
+                </div>
+
                   <!-- Question: Policy Start Date (input; no answer button needed) -->
                   <div class="mb-4 question-container">
                     <label class="form-label fw-bold">Policy Start Date</label>
