@@ -26,20 +26,8 @@
     <meta name="twitter:description" content="Get comprehensive and affordable Public Liability Insurance to protect your business against claims of injury or property damage. Compare quotes and find the best coverage with Insurably.">
     <meta name="twitter:image" content="https://insurably.co.uk/assets/images/public-liability-insurance-banner.jpg">
   
-    <!-- Standard Favicon -->
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-
-<!-- Apple Touch Icon (iOS) -->
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-<!-- Android/Chrome -->
-<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
-
-<!-- Web App Manifest (optional but recommended) -->
-<link rel="manifest" href="/site.webmanifest">
-
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./favicon.ico">
   
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -79,23 +67,31 @@
             </div>
             <!-- End Heading -->
 
-            
+            <form>
 <!-- Input Card -->
-<form class="quote-container">
-<div class="mt-4">
-  <a class="btn btn-primary btn-transition px-8 btn-large" href="quick-quote.html">Get a quote</a>
+<div class="input-card" style="position: relative;"> <!-- Ensure relative positioning -->
+  <div class="input-card-form">
+    <label for="searchTradeForm" class="form-label visually-hidden">Search trade</label>
+    <div class="input-group input-group-merge">
+      <span class="input-group-prepend input-group-text">
+        <i class="bi-search"></i>
+      </span>
+      <input type="text" class="form-control form-control-lg" id="searchTradeForm" placeholder="Search your Trade or 'Landlord' or 'Home Insurance'" aria-label="Enter trade">
+    </div>
+  </div>
+  <div id="suggestionsContainer" class="dropdown-menu" style="display: none;"></div> <!-- Suggestions container -->
 </div>
 <!-- End Input Card -->
+            </form>
             
             <p class="form-text">2,905 Business Types Covered</p>
-</form>
           </div>
           <!-- End Col -->
         </div>
         <!-- End Row -->
 
         <div class="d-none d-lg-block col-lg-6 position-lg-absolute top-0 end-0">
-          <img class="img-fluid rounded-2" src="./assets/img/900x900/public-liability.jpg" alt="Image Description">
+          <img class="img-fluid rounded-2" src="./assets/img/900x900/img23.jpg" alt="Image Description">
 
           <!-- SVG Shape -->
           <div class="position-absolute top-0 start-0 zi-n1 mt-n6 ms-n7" style="width: 10rem;">
@@ -122,85 +118,42 @@
 
 <!-- End Card Grid -->
 <div class="container content-space-2 content-space-lg-3">
-  <div class="row justify-content-center">
-      <div class="col-lg-8">
-
-          <h2 class="h1 text-center">What is Public Liability Insurance?</h2>
-          <p><strong>Public Liability Insurance</strong> protects your business against claims from third parties for injury or property damage. Whether you run a <strong>shop, trade business, office, or work on-site</strong>, this insurance ensures you won’t face financial hardship if someone makes a claim against you.</p>
-
-          <p>For <strong>small businesses, contractors, sole traders, and large companies</strong>, Public Liability Insurance is essential to operate with confidence and comply with client and legal requirements.</p>
-
-          <h2 class="h1 text-center">Who Needs Public Liability Insurance?</h2>
-          <p>Any business that interacts with customers, suppliers, or the public should have Public Liability Insurance in place. This includes:</p>
-
-          <ul>
-              <li><strong>Retailers & Shop Owners</strong> – Cover against customer injuries, slips, or property damage claims.</li>
-              <li><strong>Tradespeople & Contractors</strong> – Protects against accidental damage or injury caused while working on-site.</li>
-              <li><strong>Hospitality Businesses</strong> – Essential for restaurants, cafés, and pubs where public safety is a key concern.</li>
-              <li><strong>Event Organisers</strong> – Covers claims arising from public events, exhibitions, or fairs.</li>
-              <li><strong>Offices & Service Providers</strong> – Protection if a client or visitor is injured on your premises.</li>
-          </ul>
-
-          <h2 class="h1 text-center">Why is Public Liability Insurance Important?</h2>
-          <p>Even a minor accident can lead to costly claims. Without insurance, legal fees and compensation costs could significantly impact your business.</p>
-
-          <p>Common risks that Public Liability Insurance protects against include:</p>
-
-          <ul>
-              <li><strong>Slips, Trips & Falls</strong> – Covers claims if a customer or visitor gets injured on your premises.</li>
-              <li><strong>Damage to Third-Party Property</strong> – Protection if your business accidentally damages someone else’s property.</li>
-              <li><strong>Injury Caused by Your Business Activities</strong> – Covers medical costs and compensation if your work leads to injury.</li>
-              <li><strong>Legal Costs</strong> – Covers defence and settlement fees if a claim is made against you.</li>
-          </ul>
-
-          <h2 class="h1 text-center">What’s Covered in Public Liability Insurance?</h2>
-          <p>Public Liability Insurance policies typically include:</p>
-
-          <ul>
-              <li><strong>Compensation Costs</strong> – Covers claims for injuries or property damage.</li>
-              <li><strong>Legal Defence Fees</strong> – Protection against legal costs associated with claims.</li>
-              <li><strong>Medical Expenses</strong> – Covers treatment costs for injured third parties.</li>
-              <li><strong>Product Liability</strong> – Covers injury or damage caused by products you sell or supply.</li>
-          </ul>
-
-          <h2 class="h1 text-center">What’s Not Covered?</h2>
-          <ul>
-              <li>Employee injuries – Covered under Employers’ Liability Insurance.</li>
-              <li>Damage to your own business property.</li>
-              <li>Deliberate acts or intentional harm.</li>
-          </ul>
+    <div class="row justify-content-center"> <div class="col-lg-8">
       
-        <h2 class="h1 text-center">Additional Cover You May Need</h2>
-    
-    <p>Depending on your business type, you may need additional cover such as:</p>
+        <div class="mb-3">
+            <h2 class="h1 text-center">What is Public Liability Insurance?</h2>
+        </div>
+      
+        <p>Public Liability insurance is a safety net for your business. It steps in to protect you if someone gets injured or their property is damaged because of your work. Think of it as a financial shield against legal fees and compensation costs if a client, a member of the public, or even a passerby decides to sue your business.</p>
+      
+        <div class="mb-5">
+            <h2 class="h1 text-center">Why do I need Public Liability insurance?</h2>
+        </div>
+      
+        <p>Accidents happen. In the UK, the most common type is a slip, trip, or fall, and they often occur in public spaces. Public Liability insurance, sometimes called PL or liability insurance, is designed to safeguard your business from those unexpected moments. It covers claims from third parties – whether it's a customer, a client, or someone just passing by – for injuries or property damage that happen because of your business activities, even if you're not at fault.</p>
 
-    <ul>
-        <li><a href="business-building-insurance.html">Business Building Insurance</a> – Protect your premises and business assets.</li>
-        <li><a href="employers-liability-insurance.html">Employers’ Liability Insurance</a> – Cover for employee injuries or illness.</li>
-        <li><a href="professional-indemnity-insurance.html">Professional Indemnity Insurance</a> – Protection against claims for professional advice or services.</li>
-        <li><a href="business-interruption-insurance.html">Business Interruption Insurance</a> – Income protection if your business operations are disrupted.</li>
-    </ul>
+        <p>Whether you're a freelancer, a tradesperson, or run a small business, Public Liability insurance offers peace of mind, allowing you to focus on what you do best, knowing you're protected if the unexpected occurs.</p>
 
-    <div class="mb-3">
-      <h2 class="h1 text-center">Get the right cover for your business</h2>
-  </div>
+        <div class="mb-3">
+            <h2 class="h1 text-center">Get the right cover for your business</h2>
+        </div>
+        
+        <p>At Insurably, we have access to 100's of insurer markets meaning that no matter how unique your requirements are, we know where to find the right cover to suit you.</p>
   
-  <p>At Insurably, we have access to 100's of insurer markets, meaning that no matter how unique your requirements are, we know where to find the right cover to suit you.</p>
-
-  <p>Start your quote online, and rest assured that we’re working hard to match you with the best insurer, ensuring you get the coverage you need.</p>
-  
-  <div class="row align-items-center"> 
-      <div class="col-md-6 text-center text-md-start order-2 order-md-1 mb-3"> 
-          <a class="btn btn-primary btn-transition px-5" href="quick-quote.html">Get a quote</a>
-      </div>
-      <div class="col-md-6 mb-3 mb-md-0 order-1 order-md-2">
-          <ul class="list-unstyled">
-              <li><i class="bi-check-circle-fill text-success me-2"></i> Small local office, no call centres.</li>
-              <li><i class="bi-check-circle-fill text-success me-2"></i> Experienced, knowledgeable staff.</li>
-              <li><i class="bi-check-circle-fill text-success me-2"></i> We keep it simple — no jargon, just clear and honest advice.</li>
-          </ul>
-      </div>     
-  </div>
+        <p>Start your quote online, and rest assured that we’re working hard to match you with the best insurer, ensuring you get the coverage you need.</p>
+        
+        <div class="row align-items-center"> 
+            <div class="col-md-6 text-center text-md-start order-2 order-md-1 mb-3"> 
+                <a class="btn btn-primary btn-transition px-5" href="page-signup.html">Get a quote</a>
+            </div>
+            <div class="col-md-6 mb-3 mb-md-0 order-1 order-md-2">
+                <ul class="list-unstyled">
+                    <li><i class="bi-check-circle-fill text-success me-2"></i> Small local office, no call centres.</li>
+                    <li><i class="bi-check-circle-fill text-success me-2"></i> Experienced, knowledgeable staff.</li>
+                    <li><i class="bi-check-circle-fill text-success me-2"></i> We keep it simple — no jargon, just clear and honest advice.</li>
+                </ul>
+            </div>     
+        </div>
     </div>
     </div>
 
@@ -249,7 +202,7 @@
             <div class="row justify-content-center align-items-lg-center">
                 <div class="col-10 col-sm-8 col-lg-5 mb-10 mb-lg-0">
                     <div class="position-relative">
-                        <img class="img-fluid rounded-2" src="./assets/img/900x900/product-liability-quote.jpg" alt="Image Description">
+                        <img class="img-fluid rounded-2" src="./assets/img/900x900/img24.jpg" alt="Image Description">
                             <!-- SVG Shape -->
                                 <div class="position-absolute top-0 start-0 zi-n1 mt-n6 ms-n7" style="width: 10rem;">
                                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 335.2 335.2" width="100" height="100">
@@ -275,7 +228,7 @@
               
               <!-- Blockquote -->
               <figure class="mb-5">
-                <blockquote class="blockquote blockquote-lg">"Insurably® made getting Public Liability Insurance easy, saving me time and stress, and giving me peace of mind knowing my business is protected."</blockquote>
+                <blockquote class="blockquote blockquote-lg">"Insurably made getting Public Liability Insurance easy, saving me time and stress, and giving me peace of mind knowing my business is protected."</blockquote>
                 
                 <figcaption class="blockquote-footer">
                   Emily Turner
