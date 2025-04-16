@@ -1,7 +1,7 @@
 {
   "redirects": [
     {
-      "source": "/((?!page-maintenance-mode\\.html).*)",
+      "source": "/((?!page-maintenance-mode\\.html|assets|favicon\\.ico).*)",
       "destination": "/page-maintenance-mode.html",
       "permanent": false
     }
