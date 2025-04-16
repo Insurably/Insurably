@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/((?!page-maintenance-mode\\.html).*)",
+      "destination": "/page-maintenance-mode.html",
+      "permanent": false
+    }
+  ]
+}
