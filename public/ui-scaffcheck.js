@@ -358,11 +358,11 @@ popOpts.forEach((el) => {
   const stepForm = new HSStepForm('.js-step-form', {
   onNextStep: () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    setTimeout(updateProgress, 500);
+    setTimeout(updateProgress, 750);
   },
   onPrevStep: () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    setTimeout(updateProgress, 500);
+    setTimeout(updateProgress, 750);
   },
   finish: () => {
     console.log("Form finished, displaying success message.");
@@ -408,7 +408,7 @@ popOpts.forEach((el) => {
   }
 });
 
-  setTimeout(updateProgress, 300);
+  setTimeout(updateProgress, 750);
 }, 500);
 
   
@@ -440,6 +440,7 @@ popOpts.forEach((el) => {
       // PROGRESS BAR UPDATES
       // ------------------------------------------------------------
       function updateProgress() {
+        console.log('updateProgress fired at', Date.now());
   const progressBar = document.getElementById('quoteProgressBar');
   const stepElements = document.querySelectorAll('#scaffCheckStepFormContent > div');
   let currentStepIndex = 0;
@@ -467,7 +468,7 @@ popOpts.forEach((el) => {
 }
   
       // Ensure the progress bar is updated initially.
-      setTimeout(updateProgress, 3000);
+      setTimeout(updateProgress, 25);
     
     initializeTradeSearch();
     }
