@@ -467,7 +467,7 @@ popOpts.forEach((el) => {
 }
   
       // Ensure the progress bar is updated initially.
-      setTimeout(updateProgress, 1500);
+      setTimeout(updateProgress, 3000);
     
     initializeTradeSearch();
     }
