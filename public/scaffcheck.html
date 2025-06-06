@@ -543,7 +543,6 @@
   <label for="remedialActionfoundations" class="form-label mt-3">Remedial Action</label>
   <input type="text" id="remedialActionfoundations" name="remedialActionfoundations" class="form-control" placeholder="Please specify...">
 </div>
-
                 </div>
 
                 <!-- Question: Firm Footings -->
@@ -575,14 +574,39 @@
                           <i class="bi bi-dash-circle me-2"></i> Fail
                        </label>
                       </div>
-                    </div>
+                   </div>
                   </div>
+                    <!-- Remedial Action field (shown only on Fail) -->
+          <div id="firmFootingsRemedial" class="mt-3 d-none">
+            <label class="form-label mb-1">Details of Fault</label>
+            <div class="row g-2 align-items-start">
+            <!-- Fault description input -->
+            <div class="col-md-8">
+              <input type="text" id="faultDetailsfirmFootings" name="faultDetailsfirmFootings" class="form-control" placeholder="Describe the fault...">
+            </div>
 
-                  <!-- Remedial Action field (hidden by default) -->
-  <div id="firmFootingsRemedial" class="mt-3 d-none">
-    <label for="remedialActionfirmFootings" class="form-label">Remedial Action</label>
-    <input type="text" id="remedialActionfirmFootings" name="remedialActionfirmFootings" class="form-control" placeholder="Please specify...">
-  </div>
+            <!-- Camera button & preview -->
+            <div class="col-md-4 text-end">
+              <label for="photofirmFootings" class="btn btn-outline-secondary w-100 mb-2">
+              <i class="bi bi-camera"></i>
+              </label>
+              <input 
+              type="file" 
+              accept="image/*" 
+              capture="environment" 
+              id="photofirmFootings" 
+              name="photofirmFootings" 
+              class="d-none"
+              >
+
+              <!-- Preview thumbnail -->
+              <img id="photoPreviewfirmFootings" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+            </div>
+            </div>
+
+            <label for="remedialActionfirmFootings" class="form-label mt-3">Remedial Action</label>
+            <input type="text" id="remedialActionfirmFootings" name="remedialActionfirmFootings" class="form-control" placeholder="Please specify...">
+          </div>
                 </div>
 
                 <!-- Question: Base Plates & Sole Boards -->
@@ -614,14 +638,40 @@
                           <i class="bi bi-dash-circle me-2"></i> Fail
                        </label>
                       </div>
-                    </div>
+                   </div>
                   </div>
 
-                    <!-- Remedial Action field (hidden by default) -->
-  <div id="basePlatesRemedial" class="mt-3 d-none">
-    <label for="remedialActionbasePlates" class="form-label">Remedial Action</label>
-    <input type="text" id="remedialActionbasePlates" name="remedialActionbasePlates" class="form-control" placeholder="Please specify...">
-  </div>
+                              <!-- Remedial Action field (shown only on Fail) -->
+                    <div id="basePlatesRemedial" class="mt-3 d-none">
+                      <label class="form-label mb-1">Details of Fault</label>
+                      <div class="row g-2 align-items-start">
+                      <!-- Fault description input -->
+                      <div class="col-md-8">
+                        <input type="text" id="faultDetailsbasePlates" name="faultDetailsbasePlates" class="form-control" placeholder="Describe the fault...">
+                      </div>
+
+                      <!-- Camera button & preview -->
+                      <div class="col-md-4 text-end">
+                        <label for="photobasePlates" class="btn btn-outline-secondary w-100 mb-2">
+                        <i class="bi bi-camera"></i>
+                        </label>
+                        <input 
+                        type="file" 
+                        accept="image/*" 
+                        capture="environment" 
+                        id="photobasePlates" 
+                        name="photobasePlates" 
+                        class="d-none"
+                        >
+
+                        <!-- Preview thumbnail -->
+                        <img id="photoPreviewbasePlates" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+                      </div>
+                      </div>
+
+                      <label for="remedialActionbasePlates" class="form-label mt-3">Remedial Action</label>
+                      <input type="text" id="remedialActionbasePlates" name="remedialActionbasePlates" class="form-control" placeholder="Please specify...">
+                    </div>
                 </div>
 
                 <!-- Question: Low-Level Protection -->
@@ -655,12 +705,38 @@
     </div>
   </div>
 
-  <!-- Remedial Action field (hidden by default) -->
-  <div id="lowLevelProtectionRemedial" class="mt-3 d-none">
-    <label for="remedialActionLowLevel" class="form-label">Remedial Action</label>
-    <input type="text" id="remedialActionLowLevel" name="remedialActionLowLevel" class="form-control" placeholder="Please specify...">
-  </div>
-</div>
+            <!-- Remedial Action field (shown only on Fail) -->
+            <div id="lowLevelProtectionRemedial" class="mt-3 d-none">
+              <label class="form-label mb-1">Details of Fault</label>
+              <div class="row g-2 align-items-start">
+              <!-- Fault description input -->
+              <div class="col-md-8">
+                <input type="text" id="faultDetailslowLevelProtection" name="faultDetailslowLevelProtection" class="form-control" placeholder="Describe the fault...">
+              </div>
+
+              <!-- Camera button & preview -->
+              <div class="col-md-4 text-end">
+                <label for="photolowLevelProtection" class="btn btn-outline-secondary w-100 mb-2">
+                <i class="bi bi-camera"></i>
+                </label>
+                <input 
+                type="file" 
+                accept="image/*" 
+                capture="environment" 
+                id="photolowLevelProtection" 
+                name="photolowLevelProtection" 
+                class="d-none"
+                >
+
+                <!-- Preview thumbnail -->
+                <img id="photoPreviewlowLevelProtection" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+              </div>
+              </div>
+
+              <label for="remedialActionlowLevelProtection" class="form-label mt-3">Remedial Action</label>
+              <input type="text" id="remedialActionlowLevelProtection" name="remedialActionlowLevelProtection" class="form-control" placeholder="Please specify...">
+            </div>
+    </div>
                 </div>
                 <!-- End Body -->
 
