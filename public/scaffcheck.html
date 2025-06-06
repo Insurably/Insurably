@@ -806,13 +806,39 @@
                        </label>
                       </div>
                     </div>
-                  </div>
+                    </div>
 
-                  <!-- Remedial Action field (hidden by default) -->
-  <div id="conditionAlignmentRemedial" class="mt-3 d-none">
-    <label for="remedialActionconditionAlignment" class="form-label">Remedial Action</label>
-    <input type="text" id="remedialActionconditionAlignment" name="remedialActionconditionAlignment" class="form-control" placeholder="Please specify...">
-  </div>
+                            <!-- Remedial Action field (shown only on Fail) -->
+                        <div id="conditionAlignmentRemedial" class="mt-3 d-none">
+                          <label class="form-label mb-1">Details of Fault</label>
+                          <div class="row g-2 align-items-start">
+                          <!-- Fault description input -->
+                          <div class="col-md-8">
+                          <input type="text" id="faultDetailsconditionAlignment" name="faultDetailsconditionAlignment" class="form-control" placeholder="Describe the fault...">
+                          </div>
+
+                          <!-- Camera button & preview -->
+                          <div class="col-md-4 text-end">
+                          <label for="photoconditionAlignment" class="btn btn-outline-secondary w-100 mb-2">
+                          <i class="bi bi-camera"></i>
+                          </label>
+                          <input 
+                          type="file" 
+                          accept="image/*" 
+                          capture="environment" 
+                          id="photoconditionAlignment" 
+                          name="photoconditionAlignment" 
+                          class="d-none"
+                          >
+
+                          <!-- Preview thumbnail -->
+                          <img id="photoPreviewconditionAlignment" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+                          </div>
+                          </div>
+
+                          <label for="remedialActionconditionAlignment" class="form-label mt-3">Remedial Action</label>
+                          <input type="text" id="remedialActionconditionAlignment" name="remedialActionconditionAlignment" class="form-control" placeholder="Please specify...">
+                        </div>
                 </div>
 
                 <!-- Question: Base Security -->
@@ -847,11 +873,37 @@
                     </div>
                   </div>
 
-                  <!-- Remedial Action field (hidden by default) -->
-  <div id="baseSecurityRemedial" class="mt-3 d-none">
-    <label for="remedialActionbaseSecurity" class="form-label">Remedial Action</label>
-    <input type="text" id="remedialActionbaseSecurity" name="remedialActionbaseSecurity" class="form-control" placeholder="Please specify...">
-  </div>
+                    <!-- Remedial Action field (shown only on Fail) -->
+                      <div id="baseSecurityRemedial" class="mt-3 d-none">
+                        <label class="form-label mb-1">Details of Fault</label>
+                        <div class="row g-2 align-items-start">
+                        <!-- Fault description input -->
+                        <div class="col-md-8">
+                        <input type="text" id="faultDetailsbaseSecurity" name="faultDetailsbaseSecurity" class="form-control" placeholder="Describe the fault...">
+                        </div>
+
+                        <!-- Camera button & preview -->
+                        <div class="col-md-4 text-end">
+                        <label for="photobaseSecurity" class="btn btn-outline-secondary w-100 mb-2">
+                        <i class="bi bi-camera"></i>
+                        </label>
+                        <input 
+                        type="file" 
+                        accept="image/*" 
+                        capture="environment" 
+                        id="photobaseSecurity" 
+                        name="photobaseSecurity" 
+                        class="d-none"
+                        >
+
+                        <!-- Preview thumbnail -->
+                        <img id="photoPreviewbaseSecurity" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+                        </div>
+                        </div>
+
+                        <label for="remedialActionbaseSecurity" class="form-label mt-3">Remedial Action</label>
+                        <input type="text" id="remedialActionbaseSecurity" name="remedialActionbaseSecurity" class="form-control" placeholder="Please specify...">
+                      </div>
                 </div>
 
                 <!-- Question: Height and Extension -->
@@ -886,11 +938,37 @@
                     </div>
                   </div>
 
-                  <!-- Remedial Action field (hidden by default) -->
-  <div id="heightExtensionRemedial" class="mt-3 d-none">
-    <label for="remedialActionheightExtension" class="form-label">Remedial Action</label>
-    <input type="text" id="remedialActionheightExtension" name="remedialActionheightExtension" class="form-control" placeholder="Please specify...">
-  </div>
+                    <!-- Remedial Action field (shown only on Fail) -->
+                      <div id="heightExtensionRemedial" class="mt-3 d-none">
+                      <label class="form-label mb-1">Details of Fault</label>
+                      <div class="row g-2 align-items-start">
+                      <!-- Fault description input -->
+                      <div class="col-md-8">
+                      <input type="text" id="faultDetailsheightExtension" name="faultDetailsheightExtension" class="form-control" placeholder="Describe the fault...">
+                      </div>
+
+                      <!-- Camera button & preview -->
+                      <div class="col-md-4 text-end">
+                      <label for="photoheightExtension" class="btn btn-outline-secondary w-100 mb-2">
+                      <i class="bi bi-camera"></i>
+                      </label>
+                      <input 
+                      type="file" 
+                      accept="image/*" 
+                      capture="environment" 
+                      id="photoheightExtension" 
+                      name="photoheightExtension" 
+                      class="d-none"
+                      >
+
+                      <!-- Preview thumbnail -->
+                      <img id="photoPreviewheightExtension" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+                      </div>
+                      </div>
+
+                      <label for="remedialActionheightExtension" class="form-label mt-3">Remedial Action</label>
+                      <input type="text" id="remedialActionheightExtension" name="remedialActionheightExtension" class="form-control" placeholder="Please specify...">
+                      </div>
                 </div>
 
                 </div>
@@ -965,11 +1043,37 @@
                     </div>
                   </div>
 
-                  <!-- Remedial Action field (hidden by default) -->
-  <div id="LedgersRemedial" class="mt-3 d-none">
-    <label for="remedialActionLedgers" class="form-label">Remedial Action</label>
-    <input type="text" id="remedialActionLedgers" name="remedialActionLedgers" class="form-control" placeholder="Please specify...">
-  </div>
+                    <!-- Remedial Action field (shown only on Fail) -->
+                      <div id="LedgersRemedial" class="mt-3 d-none">
+                      <label class="form-label mb-1">Details of Fault</label>
+                      <div class="row g-2 align-items-start">
+                      <!-- Fault description input -->
+                      <div class="col-md-8">
+                      <input type="text" id="faultDetailsLedgers" name="faultDetailsLedgers" class="form-control" placeholder="Describe the fault...">
+                      </div>
+
+                      <!-- Camera button & preview -->
+                      <div class="col-md-4 text-end">
+                      <label for="photoLedgers" class="btn btn-outline-secondary w-100 mb-2">
+                      <i class="bi bi-camera"></i>
+                      </label>
+                      <input 
+                      type="file" 
+                      accept="image/*" 
+                      capture="environment" 
+                      id="photoLedgers" 
+                      name="photoLedgers" 
+                      class="d-none"
+                      >
+
+                      <!-- Preview thumbnail -->
+                      <img id="photoPreviewLedgers" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+                      </div>
+                      </div>
+
+                      <label for="remedialActionLedgers" class="form-label mt-3">Remedial Action</label>
+                      <input type="text" id="remedialActionLedgers" name="remedialActionLedgers" class="form-control" placeholder="Please specify...">
+                      </div>
                 </div>
 
                 <!-- Question: Transoms and Board Support -->
@@ -1010,11 +1114,37 @@
                     </div>
                   </div>
 
-                  <!-- Remedial Action field (hidden by default) -->
-  <div id="transomsBoardSupportRemedial" class="mt-3 d-none">
-    <label for="remedialActiontransomsBoardSupport" class="form-label">Remedial Action</label>
-    <input type="text" id="remedialActiontransomsBoardSupport" name="remedialActiontransomsBoardSupport" class="form-control" placeholder="Please specify...">
-  </div>
+                  <!-- Remedial Action field (shown only on Fail) -->
+                      <div id="transomsBoardSupportRemedial" class="mt-3 d-none">
+                      <label class="form-label mb-1">Details of Fault</label>
+                      <div class="row g-2 align-items-start">
+                      <!-- Fault description input -->
+                      <div class="col-md-8">
+                      <input type="text" id="faultDetailstransomsBoardSupport" name="faultDetailstransomsBoardSupport" class="form-control" placeholder="Describe the fault...">
+                      </div>
+
+                      <!-- Camera button & preview -->
+                      <div class="col-md-4 text-end">
+                      <label for="phototransomsBoardSupport" class="btn btn-outline-secondary w-100 mb-2">
+                      <i class="bi bi-camera"></i>
+                      </label>
+                      <input 
+                      type="file" 
+                      accept="image/*" 
+                      capture="environment" 
+                      id="phototransomsBoardSupport" 
+                      name="phototransomsBoardSupport" 
+                      class="d-none"
+                      >
+
+                      <!-- Preview thumbnail -->
+                      <img id="photoPreviewtransomsBoardSupport" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+                      </div>
+                      </div>
+
+                      <label for="remedialActiontransomsBoardSupport" class="form-label mt-3">Remedial Action</label>
+                      <input type="text" id="remedialActiontransomsBoardSupport" name="remedialActiontransomsBoardSupport" class="form-control" placeholder="Please specify...">
+                      </div>
                 </div>
 
                 </div>
@@ -1093,11 +1223,37 @@
                     </div>
                   </div>
 
-                  <!-- Remedial Action field (hidden by default) -->
-  <div id="bracingInstalledRemedial" class="mt-3 d-none">
-    <label for="remedialActionbracingInstalled" class="form-label">Remedial Action</label>
-    <input type="text" id="remedialActionbracingInstalled" name="remedialActionbracingInstalled" class="form-control" placeholder="Please specify...">
-  </div>
+                  <!-- Remedial Action field (shown only on Fail) -->
+                      <div id="bracingInstalledRemedial" class="mt-3 d-none">
+                      <label class="form-label mb-1">Details of Fault</label>
+                      <div class="row g-2 align-items-start">
+                      <!-- Fault description input -->
+                      <div class="col-md-8">
+                      <input type="text" id="faultDetailsbracingInstalled" name="faultDetailsbracingInstalled" class="form-control" placeholder="Describe the fault...">
+                      </div>
+
+                      <!-- Camera button & preview -->
+                      <div class="col-md-4 text-end">
+                      <label for="photobracingInstalled" class="btn btn-outline-secondary w-100 mb-2">
+                      <i class="bi bi-camera"></i>
+                      </label>
+                      <input 
+                      type="file" 
+                      accept="image/*" 
+                      capture="environment" 
+                      id="photobracingInstalled" 
+                      name="photobracingInstalled" 
+                      class="d-none"
+                      >
+
+                      <!-- Preview thumbnail -->
+                      <img id="photoPreviewbracingInstalled" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+                      </div>
+                      </div>
+
+                      <label for="remedialActionbracingInstalled" class="form-label mt-3">Remedial Action</label>
+                      <input type="text" id="remedialActionbracingInstalled" name="remedialActionbracingInstalled" class="form-control" placeholder="Please specify...">
+                      </div>
                 </div>
 
                 <!-- Question: Ties and Anchors -->
@@ -1136,11 +1292,37 @@
                     </div>
                   </div>
 
-                  <!-- Remedial Action field (hidden by default) -->
-  <div id="tiesAnchorsRemedial" class="mt-3 d-none">
-    <label for="remedialActiontiesAnchors" class="form-label">Remedial Action</label>
-    <input type="text" id="remedialActiontiesAnchors" name="remedialActiontiesAnchors" class="form-control" placeholder="Please specify...">
-  </div>
+                    <!-- Remedial Action field (shown only on Fail) -->
+                    <div id="tiesAnchorsRemedial" class="mt-3 d-none">
+                    <label class="form-label mb-1">Details of Fault</label>
+                    <div class="row g-2 align-items-start">
+                      <!-- Fault description input -->
+                      <div class="col-md-8">
+                      <input type="text" id="faultDetailstiesAnchors" name="faultDetailstiesAnchors" class="form-control" placeholder="Describe the fault...">
+                      </div>
+
+                      <!-- Camera button & preview -->
+                      <div class="col-md-4 text-end">
+                      <label for="phototiesAnchors" class="btn btn-outline-secondary w-100 mb-2">
+                        <i class="bi bi-camera"></i>
+                      </label>
+                      <input 
+                        type="file" 
+                        accept="image/*" 
+                        capture="environment" 
+                        id="phototiesAnchors" 
+                        name="phototiesAnchors" 
+                        class="d-none"
+                      >
+
+                      <!-- Preview thumbnail -->
+                      <img id="photoPreviewtiesAnchors" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+                      </div>
+                    </div>
+
+                    <label for="remedialActiontiesAnchors" class="form-label mt-3">Remedial Action</label>
+                    <input type="text" id="remedialActiontiesAnchors" name="remedialActiontiesAnchors" class="form-control" placeholder="Please specify...">
+                    </div>
                 </div>
 
                 <!-- Question: Anchor Integrity -->
@@ -1177,13 +1359,39 @@
                        </label>
                       </div>
                     </div>
-                  </div>
+                    </div>
+                    
+                    <!-- Remedial Action field (shown only on Fail) -->
+          <div id="anchorIntegrityRemedial" class="mt-3 d-none">
+            <label class="form-label mb-1">Details of Fault</label>
+            <div class="row g-2 align-items-start">
+            <!-- Fault description input -->
+            <div class="col-md-8">
+              <input type="text" id="faultDetailsanchorIntegrity" name="faultDetailsanchorIntegrity" class="form-control" placeholder="Describe the fault...">
+            </div>
 
-                  <!-- Remedial Action field (hidden by default) -->
-  <div id="anchorIntegrityRemedial" class="mt-3 d-none">
-    <label for="remedialActionanchorIntegrity" class="form-label">Remedial Action</label>
-    <input type="text" id="remedialActionanchorIntegrity" name="remedialActionanchorIntegrity" class="form-control" placeholder="Please specify...">
-  </div>
+            <!-- Camera button & preview -->
+            <div class="col-md-4 text-end">
+              <label for="photoanchorIntegrity" class="btn btn-outline-secondary w-100 mb-2">
+              <i class="bi bi-camera"></i>
+              </label>
+              <input 
+              type="file" 
+              accept="image/*" 
+              capture="environment" 
+              id="photoanchorIntegrity" 
+              name="photoanchorIntegrity" 
+              class="d-none"
+              >
+
+              <!-- Preview thumbnail -->
+              <img id="photoPreviewanchorIntegrity" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+            </div>
+            </div>
+
+            <label for="remedialActionanchorIntegrity" class="form-label mt-3">Remedial Action</label>
+            <input type="text" id="remedialActionanchorIntegrity" name="remedialActionanchorIntegrity" class="form-control" placeholder="Please specify...">
+          </div>
                 </div>
 
                 <!-- Question: Tie Pattern & Additions -->
@@ -1225,7 +1433,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="tiePatternAdditionsRemedial" class="mt-3 d-none">
-    <label for="remedialActiontiePatternAdditions" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailstiePatternAdditions" name="faultDetailstiePatternAdditions" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="phototiePatternAdditions" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="phototiePatternAdditions" 
+          name="phototiePatternAdditions" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewtiePatternAdditions" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActiontiePatternAdditions" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActiontiePatternAdditions" name="remedialActiontiePatternAdditions" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -1273,7 +1507,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="stabilityAugmentationsRemedial" class="mt-3 d-none">
-    <label for="remedialActionstabilityAugmentations" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailsstabilityAugmentations" name="faultDetailsstabilityAugmentations" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="photostabilityAugmentations" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="photostabilityAugmentations" 
+          name="photostabilityAugmentations" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewstabilityAugmentations" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActionstabilityAugmentations" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActionstabilityAugmentations" name="remedialActionstabilityAugmentations" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -1355,7 +1615,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="boardsPlacedSecureRemedial" class="mt-3 d-none">
-    <label for="remedialActionboardsPlacedSecure" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailsboardsPlacedSecure" name="faultDetailsboardsPlacedSecure" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="photoboardsPlacedSecure" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="photoboardsPlacedSecure" 
+          name="photoboardsPlacedSecure" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewboardsPlacedSecure" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActionboardsPlacedSecure" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActionboardsPlacedSecure" name="remedialActionboardsPlacedSecure" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -1396,7 +1682,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="boardConditionRemedial" class="mt-3 d-none">
-    <label for="remedialActionboardCondition" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailsboardCondition" name="faultDetailsboardCondition" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="photoboardCondition" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="photoboardCondition" 
+          name="photoboardCondition" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewboardCondition" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActionboardCondition" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActionboardCondition" name="remedialActionboardCondition" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -1439,7 +1751,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="boardGapsOverhangsRemedial" class="mt-3 d-none">
-    <label for="remedialActionboardGapsOverhangs" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailsboardGapsOverhangs" name="faultDetailsboardGapsOverhangs" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="photoboardGapsOverhangs" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="photoboardGapsOverhangs" 
+          name="photoboardGapsOverhangs" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewboardGapsOverhangs" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActionboardGapsOverhangs" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActionboardGapsOverhangs" name="remedialActionboardGapsOverhangs" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -1487,7 +1825,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="boardRetentionRemedial" class="mt-3 d-none">
-    <label for="remedialActionboardRetention" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailsboardRetention" name="faultDetailsboardRetention" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="photoboardRetention" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="photoboardRetention" 
+          name="photoboardRetention" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewboardRetention" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActionboardRetention" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActionboardRetention" name="remedialActionboardRetention" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -1573,7 +1937,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="guardrailsRemedial" class="mt-3 d-none">
-    <label for="remedialActionguardrails" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailsguardrails" name="faultDetailsguardrails" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="photoguardrails" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="photoguardrails" 
+          name="photoguardrails" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewguardrails" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActionguardrails" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActionguardrails" name="remedialActionguardrails" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -1617,7 +2007,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="toeBoardsRemedial" class="mt-3 d-none">
-    <label for="remedialActiontoeBoards" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailstoeBoards" name="faultDetailstoeBoards" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="phototoeBoards" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="phototoeBoards" 
+          name="phototoeBoards" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewtoeBoards" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActiontoeBoards" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActiontoeBoards" name="remedialActiontoeBoards" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -1667,7 +2083,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="brickGuardsMeshRemedial" class="mt-3 d-none">
-    <label for="remedialActionbrickGuardsMesh" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailsbrickGuardsMesh" name="faultDetailsbrickGuardsMesh" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="photobrickGuardsMesh" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="photobrickGuardsMesh" 
+          name="photobrickGuardsMesh" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewbrickGuardsMesh" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActionbrickGuardsMesh" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActionbrickGuardsMesh" name="remedialActionbrickGuardsMesh" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -1757,7 +2199,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="laddersRemedial" class="mt-3 d-none">
-    <label for="remedialActionladders" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailsladders" name="faultDetailsladders" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="photoladders" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="photoladders" 
+          name="photoladders" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewladders" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActionladders" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActionladders" name="remedialActionladders" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -1805,7 +2273,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="stairTowersRemedial" class="mt-3 d-none">
-    <label for="remedialActionstairTowers" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailsstairTowers" name="faultDetailsstairTowers" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="photostairTowers" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="photostairTowers" 
+          name="photostairTowers" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewstairTowers" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActionstairTowers" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActionstairTowers" name="remedialActionstairTowers" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -1853,7 +2347,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="accessOpeningsRemedial" class="mt-3 d-none">
-    <label for="remedialActionaccessOpenings" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailsaccessOpenings" name="faultDetailsaccessOpenings" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="photoaccessOpenings" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="photoaccessOpenings" 
+          name="photoaccessOpenings" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewaccessOpenings" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActionaccessOpenings" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActionaccessOpenings" name="remedialActionaccessOpenings" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -1895,7 +2415,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="LocationAccessRemedial" class="mt-3 d-none">
-    <label for="remedialActionLocationAccess" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailsLocationAccess" name="faultDetailsLocationAccess" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="photoLocationAccess" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="photoLocationAccess" 
+          name="photoLocationAccess" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewLocationAccess" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActionLocationAccess" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActionLocationAccess" name="remedialActionLocationAccess" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -1944,7 +2490,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="UnauthorizedAccessPreventionRemedial" class="mt-3 d-none">
-    <label for="remedialActionUnauthorizedAccessPrevention" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailsUnauthorizedAccessPrevention" name="faultDetailsUnauthorizedAccessPrevention" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="photoUnauthorizedAccessPrevention" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="photoUnauthorizedAccessPrevention" 
+          name="photoUnauthorizedAccessPrevention" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewUnauthorizedAccessPrevention" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActionUnauthorizedAccessPrevention" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActionUnauthorizedAccessPrevention" name="remedialActionUnauthorizedAccessPrevention" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -2028,7 +2600,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="DesignLoadComplianceRemedial" class="mt-3 d-none">
-    <label for="remedialActionDesignLoadCompliance" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailsDesignLoadCompliance" name="faultDetailsDesignLoadCompliance" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="photoDesignLoadCompliance" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="photoDesignLoadCompliance" 
+          name="photoDesignLoadCompliance" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewDesignLoadCompliance" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActionDesignLoadCompliance" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActionDesignLoadCompliance" name="remedialActionDesignLoadCompliance" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -2073,7 +2671,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="LoadingBaysRemedial" class="mt-3 d-none">
-    <label for="remedialActionLoadingBays" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailsLoadingBays" name="faultDetailsLoadingBays" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="photoLoadingBays" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="photoLoadingBays" 
+          name="photoLoadingBays" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewLoadingBays" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActionLoadingBays" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActionLoadingBays" name="remedialActionLoadingBays" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -2123,7 +2747,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="CantileversSpecialStructuresRemedial" class="mt-3 d-none">
-    <label for="remedialActionCantileversSpecialStructures" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailsCantileversSpecialStructures" name="faultDetailsCantileversSpecialStructures" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="photoCantileversSpecialStructures" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="photoCantileversSpecialStructures" 
+          name="photoCantileversSpecialStructures" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewCantileversSpecialStructures" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActionCantileversSpecialStructures" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActionCantileversSpecialStructures" name="remedialActionCantileversSpecialStructures" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -2167,7 +2817,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="GeneralMisuseInterferenceRemedial" class="mt-3 d-none">
-    <label for="remedialActionGeneralMisuseInterference" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailsGeneralMisuseInterference" name="faultDetailsGeneralMisuseInterference" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="photoGeneralMisuseInterference" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="photoGeneralMisuseInterference" 
+          name="photoGeneralMisuseInterference" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewGeneralMisuseInterference" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActionGeneralMisuseInterference" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActionGeneralMisuseInterference" name="remedialActionGeneralMisuseInterference" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -2256,7 +2932,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="OverheadProtectionRemedial" class="mt-3 d-none">
-    <label for="remedialActionOverheadProtection" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailsOverheadProtection" name="faultDetailsOverheadProtection" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="photoOverheadProtection" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="photoOverheadProtection" 
+          name="photoOverheadProtection" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewOverheadProtection" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActionOverheadProtection" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActionOverheadProtection" name="remedialActionOverheadProtection" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -2298,8 +3000,34 @@
                   </div>
 
                   <!-- Remedial Action field (hidden by default) -->
-  <div id="SignsLighting" class="mt-3 d-none">
-    <label for="remedialActionSignsLighting" class="form-label">Remedial Action</label>
+  <div id="SignsLightingRemedial" class="mt-3 d-none">
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailsSignsLighting" name="faultDetailsSignsLighting" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="photoSignsLighting" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="photoSignsLighting" 
+          name="photoSignsLighting" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewSignsLighting" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActionSignsLighting" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActionSignsLighting" name="remedialActionSignsLighting" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -2342,7 +3070,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="ElectricalHazardsRemedial" class="mt-3 d-none">
-    <label for="remedialActionElectricalHazards" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailsElectricalHazards" name="faultDetailsElectricalHazards" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="photoElectricalHazards" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="photoElectricalHazards" 
+          name="photoElectricalHazards" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewElectricalHazards" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActionElectricalHazards" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActionElectricalHazards" name="remedialActionElectricalHazards" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -2385,7 +3139,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="WeatherConditionsRemedial" class="mt-3 d-none">
-    <label for="remedialActionWeatherConditions" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailsWeatherConditions" name="faultDetailsWeatherConditions" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="photoWeatherConditions" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="photoWeatherConditions" 
+          name="photoWeatherConditions" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewWeatherConditions" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActionWeatherConditions" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActionWeatherConditions" name="remedialActionWeatherConditions" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -2428,7 +3208,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="HousekeepingRemedial" class="mt-3 d-none">
-    <label for="remedialActionHousekeeping" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailsHousekeeping" name="faultDetailsHousekeeping" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="photoHousekeeping" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="photoHousekeeping" 
+          name="photoHousekeeping" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewHousekeeping" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActionHousekeeping" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActionHousekeeping" name="remedialActionHousekeeping" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -2715,7 +3521,33 @@
 
                   <!-- Remedial Action field (hidden by default) -->
   <div id="PersonalFallProtectionRemedial" class="mt-3 d-none">
-    <label for="remedialActionPersonalFallProtection" class="form-label">Remedial Action</label>
+    <label class="form-label mb-1">Details of Fault</label>
+    <div class="row g-2 align-items-start">
+      <!-- Fault description input -->
+      <div class="col-md-8">
+        <input type="text" id="faultDetailsPersonalFallProtection" name="faultDetailsPersonalFallProtection" class="form-control" placeholder="Describe the fault...">
+      </div>
+
+      <!-- Camera button & preview -->
+      <div class="col-md-4 text-end">
+        <label for="photoPersonalFallProtection" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-camera"></i>
+        </label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          capture="environment" 
+          id="photoPersonalFallProtection" 
+          name="photoPersonalFallProtection" 
+          class="d-none"
+        >
+
+        <!-- Preview thumbnail -->
+        <img id="photoPreviewPersonalFallProtection" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+
+    <label for="remedialActionPersonalFallProtection" class="form-label mt-3">Remedial Action</label>
     <input type="text" id="remedialActionPersonalFallProtection" name="remedialActionPersonalFallProtection" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
@@ -2870,8 +3702,172 @@
                 <!-- Body -->
                 <div class="card-body">
                   
-                  
+                  <!-- Question: Any other comments? -->
+                  <div class="mb-4 question-container">
+                    <label for="otherComments" class="form-label fw-bold">
+                      Any other comments?
+                    </label>
+                    <textarea id="otherComments" name="otherComments" class="form-control" rows="4" placeholder="Add any additional notes, observations, or comments here..."></textarea>
+                  </div>
 
+                  <!-- Question: Name of person/company hiring the scaffold -->
+                  <div class="mb-4 question-container">
+                    <label for="hirerName" class="form-label fw-bold">
+                      Name of person/company hiring the scaffold
+                      <!-- Info icon with popover -->
+                      <i
+                        class="bi bi-info-circle ms-2"
+                        tabindex="0"
+                        role="button"
+                        data-bs-toggle="popover"
+                        data-bs-trigger="focus"
+                        title="Hirer Name"
+                        data-bs-content="Enter the full name of the individual or company responsible for hiring the scaffold. This is required for legal and record-keeping purposes.">
+                      </i>
+                    </label>
+                    <input
+                      type="text"
+                      id="hirerName"
+                      name="hirerName"
+                      class="form-control"
+                      placeholder="Enter name of person or company"
+                      required
+                    >
+                  </div>
+
+                  <!-- Question: Site Address (Google Places Autocomplete) -->
+                  <div class="mb-4 question-container">
+                    <label for="siteAddress" class="form-label fw-bold">
+                      Site Address
+                    </label>
+                    <input
+                      type="text"
+                      id="siteAddress"
+                      name="siteAddress"
+                      class="form-control"
+                      placeholder="Start typing site address..."
+                      autocomplete="off"
+                      required
+                    >
+                  </div>
+                  <!-- Question: Scaffold Location -->
+                  <div class="mb-4 question-container">
+                    <label for="scaffoldLocation" class="form-label fw-bold">
+                      Scaffold Location
+                      <!-- Info icon with popover -->
+                      <i
+                        class="bi bi-info-circle ms-2"
+                        tabindex="0"
+                        role="button"
+                        data-bs-toggle="popover"
+                        data-bs-trigger="focus"
+                        title="Scaffold Location"
+                        data-bs-content="This means the exact location of the scaffold on-site (e.g. “North elevation, Unit 3”)">
+                      </i>
+                    </label>
+                    <input
+                      type="text"
+                      id="scaffoldLocation"
+                      name="scaffoldLocation"
+                      class="form-control"
+                      placeholder="e.g. North elevation, Unit 3"
+                      required
+                    >
+                  </div>
+
+                  <!-- Question: Date Erected -->
+                  <div class="mb-4 question-container">
+                    <label for="dateErected" class="form-label fw-bold">
+                      Date Erected
+                    </label>
+                    <input
+                      type="text"
+                      id="dateErected"
+                      name="dateErected"
+                      class="form-control datepicker"
+                      placeholder="Select date scaffold was erected"
+                      autocomplete="off"
+                      required
+                    >
+                  </div>
+                  <!-- Question: Inspector Details -->
+                  <div class="mb-4 question-container">
+                    <label class="form-label fw-bold">
+                      Inspector Details
+                    </label>
+                    <div class="container">
+                      <div class="row g-2">
+                        <div class="col-md-6">
+                          <label for="inspectorName" class="form-label">Inspector Name</label>
+                          <input
+                            type="text"
+                            id="inspectorName"
+                            name="inspectorName"
+                            class="form-control"
+                            placeholder="Enter inspector's name"
+                            required
+                          >
+                        </div>
+                        <div class="col-md-6">
+                          <label for="inspectorPosition" class="form-label">Inspector Position</label>
+                          <input
+                            type="text"
+                            id="inspectorPosition"
+                            name="inspectorPosition"
+                            class="form-control"
+                            placeholder="Enter inspector's position"
+                            required
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Question: Signature -->
+                  <div class="mb-4 question-container">
+                    <label class="form-label fw-bold">
+                      Signature
+                      <i
+                        class="bi bi-info-circle ms-2"
+                        tabindex="0"
+                        role="button"
+                        data-bs-toggle="popover"
+                        data-bs-trigger="focus"
+                        title="Signature"
+                        data-bs-content="Please provide your signature. You can draw it on a touchscreen device or upload an image if using a computer.">
+                      </i>
+                    </label>
+                    <div class="container">
+                      <div class="row g-2">
+                        <div class="col-12 mb-2">
+                          <!-- Signature Pad Canvas (shown on touch devices, fallback for all) -->
+                          <canvas id="signaturePad" style="border:1px solid #ccc; width:100%; height:150px; touch-action: none; background: #fff; border-radius: 6px;"></canvas>
+                          <div class="d-flex justify-content-between mt-2">
+                            <button type="button" class="btn btn-outline-secondary btn-sm" id="clearSignatureBtn">
+                              Clear
+                            </button>
+                            <span class="text-muted small">Draw here or upload below</span>
+                          </div>
+                          <input type="hidden" id="signatureData" name="signatureData">
+                        </div>
+                        <div class="col-12">
+                          <!-- Upload Signature Image (for desktop users) -->
+                          <label for="signatureUpload" class="btn btn-outline-primary w-100 mb-2">
+                            <i class="bi bi-upload"></i> Upload Signature Image
+                          </label>
+                          <input
+                            type="file"
+                            id="signatureUpload"
+                            name="signatureUpload"
+                            accept="image/*"
+                            class="d-none"
+                          >
+                          <!-- Preview uploaded signature -->
+                          <img id="signaturePreview" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <!-- End Body -->
 

@@ -286,6 +286,119 @@ function initializeAllPhotoPreviews() {
   initializeRemedialFieldToggle();
   initializeInsuranceQuoteToggle();
   initializeAllPhotoPreviews();
+
+  // ------------------------------------------------------------
+  //Date Picker Initialization
+  // ------------------------------------------------------------
+                      $(function() {
+                      $('#dateErected').datepicker({
+                        format: 'dd/mm/yyyy',
+                        autoclose: true,
+                        todayHighlight: true
+                      });
+                    });
+
+  // ------------------------------------------------------------
+  // Signature Pad logic
+  // ------------------------------------------------------------
+                      (function() {
+                      const canvas = document.getElementById('signaturePad');
+                      const ctx = canvas.getContext('2d');
+                      let drawing = false, lastX = 0, lastY = 0;
+
+                      // Resize canvas to fit container
+                      function resizeCanvas() {
+                        const ratio = Math.max(window.devicePixelRatio || 1, 1);
+                        const width = canvas.offsetWidth;
+                        const height = 150;
+                        canvas.width = width * ratio;
+                        canvas.height = height * ratio;
+                        canvas.style.width = width + 'px';
+                        canvas.style.height = height + 'px';
+                        ctx.setTransform(1, 0, 0, 1, 0, 0);
+                        ctx.scale(ratio, ratio);
+                        ctx.fillStyle = "#fff";
+                        ctx.fillRect(0, 0, width, height);
+                      }
+                      resizeCanvas();
+                      window.addEventListener('resize', resizeCanvas);
+
+                      function getPos(e) {
+                        if (e.touches && e.touches.length) {
+                          const rect = canvas.getBoundingClientRect();
+                          return {
+                            x: e.touches[0].clientX - rect.left,
+                            y: e.touches[0].clientY - rect.top
+                          };
+                        } else {
+                          const rect = canvas.getBoundingClientRect();
+                          return {
+                            x: e.clientX - rect.left,
+                            y: e.clientY - rect.top
+                          };
+                        }
+                      }
+
+                      function startDraw(e) {
+                        drawing = true;
+                        const pos = getPos(e);
+                        lastX = pos.x;
+                        lastY = pos.y;
+                        e.preventDefault();
+                      }
+                      function draw(e) {
+                        if (!drawing) return;
+                        const pos = getPos(e);
+                        ctx.strokeStyle = "#222";
+                        ctx.lineWidth = 2;
+                        ctx.lineCap = "round";
+                        ctx.beginPath();
+                        ctx.moveTo(lastX, lastY);
+                        ctx.lineTo(pos.x, pos.y);
+                        ctx.stroke();
+                        lastX = pos.x;
+                        lastY = pos.y;
+                        e.preventDefault();
+                      }
+                      function endDraw(e) {
+                        drawing = false;
+                        // Save signature data to hidden input
+                        document.getElementById('signatureData').value = canvas.toDataURL();
+                        e && e.preventDefault();
+                      }
+                      // Mouse events
+                      canvas.addEventListener('mousedown', startDraw);
+                      canvas.addEventListener('mousemove', draw);
+                      canvas.addEventListener('mouseup', endDraw);
+                      canvas.addEventListener('mouseleave', endDraw);
+                      // Touch events
+                      canvas.addEventListener('touchstart', startDraw);
+                      canvas.addEventListener('touchmove', draw);
+                      canvas.addEventListener('touchend', endDraw);
+
+                      // Clear button
+                      document.getElementById('clearSignatureBtn').addEventListener('click', function() {
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        resizeCanvas();
+                        document.getElementById('signatureData').value = '';
+                      });
+
+                      // Upload logic
+                      const uploadInput = document.getElementById('signatureUpload');
+                      const previewImg = document.getElementById('signaturePreview');
+                      uploadInput.addEventListener('change', function(e) {
+                        const file = e.target.files[0];
+                        if (!file) return;
+                        const reader = new FileReader();
+                        reader.onload = function(evt) {
+                          previewImg.src = evt.target.result;
+                          previewImg.classList.remove('d-none');
+                          // Save uploaded image as signature data
+                          document.getElementById('signatureData').value = evt.target.result;
+                        };
+                        reader.readAsDataURL(file);
+                      });
+                    })();
   
 
     // ----------------------------------------
