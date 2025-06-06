@@ -2654,11 +2654,28 @@
                     </div>
                   </div>
 
-                  <!-- Remedial Action field (hidden by default) -->
-  <div id="AncillaryEquipmentRemedial" class="mt-3 d-none">
-    <label for="remedialActionAncillaryEquipment" class="form-label">Remedial Action</label>
-    <input type="text" id="remedialActionAncillaryEquipment" name="remedialActionAncillaryEquipment" class="form-control" placeholder="Please specify...">
+                  <!-- Remedial Action field (shown only on Fail) -->
+<div id="AncillaryEquipmentRemedial" class="mt-3 d-none">
+  <label class="form-label mb-1">Details of Fault</label>
+  <div class="row g-2 align-items-start">
+    <!-- Fault description input -->
+    <div class="col-md-8">
+      <input type="text" id="faultDetailsAncillaryEquipment" name="faultDetailsAncillaryEquipment" class="form-control" placeholder="Describe the fault...">
+    </div>
+
+    <!-- Camera button -->
+    <div class="col-md-4 text-end">
+      <label for="photoAncillaryEquipment" class="btn btn-outline-secondary w-100">
+        <i class="bi bi-camera"></i>
+      </label>
+      <input type="file" accept="image/*" capture="environment" id="photoAncillaryEquipment" name="photoAncillaryEquipment" class="d-none">
+    </div>
   </div>
+
+  <label for="remedialActionAncillaryEquipment" class="form-label mt-3">Remedial Action</label>
+  <input type="text" id="remedialActionAncillaryEquipment" name="remedialActionAncillaryEquipment" class="form-control" placeholder="Please specify...">
+</div>
+
                 </div>
 
                 <!-- Question: Insurance   -->
