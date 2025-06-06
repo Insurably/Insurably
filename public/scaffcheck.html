@@ -58,9 +58,7 @@
   <link rel="stylesheet" href="./assets/css/theme_formatted.min.css">
 
   <style>
-    #quoteButton {
-      display: none !important;
-    }
+
     .btn-outline-primary {
       border-color: #377dff !important;
     }
@@ -2574,7 +2572,134 @@
                 <!-- Body -->
                 <div class="card-body">
                   
-                  <!-- Question: Enter Questions here -->
+                <!-- Question: Personal Fall Protection   -->
+                <div class="mb-4 question-container">
+                  <label class="form-label fw-bold">
+                    Personal Fall Protection
+                    <!-- Info icon with popover -->
+                    <i 
+                      class="bi bi-info-circle ms-2" 
+                     tabindex="0"
+                      role="button"
+                     data-bs-toggle="popover" 
+                     data-bs-trigger="focus"
+                     title="Personal Fall Protection"
+                     data-bs-content="Ensure that whenever scaffolds are being erected, altered, or dismantled, the crew uses proper fall prevention measures (e.g. harnesses and lanyards, as per NASC SG4), and that dropping of materials is controlled.">
+                    </i>
+                 </label>
+                  <div class="container">
+                   <div class="row g-2">
+                     <div class="col-md-6">
+                       <input type="radio" class="btn-check" name="PersonalFallProtection" id="PersonalFallProtectionPass" autocomplete="off" value="Pass" required>
+                       <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="PersonalFallProtectionPass">
+                         <i class="bi bi-check-square me-2"></i> Pass
+                        </label>
+                     </div>
+                     <div class="col-md-6">
+                       <input type="radio" class="btn-check" name="PersonalFallProtection" id="PersonalFallProtectionFail" autocomplete="off" value="Fail" required>
+                        <label class="btn btn-outline-danger btn-lg w-100 answer-btn" for="PersonalFallProtectionFail">
+                          <i class="bi bi-dash-circle me-2"></i> Fail
+                       </label>
+                      </div>
+                      <div class="col-md-6">
+                       <input type="radio" class="btn-check" name="PersonalFallProtection" id="PersonalFallProtectionNA" autocomplete="off" value="N/A" required>
+                        <label class="btn btn-outline-warning btn-lg w-100 answer-btn" for="PersonalFallProtectionNA">
+                          <i class="bi bi-dash-circle me-2"></i> N/A
+                       </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Remedial Action field (hidden by default) -->
+  <div id="PersonalFallProtectionRemedial" class="mt-3 d-none">
+    <label for="remedialActionPersonalFallProtection" class="form-label">Remedial Action</label>
+    <input type="text" id="remedialActionPersonalFallProtection" name="remedialActionPersonalFallProtection" class="form-control" placeholder="Please specify...">
+  </div>
+                </div>
+
+                <!-- Question: Ancillary Equipment   -->
+                <div class="mb-4 question-container">
+                  <label class="form-label fw-bold">
+                    Ancillary Equipment
+                    <!-- Info icon with popover -->
+                    <i 
+                      class="bi bi-info-circle ms-2" 
+                     tabindex="0"
+                      role="button"
+                     data-bs-toggle="popover" 
+                     data-bs-trigger="focus"
+                     title="Ancillary Equipment"
+                     data-bs-content="If the scaffold has any hoists, pulleys, or lifting appliances attached,
+                                       ensure they are securely fixed to the scaffold and have been inspected as well. Ties for gin
+                                       wheels, etc., should not be removed without replacement. Check that safety gates (e.g. at
+                                       ladder access or loading edges) are functional. Also confirm any weather protection
+                                       (monarflex, shrink wrap sheeting) is holding up and secured properly – loose sheets can be very
+                                       dangerous in winds.">
+                    </i>
+                 </label>
+                  <div class="container">
+                   <div class="row g-2">
+                     <div class="col-md-6">
+                       <input type="radio" class="btn-check" name="AncillaryEquipment" id="AncillaryEquipmentPass" autocomplete="off" value="Pass" required>
+                       <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="AncillaryEquipmentPass">
+                         <i class="bi bi-check-square me-2"></i> Pass
+                        </label>
+                     </div>
+                     <div class="col-md-6">
+                       <input type="radio" class="btn-check" name="AncillaryEquipment" id="AncillaryEquipmentFail" autocomplete="off" value="Fail" required>
+                        <label class="btn btn-outline-danger btn-lg w-100 answer-btn" for="AncillaryEquipmentFail">
+                          <i class="bi bi-dash-circle me-2"></i> Fail
+                       </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Remedial Action field (hidden by default) -->
+  <div id="AncillaryEquipmentRemedial" class="mt-3 d-none">
+    <label for="remedialActionAncillaryEquipment" class="form-label">Remedial Action</label>
+    <input type="text" id="remedialActionAncillaryEquipment" name="remedialActionAncillaryEquipment" class="form-control" placeholder="Please specify...">
+  </div>
+                </div>
+
+                <!-- Question: Insurance   -->
+                <div class="mb-4 question-container">
+                  <label class="form-label fw-bold">
+                    Valid Public and Employers' Liability Insurance policy in force
+                    <!-- Info icon with popover -->
+                    <i 
+                      class="bi bi-info-circle ms-2" 
+                     tabindex="0"
+                      role="button"
+                     data-bs-toggle="popover" 
+                     data-bs-trigger="focus"
+                     title="Public and Employers' Liability Insurance"
+                     data-bs-content="Public liability protects against claims if a third party—such as a site visitor or passerby—is injured due to the scaffold, whether during erection or while in use. Employers’ liability covers injuries to workers on site, whether they're erecting the scaffold or working on or around it afterward. Since responsibility shifts once the scaffold is handed over, both the scaffolder and the main contractor must ensure they’re properly insured to avoid costly claims and stay compliant with legal requirements.">
+                    </i>
+                 </label>
+                  <div class="container">
+                   <div class="row g-2">
+                     <div class="col-md-6">
+                       <input type="radio" class="btn-check" name="Insurance" id="InsurancePass" autocomplete="off" value="Pass" required>
+                       <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="InsurancePass">
+                         <i class="bi bi-check-square me-2"></i> Pass
+                        </label>
+                     </div>
+                     <div class="col-md-6">
+                       <input type="radio" class="btn-check" name="Insurance" id="InsuranceFail" autocomplete="off" value="Fail" required>
+                        <label class="btn btn-outline-danger btn-lg w-100 answer-btn" for="InsuranceFail">
+                          <i class="bi bi-dash-circle me-2"></i> Fail
+                       </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Quote Button (hidden by default) -->
+<div id="InsuranceQuote" class="mt-3 d-none">
+  <p class="text-danger text-center fst-italic" style="font-family: 'Poppins', sans-serif; margin: 0;">
+    <strong>Complete checklist</strong> then click the <strong>quote button</strong> at the top of the screen.
+  </p>
+</div>
+                </div>
 
                 </div>
                 <!-- End Body -->
