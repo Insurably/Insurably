@@ -3791,38 +3791,53 @@
                       required
                     >
                   </div>
-                  <!-- Question: Inspector Details -->
-                  <div class="mb-4 question-container">
+                    <!-- Question: Inspector Details -->
+                    <div class="mb-4 question-container">
                     <label class="form-label fw-bold">
                       Inspector Details
                     </label>
                     <div class="container">
                       <div class="row g-2">
-                        <div class="col-md-6">
-                          <label for="inspectorName" class="form-label">Name</label>
-                          <input
-                            type="text"
-                            id="inspectorName"
-                            name="inspectorName"
-                            class="form-control"
-                            placeholder="Enter inspector's name"
-                            required
-                          >
-                        </div>
-                        <div class="col-md-6">
-                          <label for="inspectorPosition" class="form-label">Position</label>
-                          <input
-                            type="text"
-                            id="inspectorPosition"
-                            name="inspectorPosition"
-                            class="form-control"
-                            placeholder="Enter inspector's position"
-                            required
-                          >
+                      <div class="col-md-4">
+                        <label for="inspectorName" class="form-label">Name</label>
+                        <input
+                        type="text"
+                        id="inspectorName"
+                        name="inspectorName"
+                        class="form-control"
+                        placeholder="Enter inspector's name"
+                        required
+                        >
+                      </div>
+                      <div class="col-md-4">
+                        <label for="inspectorPosition" class="form-label">Position</label>
+                        <input
+                        type="text"
+                        id="inspectorPosition"
+                        name="inspectorPosition"
+                        class="form-control"
+                        placeholder="Enter inspector's position"
+                        required
+                        >
+                      </div>
+                      <div class="col-md-4">
+                        <label for="inspectorEmail" class="form-label">Email Address</label>
+                        <input
+                        type="email"
+                        id="inspectorEmail"
+                        name="inspectorEmail"
+                        class="form-control"
+                        placeholder="Enter inspector's email"
+                        required
+                        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                        >
+                        <div class="invalid-feedback">
+                        Please enter a valid email address.
                         </div>
                       </div>
+                      </div>
                     </div>
-                  </div>
+                    </div>
 
                   <!-- Question: Signature -->
 <div class="mb-4 question-container">
