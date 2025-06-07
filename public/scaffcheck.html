@@ -18,6 +18,7 @@
   <title>Weekly Scaffold Inspection Checklist | Powered by Insurably®</title>
   <script type="module" src="supascaff.js" defer></script>
   <script type="module" src="ui-scaffcheck.js" defer></script>
+  <script src="signature-pad.js" defer></script>  
 
   <!-- Standard Favicon -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -3798,7 +3799,7 @@
                     <div class="container">
                       <div class="row g-2">
                         <div class="col-md-6">
-                          <label for="inspectorName" class="form-label">Inspector Name</label>
+                          <label for="inspectorName" class="form-label">Name</label>
                           <input
                             type="text"
                             id="inspectorName"
@@ -3809,7 +3810,7 @@
                           >
                         </div>
                         <div class="col-md-6">
-                          <label for="inspectorPosition" class="form-label">Inspector Position</label>
+                          <label for="inspectorPosition" class="form-label">Position</label>
                           <input
                             type="text"
                             id="inspectorPosition"
@@ -3824,50 +3825,59 @@
                   </div>
 
                   <!-- Question: Signature -->
-                  <div class="mb-4 question-container">
-                    <label class="form-label fw-bold">
-                      Signature
-                      <i
-                        class="bi bi-info-circle ms-2"
-                        tabindex="0"
-                        role="button"
-                        data-bs-toggle="popover"
-                        data-bs-trigger="focus"
-                        title="Signature"
-                        data-bs-content="Please provide your signature. You can draw it on a touchscreen device or upload an image if using a computer.">
-                      </i>
-                    </label>
-                    <div class="container">
-                      <div class="row g-2">
-                        <div class="col-12 mb-2">
-                          <!-- Signature Pad Canvas (shown on touch devices, fallback for all) -->
-                          <canvas id="signaturePad" style="border:1px solid #ccc; width:100%; height:150px; touch-action: none; background: #fff; border-radius: 6px;"></canvas>
-                          <div class="d-flex justify-content-between mt-2">
-                            <button type="button" class="btn btn-outline-secondary btn-sm" id="clearSignatureBtn">
-                              Clear
-                            </button>
-                            <span class="text-muted small">Draw here or upload below</span>
-                          </div>
-                          <input type="hidden" id="signatureData" name="signatureData">
-                        </div>
-                        <div class="col-12">
-                          <!-- Upload Signature Image (for desktop users) -->
-                          <label for="signatureUpload" class="btn btn-outline-primary w-100 mb-2">
-                            <i class="bi bi-upload"></i> Upload Signature Image
-                          </label>
-                          <input
-                            type="file"
-                            id="signatureUpload"
-                            name="signatureUpload"
-                            accept="image/*"
-                            class="d-none"
-                          >
-                          <!-- Preview uploaded signature -->
-                          <img id="signaturePreview" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+<div class="mb-4 question-container">
+  <label class="form-label fw-bold">
+    Signature
+    <i
+      class="bi bi-info-circle ms-2"
+      tabindex="0"
+      role="button"
+      data-bs-toggle="popover"
+      data-bs-trigger="focus"
+      title="Signature"
+      data-bs-content="Please provide your signature. You can draw it using a touchscreen or mouse, or upload an image if preferred.">
+    </i>
+  </label>
+
+  <div class="container px-0">
+    <div class="row g-2">
+      <!-- Signature Pad -->
+      <div class="col-12">
+        <canvas id="signaturePad" 
+        style="border:1px solid #ccc; width:100%; height:150px; background:#fff; border-radius:6px;"
+        onmousedown="return false;"></canvas>
+
+        <div class="d-flex justify-content-between mt-2">
+          <button type="button" class="btn btn-outline-secondary btn-sm" id="clearSignatureBtn">
+            Clear
+          </button>
+          <small class="text-muted">Draw your signature or upload below</small>
+        </div>
+        <input type="hidden" id="signatureData" name="signatureData">
+      </div>
+
+      <!-- Upload Signature Option -->
+      <div class="col-12">
+        <label for="signatureUpload" class="btn btn-outline-primary w-100 mb-2">
+          <i class="bi bi-upload me-1"></i> Upload Signature Image
+        </label>
+        <input
+          type="file"
+          id="signatureUpload"
+          name="signatureUpload"
+          accept="image/*"
+          class="d-none"
+        >
+        <img
+          id="signaturePreview"
+          class="img-thumbnail d-none mt-2"
+          alt="Signature Preview"
+          style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+  </div>
+</div>
+
                 </div>
                 <!-- End Body -->
 
