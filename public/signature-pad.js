@@ -20,7 +20,7 @@ function initializeSignaturePad() {
   function resizeCanvas() {
     const ratio = Math.max(window.devicePixelRatio || 1, 1);
     const width = window.innerWidth;
-    const height = window.innerHeight - 200; // leaves space for buttons
+    const height = window.innerHeight - 200;
     canvas.width = width * ratio;
     canvas.height = height * ratio;
     canvas.style.width = width + 'px';
@@ -66,7 +66,6 @@ function initializeSignaturePad() {
     e?.preventDefault();
   }
 
-  // Attach drawing events
   canvas.addEventListener('mousedown', startDraw);
   canvas.addEventListener('mousemove', draw);
   canvas.addEventListener('mouseup', endDraw);
@@ -75,19 +74,16 @@ function initializeSignaturePad() {
   canvas.addEventListener('touchmove', draw, { passive: false });
   canvas.addEventListener('touchend', endDraw);
 
-  // Clear canvas
   clearBtn.addEventListener('click', () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     resizeCanvas();
   });
 
-  // Cancel (close modal without saving)
   cancelBtn.addEventListener('click', () => {
     modal.classList.add('d-none');
     document.body.classList.remove('overflow-hidden');
   });
 
-  // Save signature
   saveBtn.addEventListener('click', () => {
     const dataURL = canvas.toDataURL();
     signatureField.value = dataURL;
@@ -97,7 +93,6 @@ function initializeSignaturePad() {
     document.body.classList.remove('overflow-hidden');
   });
 
-  // Upload fallback
   uploadInput?.addEventListener('change', function (e) {
     const file = e.target.files[0];
     if (!file) return;
@@ -111,14 +106,19 @@ function initializeSignaturePad() {
     reader.readAsDataURL(file);
   });
 
-  // Open modal
   openBtn.addEventListener('click', () => {
     modal.classList.remove('d-none');
     document.body.classList.add('overflow-hidden');
     resizeCanvas();
+
+    // ✅ Prevent mobile keyboard from opening
+    setTimeout(() => {
+      if (document.activeElement && typeof document.activeElement.blur === 'function') {
+        document.activeElement.blur();
+      }
+    }, 100);
   });
 
-  // Resize canvas when window resizes while open
   window.addEventListener('resize', () => {
     if (!modal.classList.contains('d-none')) {
       resizeCanvas();
