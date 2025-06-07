@@ -1,7 +1,16 @@
 function initializeSignaturePad() {
-  const canvas = document.getElementById('signaturePad');
-  if (!canvas) {
-    console.warn("Signature pad canvas not found.");
+  const openBtn = document.getElementById('openSignatureModal');
+  const modal = document.getElementById('signatureModal');
+  const canvas = document.getElementById('signatureCanvas');
+  const saveBtn = document.getElementById('saveSignature');
+  const cancelBtn = document.getElementById('cancelSignature');
+  const clearBtn = document.getElementById('clearSignature');
+  const previewImg = document.getElementById('signaturePreview');
+  const uploadInput = document.getElementById('signatureUpload');
+  const signatureField = document.getElementById('signatureData');
+
+  if (!canvas || !modal || !openBtn || !saveBtn || !cancelBtn || !clearBtn) {
+    console.warn("Signature modal elements not found.");
     return;
   }
 
@@ -10,8 +19,8 @@ function initializeSignaturePad() {
 
   function resizeCanvas() {
     const ratio = Math.max(window.devicePixelRatio || 1, 1);
-    const width = canvas.offsetWidth;
-    const height = 150;
+    const width = window.innerWidth;
+    const height = window.innerHeight - 200; // leaves space for buttons
     canvas.width = width * ratio;
     canvas.height = height * ratio;
     canvas.style.width = width + 'px';
@@ -21,9 +30,6 @@ function initializeSignaturePad() {
     ctx.fillStyle = "#fff";
     ctx.fillRect(0, 0, width, height);
   }
-
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
 
   function getPos(e) {
     const rect = canvas.getBoundingClientRect();
@@ -57,42 +63,66 @@ function initializeSignaturePad() {
 
   function endDraw(e) {
     drawing = false;
-    const signatureField = document.getElementById('signatureData');
-    if (signatureField) signatureField.value = canvas.toDataURL();
     e?.preventDefault();
   }
 
+  // Attach drawing events
   canvas.addEventListener('mousedown', startDraw);
   canvas.addEventListener('mousemove', draw);
   canvas.addEventListener('mouseup', endDraw);
   canvas.addEventListener('mouseleave', endDraw);
-  canvas.addEventListener('touchstart', startDraw);
-  canvas.addEventListener('touchmove', draw);
+  canvas.addEventListener('touchstart', startDraw, { passive: false });
+  canvas.addEventListener('touchmove', draw, { passive: false });
   canvas.addEventListener('touchend', endDraw);
 
-  document.getElementById('clearSignatureBtn')?.addEventListener('click', () => {
+  // Clear canvas
+  clearBtn.addEventListener('click', () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     resizeCanvas();
-    const signatureField = document.getElementById('signatureData');
-    if (signatureField) signatureField.value = '';
   });
 
-  const uploadInput = document.getElementById('signatureUpload');
-  const previewImg = document.getElementById('signaturePreview');
+  // Cancel (close modal without saving)
+  cancelBtn.addEventListener('click', () => {
+    modal.classList.add('d-none');
+    document.body.classList.remove('overflow-hidden');
+  });
 
+  // Save signature
+  saveBtn.addEventListener('click', () => {
+    const dataURL = canvas.toDataURL();
+    signatureField.value = dataURL;
+    previewImg.src = dataURL;
+    previewImg.classList.remove('d-none');
+    modal.classList.add('d-none');
+    document.body.classList.remove('overflow-hidden');
+  });
+
+  // Upload fallback
   uploadInput?.addEventListener('change', function (e) {
     const file = e.target.files[0];
     if (!file) return;
     const reader = new FileReader();
     reader.onload = function (evt) {
-      if (previewImg) {
-        previewImg.src = evt.target.result;
-        previewImg.classList.remove('d-none');
-      }
-      const signatureField = document.getElementById('signatureData');
-      if (signatureField) signatureField.value = evt.target.result;
+      const img = evt.target.result;
+      signatureField.value = img;
+      previewImg.src = img;
+      previewImg.classList.remove('d-none');
     };
     reader.readAsDataURL(file);
+  });
+
+  // Open modal
+  openBtn.addEventListener('click', () => {
+    modal.classList.remove('d-none');
+    document.body.classList.add('overflow-hidden');
+    resizeCanvas();
+  });
+
+  // Resize canvas when window resizes while open
+  window.addEventListener('resize', () => {
+    if (!modal.classList.contains('d-none')) {
+      resizeCanvas();
+    }
   });
 }
 
