@@ -170,7 +170,7 @@
                   <li class="step-item">
                     <a class="step-content-wrapper" href="javascript:;"
                        data-hs-step-form-next-options='{
-                        "targetSelector": "#scaffCheckKeyInspectionPoints"
+                        "targetSelector": "#scaffCheckFoundationsGroundSupport"
                       }'>
                       <span class="step-icon step-icon-soft-dark">2</span>
                       <div class="step-content">
@@ -385,12 +385,7 @@
                     data-bs-toggle="popover" 
                     data-bs-trigger="focus"
                     title="Competent Inspector"
-                    data-bs-content="The inspection must be carried out by a competent person whose
-                    training, knowledge, and experience are suitable for the type and complexity of the scaffold.
-                    (For example, a CISRS-qualified scaffolder or a person who has completed a scaffold inspection
-                    course can inspect basic structures.) The person controlling the site (hirer/user of the
-                    scaffold) is responsible for ensuring these inspections are done, though they may delegate the
-                    task to a qualified inspector.">
+                    data-bs-content="The inspection must be done by someone who is properly trained and experienced for the type of scaffold being checked. This could be a CISRS-qualified scaffolder or someone who has passed a scaffold inspection course. The person in charge of the site (the hirer or user) must make sure inspections are carried out, but they can ask a qualified inspector to do it for them. All checks must meet TG20 guidelines.">
                     </i>
                  </label>
                   <div class="container">
@@ -423,13 +418,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Inspection Reports"
-                     data-bs-content="After each inspection, a written scaffold inspection report must be
-                      completed and provided to the relevant person (e.g. site manager). The report should include
-                      the date, time, location, a description of the scaffold, the inspector’s details, any defects or
-                      risks noted, and actions taken to correct them. Reports should be kept on site until work is
-                      finished and then retained for minimum 3 months. (Tip: Use a scaffold tag system at the
-                      access point to display the latest inspection date and status – while not legally required, HSE considers
-                      this good practice to assure users the scaffold is safe.)">
+                     data-bs-content="After every inspection, you must give a copy of this inspection to the person in charge (like the site manager). This can be done by email or printing off and giving it to them. Keep the report on site while the scaffold is up, and then keep it for at least 3 months after. It’s good practice to use a scaffold tag at the access point to show the latest inspection date and if the scaffold is safe to use – this isn’t a legal requirement, but the HSE recommends it for safety and TG20 compliance.">
                     </i>
                  </label>
                   <div class="container">
@@ -458,9 +447,9 @@
                   <div class="d-flex justify-content-end align-items-center">
                     <button type="button" class="btn btn-primary"
                             data-hs-step-form-next-options='{
-                              "targetSelector": "#scaffCheckKeyInspectionPoints"
+                              "targetSelector": "#scaffCheckFoundationsGroundSupport"
                             }'>
-                      Key Inspection Points <i class="bi-chevron-right small ms-1"></i>
+                      Foundations & Ground Support <i class="bi-chevron-right small ms-1"></i>
                     </button>
                   </div>
                 </div>
@@ -468,85 +457,20 @@
               </div>
               <!-- End Card -->
 
-              <div id="scaffCheckKeyInspectionPoints" class="card" style="display: none;">
+              <div id="scaffCheckFoundationsGroundSupport" class="card" style="display: none;">
                 <!-- Header -->
                 <div class="card-header bg-img-start;">
                   <div class="flex-grow-1">
                     <span class="d-lg-none">Step 2 of 13</span>
-                    <h3 class="card-header-title">Key Inspection Points</h3>
-                    <p class="card-header-subtitle">Each point should be ticked if satisfactory or noted for action if not, following HSE guidance for access scaffolds and NASC’s TG20 compliance.</p>
+                    <h3 class="card-header-title">Foundations & Ground Support</h3>
+                    <p class="card-header-subtitle">Check the ground is firm, level, and hasn’t shifted. It must safely support the weight of the scaffold.</p>
                   </div>
                 </div>
                 <!-- End Header -->
 
                 <!-- Body -->
                 <div class="card-body">
-                  <!-- Question: Foundations & Ground Support -->
-                <div class="mb-4 question-container">
-                  <label class="form-label fw-bold">
-                    Foundations & Ground Support
-                    <!-- Info icon with popover -->
-                    <i 
-                      class="bi bi-info-circle ms-2" 
-                     tabindex="0"
-                      role="button"
-                     data-bs-toggle="popover" 
-                     data-bs-trigger="focus"
-                     title="Foundations & Ground Support"
-                     data-bs-content="Verify the scaffold’s base is secure and has not been undermined or destabilized. The ground or supporting structure must be sound, level, and capable of carrying the load.">
-                    </i>
-                 </label>
-                  <div class="container">
-                   <div class="row g-2">
-                     <div class="col-md-6">
-                       <input type="radio" class="btn-check" name="foundations" id="foundationsPass" autocomplete="off" value="Pass" required>
-                       <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="foundationsPass">
-                         <i class="bi bi-check-square me-2"></i> Pass
-                        </label>
-                     </div>
-                     <div class="col-md-6">
-                       <input type="radio" class="btn-check" name="foundations" id="foundationsFail" autocomplete="off" value="Fail" required>
-                        <label class="btn btn-outline-danger btn-lg w-100 answer-btn" for="foundationsFail">
-                          <i class="bi bi-dash-circle me-2"></i> Fail
-                       </label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Remedial Action field (shown only on Fail) -->
-<div id="foundationsRemedial" class="mt-3 d-none">
-  <label class="form-label mb-1">Details of Fault</label>
-  <div class="row g-2 align-items-start">
-    <!-- Fault description input -->
-    <div class="col-md-8">
-      <input type="text" id="faultDetailsfoundations" name="faultDetailsfoundations" class="form-control" placeholder="Describe the fault...">
-    </div>
-
-    <!-- Camera button & preview -->
-    <div class="col-md-4 text-end">
-      <label for="photofoundations" class="btn btn-outline-secondary w-100 mb-2">
-        <i class="bi bi-camera"></i>
-      </label>
-      <input 
-        type="file" 
-        accept="image/*" 
-        capture="environment" 
-        id="photofoundations" 
-        name="photofoundations" 
-        class="d-none"
-      >
-
-      <!-- Preview thumbnail -->
-      <img id="photoPreviewfoundations" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
-    </div>
-  </div>
-
-  <label for="remedialActionfoundations" class="form-label mt-3">Remedial Action</label>
-  <input type="text" id="remedialActionfoundations" name="remedialActionfoundations" class="form-control" placeholder="Please specify...">
-</div>
-                </div>
-
-                <!-- Question: Firm Footings -->
+                  <!-- Question: Firm Footings -->
                 <div class="mb-4 question-container">
                   <label class="form-label fw-bold">
                     Firm Footings
@@ -558,7 +482,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Firm Footings"
-                     data-bs-content=" Ground or slab is stable (no signs of subsidence, washout, or recent excavation nearby). Sole boards (mud sills) are used under base plates on soft or uneven ground to distribute load. No unexpected ground movement or digging has compromised the base.">
+                     data-bs-content="The ground is firm, level, and not recently dug up or washed away. Sole boards are used under base plates on soft or uneven ground to spread the weight. No signs of the ground sinking or moving.">
                     </i>
                  </label>
                   <div class="container">
@@ -622,7 +546,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Base Plates & Sole Boards"
-                     data-bs-content="Base plates are present under every standard (upright), and each is properly seated centrally on a sole board where required. No base plate is bearing directly on soil or an unsafe surface. Screw jacks (base jacks) are within their safe extension limits (not over-extended) and properly adjusted to level the scaffold.">
+                     data-bs-content="Every vertical pole (upright) sits on a solid metal base (base plate), which rests on a wooden board (sole board) if needed to spread the load. Nothing should be placed directly on soil or uneven ground. The screw legs at the bottom (base jacks) must not be overstretched and should be adjusted to keep the scaffold level.">
                     </i>
                  </label>
                   <div class="container">
@@ -686,7 +610,7 @@
       data-bs-toggle="popover" 
       data-bs-trigger="focus"
       title="Low-Level Protection"
-      data-bs-content="The lower portion of the scaffold is protected from impact or interference. For example, if near traffic or on a public footpath, toe boards, guards, or barrier fencing are in place to prevent vehicle strikes or tampering. (Scaffolds in public areas may also require padding on low tube ends or signage to prevent pedestrian injuries from protrusions.)">
+      data-bs-content="The bottom of the scaffold is protected to stop people or vehicles from hitting or tampering with it. If near traffic or a walkway, boards, fencing, or barriers are used. In public areas, signs or padding may be added to cover sharp ends and prevent injuries.">
     </i>
   </label>
   <div class="container">
@@ -789,7 +713,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Condition and Alignment"
-                     data-bs-content="Standards are in good condition (no excessive corrosion, dents or bends) and plumb (vertical). All connections between standard sections (sleeve couplers or joint pins) are secure. Any settling that caused out-of-plumb conditions should be addressed.">
+                     data-bs-content="All vertical poles (standards) are straight, upright, and in good condition — no rust, dents, or bends. Where sections join, the connectors are tight and secure. If the scaffold has shifted or leaned due to movement or sinking, it must be corrected.">
                     </i>
                  </label>
                   <div class="container">
@@ -854,7 +778,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Base Security"
-                     data-bs-content="Each standard is still firmly seated on its base plate (no slippage off the plate or crushing into the sole board). No standard has been displaced. If adjustable bases, lock nuts are tight.">
+                     data-bs-content="Each vertical pole (standard) is still properly sitting on its metal base (base plate) — not slipped off or sinking into the board below. None of the poles have moved out of place. If screw-adjustable bases are used, the lock nuts are tight.">
                     </i>
                  </label>
                   <div class="container">
@@ -919,7 +843,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Height and Extension"
-                     data-bs-content="If the scaffold height was raised or extended, confirm it remains within the design height (or a new design was provided). Long-standing scaffolds should be monitored for any elongation or bowing of standards over time.">
+                     data-bs-content="If the scaffold was made taller, check it’s still within the approved design height — or that a new design was issued. For older scaffolds, look for any bending or stretching in the vertical poles (standards) that could affect stability.">
                     </i>
                  </label>
                   <div class="container">
@@ -980,7 +904,7 @@
                   <div class="d-flex align-items-center">
                     <button type="button" class="btn btn-ghost-secondary"
                        data-hs-step-form-prev-options='{
-                         "targetSelector": "#scaffCheckKeyInspectionPoints"
+                         "targetSelector": "#scaffCheckFoundationsGroundSupport"
                        }'>
                       <i class="bi-chevron-left small ms-1"></i> Key Inspection Points
                     </button>
@@ -1024,7 +948,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Ledgers"
-                     data-bs-content="All ledgers (long horizontal poles running along the length of the scaffold) are properly fixed at each set of standards with the appropriate couplers. They should be level and not loosened. No ledger is missing from any bay that requires one (sometimes middle ledgers could be removed during alterations – ensure they’re in place as per the configuration).">
+                     data-bs-content="All long horizontal poles (ledgers) are firmly fixed to the vertical poles using the correct fittings. They must be level, secure, and not missing — especially in the middle sections, which are sometimes removed during changes. Check they match the scaffold’s setup and design.">
                     </i>
                  </label>
                   <div class="container">
@@ -1089,13 +1013,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Transoms and Board Support"
-                     data-bs-content="All transoms (shorter cross tubes that span between ledgers or
-                                      from ledger to building, supporting the boards) are in place at the spacing required to support
-                                      the decking. The spacing of transoms matches the scaffold design or TG20 guidance so that
-                                      boarding has adequate support (the span of boards is not too great). Check that transoms
-                                      at board ends provide proper overhang (no excessive overhang that could cause a board to tip if
-                                      stepped on – typically board overhangs should be within 4x the thickness of the board, unless
-                                      boards are secured).">
+                     data-bs-content="All short cross bars (transoms) that hold up the scaffold boards are in place and spaced correctly to give proper support. Spacing must follow the scaffold design or TG20 guidance. At the ends, boards shouldn't overhang too far — usually no more than 4 times the board's thickness — unless they’re fixed in place.">
                     </i>
                  </label>
                   <div class="container">
@@ -1200,11 +1118,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Bracing Installed"
-                     data-bs-content="All required bracing is present, properly installed, and secure. This includes
-                                      facade bracing (diagonal braces on the face of the scaffold), ledger bracing or sway bracing
-                                      (diagonals along the length, if specified), and plan bracing (usually across the top of tall
-                                      scaffolds or where required by design). No braces have been removed or altered since the last
-                                      inspection. Verify bracing couplers are tight.">
+                     data-bs-content="All diagonal bracing is in place, fitted correctly, and secure. This includes braces on the front, along the length, and across the top if required. None should be missing or changed since the last check. All fixings (couplers) must be tight. Bracing keeps the scaffold stable and must match the design.">
                     </i>
                  </label>
                   <div class="container">
@@ -1269,11 +1183,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Ties and Anchors"
-                     data-bs-content="The scaffold is adequately tied to the building or structure to prevent it
-                                      from collapsing or moving. Tie positions and frequency should comply with the TG20
-                                      compliance sheet or the scaffold design drawing. Check that no scaffold ties are missing or
-                                      have been undone – this is critical, as ties are sometimes removed by other trades! Every tie
-                                      assembly (e.g. anchor bolt, reveal tie, or through-tie) should be intact and secure.">
+                     data-bs-content="The scaffold is securely fixed to the building to stop it from moving or falling. Tie points must match the scaffold design or TG20 guidance. Make sure no ties have been removed — they’re sometimes taken out by other trades. Every fixing (like anchor bolts or through-ties) must be present and tight.">
                     </i>
                  </label>
                   <div class="container">
@@ -1338,11 +1248,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Anchor Integrity"
-                     data-bs-content="If anchor bolts (expansion or resin anchors) are used for ties, confirm
-                                      they were installed and pull-tested by a competent person and results are on record.
-                                      If a tie testing certificate or record exists, ensure it’s available and covers all the
-                                      tested anchors. Any ties that failed testing or look compromised must be replaced or
-                                      supplemented immediately.">
+                     data-bs-content="Anchor bolts (metal fixings drilled into walls to hold the scaffold steady) must be installed and tested by a trained person. A test record or certificate should be available, showing all tested bolts. If any failed the test or look damaged, they must be replaced or backed up immediately.">
                     </i>
                  </label>
                   <div class="container">
@@ -1407,12 +1313,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Tie Pattern & Additions"
-                     data-bs-content="The pattern of ties (spacing vertically and horizontally) matches
-                                      the requirements for the height and anticipated loads (refer to NASC TG20 tables or the
-                                      engineer’s design). For sheeted or netted scaffolds, remember that extra ties are usually
-                                      needed due to higher wind loading – e.g. ties at every lift and every other bay, or as per
-                                      design (commonly every 2m vertically and 3m horizontally when fully sheeted).
-                                      Ensure this is in place if the scaffold is clad with sheeting or monarflex.">
+                     data-bs-content="The scaffold must be tied to the building in the right pattern — spaced correctly up and across — based on its height and weight load. If the scaffold is covered with sheeting or netting (like Monarflex), more ties are usually needed to handle wind. Check the tie layout follows the TG20 guide or the scaffold design.">
                     </i>
                  </label>
                   <div class="container">
@@ -1477,10 +1378,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Stability Augmentations"
-                     data-bs-content="If the scaffold is free-standing or has a high height-to-base ratio,
-                                      check for additional stability measures like rakers or buttresses. These should be securely
-                                      founded and braced. Where applicable, check guys or ground anchors for any freestanding
-                                      sections (uncommon in standard independent scaffolds, but may be present in special cases).">
+                     data-bs-content="If the scaffold stands on its own or is tall compared to its base, it may need extra support like rakers (angled legs) or buttresses. These must be secure and properly braced. In some cases, ground anchors or tie wires (guys) may also be used — check they’re in place and holding firm.">
                     </i>
                  </label>
                   <div class="container">
@@ -1591,10 +1489,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Boards Placed and Secure"
-                     data-bs-content="All working platforms are fully decked with sound scaffold boards
-                                      (or prefabricated decking units) with no unintended gaps. No boards are missing, displaced, or
-                                      loose – there should be a continuous working surface in all areas meant to be accessed. If
-                                      any boards were removed (e.g. to hoist materials), they must be refitted or the area barricaded.">
+                     data-bs-content="All walkways are fully covered with solid boards or decking, with no gaps, loose sections, or missing parts. The surface should be safe and continuous wherever access is needed. If boards were taken out (like for lifting materials), they must be put back or the area must be blocked off.">
                     </i>
                  </label>
                   <div class="container">
@@ -1659,9 +1554,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Board Condition"
-                     data-bs-content="Boards are in good condition, free from defects. No cracked, split, rotten or
-                                      warped boards that could snap or cause trips. Boards should be free of excessive paint or
-                                      contaminants that hide defects. Any damaged boards identified should be replaced.">
+                     data-bs-content="All boards must be in good shape — no cracks, splits, rot, or warping that could break or cause trips. Boards should be clean enough to spot damage (not covered in thick paint or debris). Any faulty boards must be replaced straight away.">
                     </i>
                  </label>
                   <div class="container">
@@ -1726,11 +1619,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Boarding Gaps and Overhangs"
-                     data-bs-content="Check for gaps between boards – they should be minimal
-                                      (typically not more than ~25 mm) to avoid tool or foot traps. Also confirm the end overhang
-                                      of boards is neither too short (board ends should rest on supports sufficiently) nor too long (to
-                                      prevent tipping). Overhang should generally be between 50 mm and 250 mm unless boards are
-                                      otherwise secured.">
+                     data-bs-content="Gaps between boards should be small — no more than about 25mm — to stop tools or feet getting caught. The board ends must rest properly on their supports: not too short, and not hanging over too far. Overhang should usually be between 50mm and 250mm unless the boards are fixed in place.">
                     </i>
                  </label>
                   <div class="container">
@@ -1795,10 +1684,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Board Retention"
-                     data-bs-content="If there is risk of high winds or uplift (e.g. scaffold is in an exposed area or not
-                                      fully tied in yet), ensure boards are lashed or secured to prevent movement. (While not always
-                                      standard for a finished tied scaffold, this may be done as needed.) Incomplete areas (e.g. a lift
-                                      not in use) should have barriers or tapes to prevent access until properly decked and guarded.">
+                     data-bs-content="If the scaffold is exposed to strong winds or not fully tied in yet, boards must be tied down to stop them lifting. Areas that aren’t finished or ready for use — like open lifts — should be blocked off with barriers or tape to prevent anyone accessing them until safe.">
                     </i>
                  </label>
                   <div class="container">
@@ -1889,7 +1775,7 @@
                   <div class="flex-grow-1">
                     <span class="d-lg-none">Step 7 of 13</span>
                     <h3 class="card-header-title">Guardrails & Toe Boards (Edge Protection)</h3>
-                    <p class="card-header-subtitle">Verify that effective edge protection is in place on every working platform and exposed edge</p>
+                    <p class="card-header-subtitle">Check every platform and open edge has guardrails and toe boards in place to prevent falls.</p>
                   </div>
                 </div>
                 <!-- End Header -->
@@ -1909,14 +1795,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Guardrails"
-                     data-bs-content="All open edges of work platforms (and landings, staircases, etc.) have guardrails at
-                                      the proper heights. Typically, a top guardrail at 950 mm or higher above the platform and a
-                                      mid-rail (or an equivalent intermediate rail) so that there is no gap >470 mm. In standard
-                                      scaffolds, this often means at least two guardrails (top and mid) on each open side. No
-                                      guardrails have been removed or left improperly installed. Check along the entire length of
-                                      each lift for any missing sections of guardrail (particularly at corners, openings, or where hop-up
-                                      brackets create an inner edge). Guardrails should be securely fixed (couplers tight) and not bent
-                                      out of shape.">
+                     data-bs-content="All open edges must have secure guardrails — one at the top (at least 950mm high) and a mid-rail so no gap is bigger than 470mm. Check none are missing, loose, or bent, especially at corners or hop-up areas. All fittings must be tight and in good condition.">
                     </i>
                  </label>
                   <div class="container">
@@ -1981,12 +1860,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Toe Boards"
-                     data-bs-content="All work platforms have toe boards at the edges to stop tools or materials from
-                                      falling. Toe boards should be at least 150 mm high (industry standard) and fit snugly against
-                                      the platform with no gaps. Ensure toe boards are in place, secure, and not dislodged
-                                      on every edge where there is a risk of items falling. No toe boards should be missing or removed
-                                      for access – if materials are being hoisted onto the platform, replace toe boards as soon as
-                                      practicable.">
+                     data-bs-content="All platform edges must have toe boards to stop tools or materials falling. They should be at least 150mm high, tight against the platform, and securely fixed. None should be missing, loose, or removed — if taken off for loading, they must be refitted straight after.">
                     </i>
                  </label>
                   <div class="container">
@@ -2051,12 +1925,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="BrickGuards / Mesh Panels"
-                     data-bs-content="Where materials (like bricks, tiles, tools) are stacked on scaffold
-                                      lifts, or where the public is below, brick guards or netting panels should be installed above the
-                                      toe board to further enclose the platform and prevent smaller objects falling through the
-                                      guardrails. If fitted, check that brick guards or debris netting are secure and intact (not
-                                      broken or blown off). They should cover all necessary areas (especially on bricklayers’
-                                      scaffolds, every lift in use should ideally have brick guards along the outside).">
+                     data-bs-content="If materials are stored on the scaffold or people are below, mesh panels (brick guards) or netting should be fitted above the toe boards to stop smaller items falling. These must be secure, undamaged, and cover all needed areas — especially on bricklaying lifts.">
                     </i>
                  </label>
                   <div class="container">
@@ -2167,12 +2036,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Ladders"
-                     data-bs-content="If ladders are used for access, they must be in good condition and properly secured.
-                                      Check that each ladder is tied off at the top (and bottom if needed) or otherwise firmly fixed to
-                                      the scaffold to prevent slipping. Ladders should extend at least 1 metre (3 rungs) above the
-                                      landing platform for a secure handhold on access. The angle of the ladder should be correct
-                                      (around 75° or 4:1 ratio). Rungs and stiles are free from damage, and no makeshift or warped
-                                      ladders are in use.">
+                     data-bs-content="Ladders must be in good condition and firmly fixed to the scaffold — tied at the top (and bottom if needed) to stop slipping. They should reach at least 1 metre above the platform for safe access. The angle must be right (about 75°), and all rungs and sides must be undamaged. No homemade or bent ladders.">
                     </i>
                  </label>
                   <div class="container">
@@ -2243,10 +2107,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Stair Towers"
-                     data-bs-content="If a staircase tower or stair bay is provided, ensure handrails are in place on all
-                                      open sides of the stairs (usually internal stair units have integrated guardrails). The stair treads
-                                      and landings should be clear of mud, debris, and any obstruction to allow safe evacuation in
-                                      an emergency. Check any intermediate guardrails or toe boards on stair landings as well. ">
+                     data-bs-content="If stairs are used, handrails must be fitted on all open sides. Steps and landings should be clear of mud, debris, or anything that could block safe use — especially in an emergency. Check any extra guardrails or toe boards on landings are also in place and secure.">
                     </i>
                  </label>
                   <div class="container">
@@ -2317,10 +2178,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Access Openings"
-                     data-bs-content="Openings in platforms (for ladder access or hoists) should be protected.
-                                      Ladder access holes should have a swing gate or a hinged trapdoor that is kept closed when not
-                                      in use (to maintain a continuous platform). If no gate/trap is present, an equivalent barrier must
-                                      guard the opening except during immediate use.">
+                     data-bs-content="Any holes in the platform — like for ladders or hoists — must be guarded. Ladder openings should have a swing gate or trapdoor that stays shut when not in use. If not, a barrier must be in place to stop falls, except during use.">
                     </i>
                  </label>
                   <div class="container">
@@ -2391,10 +2249,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Location of Access"
-                     data-bs-content="The access points should be conveniently located. If workers have to climb
-                                      on the outside of the scaffold or use end frames unsafely, that is a non-compliance – ensure only
-                                      intended access points (ladders, stairs) are used and accessible. Remove any unstable means of
-                                      access.">
+                     data-bs-content="Access must be safe and easy to reach. Workers should only use proper ladders or stairs and not have to climb the outside or end frames. Remove any unsafe or makeshift ways of getting on the scaffold.">
                     </i>
                  </label>
                   <div class="container">
@@ -2447,10 +2302,10 @@
   </div>
                 </div>
 
-                <!-- Question: Unauthorized Access Prevention  -->
+                <!-- Question: Unauthorised Access Prevention  -->
                 <div class="mb-4 question-container">
                   <label class="form-label fw-bold">
-                    Unauthorized Access Prevention
+                    Unauthorised Access Prevention
                     <!-- Info icon with popover -->
                     <i 
                       class="bi bi-info-circle ms-2" 
@@ -2458,31 +2313,27 @@
                       role="button"
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
-                     title="Unauthorized Access Prevention"
-                     data-bs-content="Particularly for scaffolds accessible to the public (e.g. street
-                                      scaffolds), check that measures are in place to prevent unauthorized climbing after hours – e.g.
-                                      ladder removed or boarded off, base fenced, or ladder guard installed. (This is a general
-                                      safety measure outside the scope of the 7-day structural check, but worth noting if it’s your
-                                      company’s scaffold.)">
+                     title="Unauthorised Access Prevention"
+                     data-bs-content="If the scaffold is in a public area, steps must be taken to stop people climbing it when not in use. This could include removing or blocking ladders, fencing off the base, or fitting a ladder guard. It’s not part of the 7-day check, but important if it’s your scaffold.">
                     </i>
                  </label>
                   <div class="container">
                    <div class="row g-2">
                      <div class="col-md-6">
-                       <input type="radio" class="btn-check" name="UnauthorizedAccessPrevention" id="UnauthorizedAccessPreventionPass" autocomplete="off" value="Pass" required>
-                       <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="UnauthorizedAccessPreventionPass">
+                       <input type="radio" class="btn-check" name="UnauthorisedAccessPrevention" id="UnauthorisedAccessPreventionPass" autocomplete="off" value="Pass" required>
+                       <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="UnauthorisedAccessPreventionPass">
                          <i class="bi bi-check-square me-2"></i> Pass
                         </label>
                      </div>
                      <div class="col-md-6">
-                       <input type="radio" class="btn-check" name="UnauthorizedAccessPrevention" id="UnauthorizedAccessPreventionFail" autocomplete="off" value="Fail" required>
-                        <label class="btn btn-outline-danger btn-lg w-100 answer-btn" for="UnauthorizedAccessPreventionFail">
+                       <input type="radio" class="btn-check" name="UnauthorisedAccessPrevention" id="UnauthorisedAccessPreventionFail" autocomplete="off" value="Fail" required>
+                        <label class="btn btn-outline-danger btn-lg w-100 answer-btn" for="UnauthorisedAccessPreventionFail">
                           <i class="bi bi-dash-circle me-2"></i> Fail
                        </label>
                       </div>
                       <div class="col-md-6">
-                       <input type="radio" class="btn-check" name="UnauthorizedAccessPrevention" id="UnauthorizedAccessPreventionNA" autocomplete="off" value="N/A" required>
-                        <label class="btn btn-outline-warning btn-lg w-100 answer-btn" for="UnauthorizedAccessPreventionNA">
+                       <input type="radio" class="btn-check" name="UnauthorisedAccessPrevention" id="UnauthorisedAccessPreventionNA" autocomplete="off" value="N/A" required>
+                        <label class="btn btn-outline-warning btn-lg w-100 answer-btn" for="UnauthorisedAccessPreventionNA">
                           <i class="bi bi-dash-circle me-2"></i> N/A
                        </label>
                       </div>
@@ -2490,35 +2341,35 @@
                   </div>
 
                   <!-- Remedial Action field (hidden by default) -->
-  <div id="UnauthorizedAccessPreventionRemedial" class="mt-3 d-none">
+  <div id="UnauthorisedAccessPreventionRemedial" class="mt-3 d-none">
     <label class="form-label mb-1">Details of Fault</label>
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailsUnauthorizedAccessPrevention" name="faultDetailsUnauthorizedAccessPrevention" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailsUnauthorisedAccessPrevention" name="faultDetailsUnauthorisedAccessPrevention" class="form-control" placeholder="Describe the fault...">
       </div>
 
       <!-- Camera button & preview -->
       <div class="col-md-4 text-end">
-        <label for="photoUnauthorizedAccessPrevention" class="btn btn-outline-secondary w-100 mb-2">
+        <label for="photoUnauthorisedAccessPrevention" class="btn btn-outline-secondary w-100 mb-2">
           <i class="bi bi-camera"></i>
         </label>
         <input 
           type="file" 
           accept="image/*" 
           capture="environment" 
-          id="photoUnauthorizedAccessPrevention" 
-          name="photoUnauthorizedAccessPrevention" 
+          id="photoUnauthorisedAccessPrevention" 
+          name="photoUnauthorisedAccessPrevention" 
           class="d-none"
         >
 
         <!-- Preview thumbnail -->
-        <img id="photoPreviewUnauthorizedAccessPrevention" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
+        <img id="photoPreviewUnauthorisedAccessPrevention" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
       </div>
     </div>
 
-    <label for="remedialActionUnauthorizedAccessPrevention" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionUnauthorizedAccessPrevention" name="remedialActionUnauthorizedAccessPrevention" class="form-control" placeholder="Please specify...">
+    <label for="remedialActionUnauthorisedAccessPrevention" class="form-label mt-3">Remedial Action</label>
+    <input type="text" id="remedialActionUnauthorisedAccessPrevention" name="remedialActionUnauthorisedAccessPrevention" class="form-control" placeholder="Please specify...">
   </div>
                 </div>
 
@@ -2554,7 +2405,7 @@
                   <div class="flex-grow-1">
                     <span class="d-lg-none">Step 9 of 13</span>
                     <h3 class="card-header-title">Loads, Platforms & Usage</h3>
-                    <p class="card-header-subtitle">Confirm the scaffold is being used within its capacity and has not been subjected to misuse</p>
+                    <p class="card-header-subtitle">Check the scaffold isn’t overloaded or being misused.</p>
                   </div>
                 </div>
                 <!-- End Header -->
@@ -2574,12 +2425,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Design Load Compliance"
-                     data-bs-content="The scaffold should only carry the intended loads. Verify there are 
-                                      no signs of overloading: check for excessive stored materials on platforms, such as large
-                                      stockpiles of bricks, blocks, or equipment that exceed what the scaffold was designed for. If the
-                                      scaffold was erected to a certain load class (for example, Light Duty 1.5 kN/m² or Heavy Duty 3.0
-                                      kN/m² per platform), ensure those limits are respected. Look for deflection in boards or
-                                      transoms as a hint of overloading.">
+                     data-bs-content="Scaffold platforms must only hold what they were built for. Watch for large piles of bricks or gear that could mean overloading. If it’s a light or heavy-duty scaffold, stay within the load rating. Signs like bending boards or bars may show it’s too much.">
                     </i>
                  </label>
                   <div class="container">
@@ -2644,7 +2490,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Loading Bays"
-                     data-bs-content="If there’s a loading bay or cantilevered platform, check that the deck, beams, and any bracing or ties (such as return bays or “gin wings”) are installed to TG20 or the design spec. Make sure reinforced couplers are fitted at key load-bearing points. Any loading gates or swing barriers should be secure and in use to prevent falls. If the bay is on a separate level, confirm safe access via ladder or stairs. As always, guardrails and toe boards must be in place around the edges.">
+                     data-bs-content="Loading bays (where materials are placed on the scaffold) must be properly built and supported with strong fixings, braces, and ties — like extra side sections (“gin wings”) for strength. Heavy-duty clamps should be used at key points. Safety gates must be secure, and if the bay is on a higher level, ladders or stairs must be provided. Rails and toe boards must be in place to prevent falls.">
                     </i>
                  </label>
                   <div class="container">
@@ -2715,12 +2561,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Cantilevers and Special Structures"
-                     data-bs-content="If any part of the scaffold is cantilevered (e.g. a portion that
-                                      projects out without support directly below, such as a fan (debris catcher) or an outreach), or if
-                                      there are Hanging Scaffolds or temporary roofs, check that these have been installed as per a
-                                      design and all specific fixings are in place. For example, check counterweights or ties for
-                                      cantilevered sections, and supporting beams/couplers for any fans or hop-up brackets. These
-                                      elements often require bespoke design – verify a design exists and the scaffold complies with it.">
+                     data-bs-content="If any part of the scaffold sticks out without support underneath — like fans, overhangs, or hanging sections — they must follow a specific design. Check all special fixings are in place, such as counterweights, support beams, or ties. These setups are not standard and must match the approved design exactly.">
                     </i>
                  </label>
                   <div class="container">
@@ -2791,12 +2632,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="General Misuse/Interference"
-                     data-bs-content="Ensure there are no signs of misuse or unauthorized
-                                      alterations to the scaffold. This includes checking that no one has removed ties, guardrails,
-                                      or toe boards to facilitate their work without proper replacement. Look for indications like loose
-                                      fittings, moved components, or parts that don’t match the original configuration. If any
-                                      interference or damage is found (for instance, a vehicle strike at the base, or cuts made to ties),
-                                      report it and have a qualified scaffolder rectify it immediately.">
+                     data-bs-content="Check no parts have been removed, moved, or damaged — like guardrails, toe boards, or ties. Look for anything out of place, loose, or altered without permission. If the scaffold’s been hit or tampered with, report it and get a qualified scaffolder to fix it straight away.">
                     </i>
                  </label>
                   <div class="container">
@@ -2881,7 +2717,7 @@
                   <div class="flex-grow-1">
                     <span class="d-lg-none">Step 10 of 13</span>
                     <h3 class="card-header-title">Public Protection & Other Hazards</h3>
-                    <p class="card-header-subtitle">Evaluate the scaffold in the context of its surroundings for any additional hazards</p>
+                    <p class="card-header-subtitle">Check for any nearby hazards that could affect scaffold safety.</p>
                   </div>
                 </div>
                 <!-- End Header -->
@@ -2901,11 +2737,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Overhead Protection"
-                     data-bs-content="Particularly for scaffolds accessible to the public (e.g. street
-                                      scaffolds), check that measures are in place to prevent unauthorized climbing after hours – e.g.
-                                      ladder removed or boarded off, base fenced, or ladder guard installed. (This is a general
-                                      safety measure outside the scope of the 7-day structural check, but worth noting if it’s your
-                                      company’s scaffold.)">
+                     data-bs-content="If the scaffold is above a walkway or entrance, there should be protection — like a covered tunnel or angled platform — to catch falling debris. These must be secure, with boards or netting in good condition, if required by a risk assessment or local rules.">
                     </i>
                  </label>
                   <div class="container">
@@ -2976,11 +2808,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Signs and Lighting"
-                     data-bs-content="Particularly for scaffolds accessible to the public (e.g. street
-                                      scaffolds), check that measures are in place to prevent unauthorized climbing after hours – e.g.
-                                      ladder removed or boarded off, base fenced, or ladder guard installed. (This is a general
-                                      safety measure outside the scope of the 7-day structural check, but worth noting if it’s your
-                                      company’s scaffold.)">
+                     data-bs-content="Make sure warning signs are in place — like “Men Working Overhead” or load limits on platforms. Cover low tubes with end caps or hazard tape. If the scaffold is near a road or path, it must have lights, barriers, or reflective tape as needed. These safety measures are essential where the public is nearby.">
                     </i>
                  </label>
                   <div class="container">
@@ -3045,11 +2873,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Electrical Hazards"
-                     data-bs-content="Particularly for scaffolds accessible to the public (e.g. street
-                                      scaffolds), check that measures are in place to prevent unauthorized climbing after hours – e.g.
-                                      ladder removed or boarded off, base fenced, or ladder guard installed. (This is a general
-                                      safety measure outside the scope of the 7-day structural check, but worth noting if it’s your
-                                      company’s scaffold.)">
+                     data-bs-content="Check for nearby power lines or site cables. Keep a safe distance unless proper safety measures are in place. Any lights or electrical gear on the scaffold must be safely installed — cables tied up and waterproof fittings used.">
                     </i>
                  </label>
                   <div class="container">
@@ -3114,11 +2938,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Weather Conditions"
-                     data-bs-content="Particularly for scaffolds accessible to the public (e.g. street
-                                      scaffolds), check that measures are in place to prevent unauthorized climbing after hours – e.g.
-                                      ladder removed or boarded off, base fenced, or ladder guard installed. (This is a general
-                                      safety measure outside the scope of the 7-day structural check, but worth noting if it’s your
-                                      company’s scaffold.)">
+                     data-bs-content="After strong winds, check for loose fixings, damage, or movement — even if nothing looks wrong. In winter, watch for ice on boards or ladders. In hot weather, make sure wooden boards aren’t dry or cracked.">
                     </i>
                  </label>
                   <div class="container">
@@ -3183,11 +3003,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Housekeeping"
-                     data-bs-content="Particularly for scaffolds accessible to the public (e.g. street
-                                      scaffolds), check that measures are in place to prevent unauthorized climbing after hours – e.g.
-                                      ladder removed or boarded off, base fenced, or ladder guard installed. (This is a general
-                                      safety measure outside the scope of the 7-day structural check, but worth noting if it’s your
-                                      company’s scaffold.)">
+                     data-bs-content="Keep platforms clear of rubble, waste, and loose materials. Extra mess adds weight and creates trip hazards. Any stored items must be secured — especially light objects that could blow off in the wind.">
                     </i>
                  </label>
                   <div class="container">
@@ -3293,10 +3109,7 @@
           data-bs-toggle="popover"
           data-bs-trigger="focus"
           title="NASC TG20 compliance"
-          data-bs-content="If the scaffold was erected following NASC TG20 compliance, ensure you have the TG20:21
-                           compliance sheet or summary that outlines the allowed configuration (height, number of
-                           boarded lifts, tie pattern, etc.). Verify that the as-built scaffold matches the compliance
-                           criteria (e.g. it has the required ties, it hasn’t been extended beyond allowed limits, etc.).">
+          data-bs-content="If the scaffold follows TG20:21 guidance, you must have the compliance sheet. Check the scaffold matches what’s shown — right height, number of lifts, tie pattern, and no unapproved changes.">
         </i>
       </label>
       <div class="container">
@@ -3482,77 +3295,6 @@
                 <!-- Body -->
                 <div class="card-body">
                   
-                <!-- Question: Personal Fall Protection   -->
-                <div class="mb-4 question-container">
-                  <label class="form-label fw-bold">
-                    Personal Fall Protection
-                    <!-- Info icon with popover -->
-                    <i 
-                      class="bi bi-info-circle ms-2" 
-                     tabindex="0"
-                      role="button"
-                     data-bs-toggle="popover" 
-                     data-bs-trigger="focus"
-                     title="Personal Fall Protection"
-                     data-bs-content="Ensure that whenever scaffolds are being erected, altered, or dismantled, the crew uses proper fall prevention measures (e.g. harnesses and lanyards, as per NASC SG4), and that dropping of materials is controlled.">
-                    </i>
-                 </label>
-                  <div class="container">
-                   <div class="row g-2">
-                     <div class="col-md-6">
-                       <input type="radio" class="btn-check" name="PersonalFallProtection" id="PersonalFallProtectionPass" autocomplete="off" value="Pass" required>
-                       <label class="btn btn-outline-success btn-lg w-100 answer-btn" for="PersonalFallProtectionPass">
-                         <i class="bi bi-check-square me-2"></i> Pass
-                        </label>
-                     </div>
-                     <div class="col-md-6">
-                       <input type="radio" class="btn-check" name="PersonalFallProtection" id="PersonalFallProtectionFail" autocomplete="off" value="Fail" required>
-                        <label class="btn btn-outline-danger btn-lg w-100 answer-btn" for="PersonalFallProtectionFail">
-                          <i class="bi bi-dash-circle me-2"></i> Fail
-                       </label>
-                      </div>
-                      <div class="col-md-6">
-                       <input type="radio" class="btn-check" name="PersonalFallProtection" id="PersonalFallProtectionNA" autocomplete="off" value="N/A" required>
-                        <label class="btn btn-outline-warning btn-lg w-100 answer-btn" for="PersonalFallProtectionNA">
-                          <i class="bi bi-dash-circle me-2"></i> N/A
-                       </label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Remedial Action field (hidden by default) -->
-  <div id="PersonalFallProtectionRemedial" class="mt-3 d-none">
-    <label class="form-label mb-1">Details of Fault</label>
-    <div class="row g-2 align-items-start">
-      <!-- Fault description input -->
-      <div class="col-md-8">
-        <input type="text" id="faultDetailsPersonalFallProtection" name="faultDetailsPersonalFallProtection" class="form-control" placeholder="Describe the fault...">
-      </div>
-
-      <!-- Camera button & preview -->
-      <div class="col-md-4 text-end">
-        <label for="photoPersonalFallProtection" class="btn btn-outline-secondary w-100 mb-2">
-          <i class="bi bi-camera"></i>
-        </label>
-        <input 
-          type="file" 
-          accept="image/*" 
-          capture="environment" 
-          id="photoPersonalFallProtection" 
-          name="photoPersonalFallProtection" 
-          class="d-none"
-        >
-
-        <!-- Preview thumbnail -->
-        <img id="photoPreviewPersonalFallProtection" class="img-thumbnail d-none" style="max-width: 100%; height: auto;">
-      </div>
-    </div>
-
-    <label for="remedialActionPersonalFallProtection" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionPersonalFallProtection" name="remedialActionPersonalFallProtection" class="form-control" placeholder="Please specify...">
-  </div>
-                </div>
-
                 <!-- Question: Ancillary Equipment   -->
                 <div class="mb-4 question-container">
                   <label class="form-label fw-bold">
@@ -3565,12 +3307,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Ancillary Equipment"
-                     data-bs-content="If the scaffold has any hoists, pulleys, or lifting appliances attached,
-                                       ensure they are securely fixed to the scaffold and have been inspected as well. Ties for gin
-                                       wheels, etc., should not be removed without replacement. Check that safety gates (e.g. at
-                                       ladder access or loading edges) are functional. Also confirm any weather protection
-                                       (monarflex, shrink wrap sheeting) is holding up and secured properly – loose sheets can be very
-                                       dangerous in winds.">
+                     data-bs-content="If hoists or pulleys are fitted, they must be secure and inspected. Do not remove any fixings like gin wheel ties unless replaced. Safety gates at access points must work properly. Check all sheeting (like Monarflex or shrink wrap) is tightly fixed — loose sheets are a major hazard in wind.">
                     </i>
                  </label>
                   <div class="container">
@@ -3635,7 +3372,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Public and Employers' Liability Insurance"
-                     data-bs-content="Public liability protects against claims if a third party—such as a site visitor or passerby—is injured due to the scaffold, whether during erection or while in use. Employers’ liability covers injuries to workers on site, whether they're erecting the scaffold or working on or around it afterward. Since responsibility may shift — depending on circumstances — once the scaffold is handed over, both the scaffolder and the main contractor must ensure they’re properly insured to avoid costly claims and stay compliant with legal requirements.">
+                     data-bs-content="Public liability covers injuries to passersby or visitors caused by the scaffold. Employers’ liability covers workers injured while building or using it. Once the scaffold is handed over, responsibility can shift — so both scaffolders and contractors must have the right insurance in place to stay legal and avoid expensive claims.">
                     </i>
                  </label>
                   <div class="container">
@@ -3695,7 +3432,6 @@
                   <div class="flex-grow-1">
                     <span class="d-lg-none">Step 13 of 13</span>
                     <h3 class="card-header-title">Declarations</h3>
-                    <p class="card-text">Some sort of legal declaration here</p>
                   </div>
                 </div>
                 <!-- End Header -->
@@ -3763,7 +3499,7 @@
                         data-bs-toggle="popover"
                         data-bs-trigger="focus"
                         title="Scaffold Location"
-                        data-bs-content="This means the exact location of the scaffold on-site (e.g. “North elevation, Unit 3”)">
+                        data-bs-content="Clearly state where the scaffold is on site — for example, “North side of Unit 3” — so it’s easy to identify">
                       </i>
                     </label>
                     <input
@@ -3771,7 +3507,7 @@
                       id="scaffoldLocation"
                       name="scaffoldLocation"
                       class="form-control"
-                      placeholder="e.g. North elevation, Unit 3"
+                      placeholder="e.g. North side of Unit 3"
                       required
                     >
                   </div>

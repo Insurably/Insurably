@@ -17,19 +17,27 @@ function initializeSignaturePad() {
   const ctx = canvas.getContext('2d');
   let drawing = false, lastX = 0, lastY = 0;
 
-  function resizeCanvas() {
-    const ratio = Math.max(window.devicePixelRatio || 1, 1);
-    const width = window.innerWidth;
-    const height = window.innerHeight - 200;
-    canvas.width = width * ratio;
-    canvas.height = height * ratio;
-    canvas.style.width = width + 'px';
-    canvas.style.height = height + 'px';
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.scale(ratio, ratio);
-    ctx.fillStyle = "#fff";
-    ctx.fillRect(0, 0, width, height);
+function resizeCanvas() {
+  const ratio = Math.max(window.devicePixelRatio || 1, 1);
+  let width = window.innerWidth;
+  let height = window.innerHeight - 200;
+
+  // 🔁 Swap values to enforce landscape mode if needed
+  if (height > width) {
+    [width, height] = [height, width];
   }
+
+  canvas.width = width * ratio;
+  canvas.height = height * ratio;
+  canvas.style.width = width + 'px';
+  canvas.style.height = height + 'px';
+
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.scale(ratio, ratio);
+  ctx.fillStyle = "#fff";
+  ctx.fillRect(0, 0, width, height);
+}
+
 
   function getPos(e) {
     const rect = canvas.getBoundingClientRect();
