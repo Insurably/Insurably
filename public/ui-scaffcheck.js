@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   
     // Dynamically load Header
-    fetch("header.html")
+    fetch("header-toolbox.html")
       .then(response => response.text())
       .then(data => {
         document.getElementById("header-placeholder").innerHTML = data;
@@ -419,59 +419,66 @@ popOpts.forEach((el) => {
           : null
       });
   
+      // INITIALIZATION OF THE STEP FORM
       setTimeout(() => {
   const stepForm = new HSStepForm('.js-step-form', {
-    onNextStep: () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      setTimeout(updateProgress, 750);
+  onNextStep: () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(updateProgress, 750);
+  },
+  onPrevStep: () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(updateProgress, 750);
+  },
+  
+  finish: () => {
+    console.log("Form finished, displaying success message.");
 
-      // ✅ Initialize signature pad if the modal trigger or canvas exists
-      if (document.getElementById("signatureCanvas") || document.getElementById("openSignatureModal")) {
-        if (typeof window.initializeSignaturePad === 'function') {
-          window.initializeSignaturePad();
-        }
-      }
-    },
-    onPrevStep: () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      setTimeout(updateProgress, 750);
-    },
+    // Hide all step cards
+    document.querySelectorAll('#scaffCheckStepFormContent .card').forEach(card => {
+      card.style.display = 'none';
+    });
 
-    finish: () => {
-      console.log("Form finished, displaying success message.");
-
-      document.querySelectorAll('#scaffCheckStepFormContent .card').forEach(card => {
-        card.style.display = 'none';
-      });
-
-      const sidebarProgress = document.querySelector('.col-lg-4.d-none.d-lg-block');
-      if (sidebarProgress) sidebarProgress.style.display = 'none';
-
-      const quoteProgress = document.getElementById("quoteStepFormProgress");
-      if (quoteProgress) quoteProgress.style.display = 'none';
-
-      const progressBar = document.querySelector('.progress');
-      if (progressBar) progressBar.style.display = 'none';
-
-      const formContainer = document.getElementById('formContainer');
-      if (formContainer) {
-        formContainer.classList.remove('col-lg-8');
-        formContainer.classList.add('col-lg-12');
-      }
-
-      const successMessage = document.getElementById("successMessageContent");
-      if (successMessage) successMessage.style.display = 'block';
-
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 300);
+    // Hide progress indicators (corrected to avoid optional chaining on assignment)
+    const sidebarProgress = document.querySelector('.col-lg-4.d-none.d-lg-block');
+    if (sidebarProgress) {
+      sidebarProgress.style.display = 'none';
     }
-  });
+
+    const quoteProgress = document.getElementById("quoteStepFormProgress");
+    if (quoteProgress) {
+      quoteProgress.style.display = 'none';
+    }
+
+    const progressBar = document.querySelector('.progress');
+    if (progressBar) {
+      progressBar.style.display = 'none';
+    }
+
+    // Expand form container
+    const formContainer = document.getElementById('formContainer');
+    if (formContainer) {
+      formContainer.classList.remove('col-lg-8');
+      formContainer.classList.add('col-lg-12');
+    }
+
+    // Show success message
+    const successMessage = document.getElementById("successMessageContent");
+    if (successMessage) {
+      successMessage.style.display = 'block';
+    }
+
+    // Scroll to top for visibility
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 300);
+  }
+});
 
   setTimeout(updateProgress, 750);
 }, 500);
 
- 
+  
       
   
       // ------------------------------------------------------------

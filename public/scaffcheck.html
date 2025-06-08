@@ -117,6 +117,12 @@
     .js-go-to {
   display: none !important;
 }
+/* Highlight question container with a red border and light background */
+.question-container.question-error {
+  border: 2px solid #dc3545 !important; /* Bootstrap danger color */
+  background: #fff0f1;
+  border-radius: 0.5rem;
+}
   </style>
 </head>
 
@@ -136,7 +142,7 @@
               "progressSelector": "#scaffCheckStepFormProgress",
               "stepsSelector": "#scaffCheckStepFormContent",
               "endSelector": "#scaffCheckFinishBtn",
-              "isValidate": false
+              "isValidate": true
             }'>
         <div class="row">
           <!-- Left column: Step progress list (visible on large screens only) -->
