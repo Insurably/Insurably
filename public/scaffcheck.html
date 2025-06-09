@@ -117,12 +117,22 @@
     .js-go-to {
   display: none !important;
 }
-/* Highlight question container with a red border and light background */
-.question-container.question-error {
-  border: 2px solid #dc3545 !important; /* Bootstrap danger color */
+.question-container.is-invalid {
+  border: 2px solid #dc3545 !important; /* Bootstrap danger */
   background: #fff0f1;
   border-radius: 0.5rem;
 }
+.question-container .form-label.text-danger,
+.question-container label.text-danger {
+  color: #dc3545 !important;
+}
+.question-container .invalid-feedback {
+  color: #dc3545;
+  font-size: 1rem;
+  font-style: italic;
+  margin-top: 6px;
+}
+
   </style>
 </head>
 
