@@ -22,7 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
     $('#dateErected').datepicker({
       format: 'dd/mm/yyyy',
       autoclose: true,
-      todayHighlight: true
+      todayHighlight: true,
+      endDate: '0d' // Added this line to disable future dates
     });
   });
 

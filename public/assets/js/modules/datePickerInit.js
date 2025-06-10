@@ -6,7 +6,7 @@ export function initializeDatePickers() {
     format: 'dd/mm/yyyy',
     autoclose: true,
     todayHighlight: true,
-    startDate: new Date()
+    endDate: new Date()
   });
 }
 

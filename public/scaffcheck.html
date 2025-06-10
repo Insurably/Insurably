@@ -66,6 +66,7 @@
     .btn-outline-primary,
     .btn-outline-success,
     .btn-outline-danger,
+    .btn-outline-secondary,
     .btn-outline-warning {
       height: 80px !important;
       display: flex;
@@ -151,7 +152,7 @@
               "progressSelector": "#scaffCheckStepFormProgress",
               "stepsSelector": "#scaffCheckStepFormContent",
               "endSelector": "#scaffCheckFinishBtn",
-              "isValidate": true
+              "isValidate": false
             }'>
         <div class="row">
           <!-- Left column: Step progress list (visible on large screens only) -->
@@ -530,7 +531,7 @@
             <div class="row g-2 align-items-start">
             <!-- Fault description input -->
             <div class="col-md-8">
-              <input type="text" id="faultDetailsfirmFootings" name="faultDetailsfirmFootings" class="form-control" placeholder="Describe the fault...">
+              <input type="text" id="faultDetailsfirmFootings" name="faultDetailsfirmFootings" class="form-control" placeholder="Describe the fault..." required>
             </div>
 
             <!-- Camera button & preview -->
@@ -553,7 +554,7 @@
             </div>
 
             <label for="remedialActionfirmFootings" class="form-label mt-3">Remedial Action</label>
-            <input type="text" id="remedialActionfirmFootings" name="remedialActionfirmFootings" class="form-control" placeholder="Please specify...">
+            <input type="text" id="remedialActionfirmFootings" name="remedialActionfirmFootings" class="form-control" placeholder="Please specify..." required>
           </div>
                 </div>
 
@@ -595,7 +596,7 @@
                       <div class="row g-2 align-items-start">
                       <!-- Fault description input -->
                       <div class="col-md-8">
-                        <input type="text" id="faultDetailsbasePlates" name="faultDetailsbasePlates" class="form-control" placeholder="Describe the fault...">
+                        <input type="text" id="faultDetailsbasePlates" name="faultDetailsbasePlates" class="form-control" placeholder="Describe the fault..." required>
                       </div>
 
                       <!-- Camera button & preview -->
@@ -618,7 +619,7 @@
                       </div>
 
                       <label for="remedialActionbasePlates" class="form-label mt-3">Remedial Action</label>
-                      <input type="text" id="remedialActionbasePlates" name="remedialActionbasePlates" class="form-control" placeholder="Please specify...">
+                      <input type="text" id="remedialActionbasePlates" name="remedialActionbasePlates" class="form-control" placeholder="Please specify..." required>
                     </div>
                 </div>
 
@@ -659,7 +660,7 @@
               <div class="row g-2 align-items-start">
               <!-- Fault description input -->
               <div class="col-md-8">
-                <input type="text" id="faultDetailslowLevelProtection" name="faultDetailslowLevelProtection" class="form-control" placeholder="Describe the fault...">
+                <input type="text" id="faultDetailslowLevelProtection" name="faultDetailslowLevelProtection" class="form-control" placeholder="Describe the fault..." required>
               </div>
 
               <!-- Camera button & preview -->
@@ -682,7 +683,7 @@
               </div>
 
               <label for="remedialActionlowLevelProtection" class="form-label mt-3">Remedial Action</label>
-              <input type="text" id="remedialActionlowLevelProtection" name="remedialActionlowLevelProtection" class="form-control" placeholder="Please specify...">
+              <input type="text" id="remedialActionlowLevelProtection" name="remedialActionlowLevelProtection" class="form-control" placeholder="Please specify..." required>
             </div>
     </div>
                 </div>
@@ -762,7 +763,7 @@
                           <div class="row g-2 align-items-start">
                           <!-- Fault description input -->
                           <div class="col-md-8">
-                          <input type="text" id="faultDetailsconditionAlignment" name="faultDetailsconditionAlignment" class="form-control" placeholder="Describe the fault...">
+                          <input type="text" id="faultDetailsconditionAlignment" name="faultDetailsconditionAlignment" class="form-control" placeholder="Describe the fault..." required>
                           </div>
 
                           <!-- Camera button & preview -->
@@ -785,7 +786,7 @@
                           </div>
 
                           <label for="remedialActionconditionAlignment" class="form-label mt-3">Remedial Action</label>
-                          <input type="text" id="remedialActionconditionAlignment" name="remedialActionconditionAlignment" class="form-control" placeholder="Please specify...">
+                          <input type="text" id="remedialActionconditionAlignment" name="remedialActionconditionAlignment" class="form-control" placeholder="Please specify..." required>
                         </div>
                 </div>
 
@@ -827,7 +828,7 @@
                         <div class="row g-2 align-items-start">
                         <!-- Fault description input -->
                         <div class="col-md-8">
-                        <input type="text" id="faultDetailsbaseSecurity" name="faultDetailsbaseSecurity" class="form-control" placeholder="Describe the fault...">
+                        <input type="text" id="faultDetailsbaseSecurity" name="faultDetailsbaseSecurity" class="form-control" placeholder="Describe the fault..." required>
                         </div>
 
                         <!-- Camera button & preview -->
@@ -850,7 +851,7 @@
                         </div>
 
                         <label for="remedialActionbaseSecurity" class="form-label mt-3">Remedial Action</label>
-                        <input type="text" id="remedialActionbaseSecurity" name="remedialActionbaseSecurity" class="form-control" placeholder="Please specify...">
+                        <input type="text" id="remedialActionbaseSecurity" name="remedialActionbaseSecurity" class="form-control" placeholder="Please specify..." required>
                       </div>
                 </div>
 
@@ -892,7 +893,7 @@
                       <div class="row g-2 align-items-start">
                       <!-- Fault description input -->
                       <div class="col-md-8">
-                      <input type="text" id="faultDetailsheightExtension" name="faultDetailsheightExtension" class="form-control" placeholder="Describe the fault...">
+                      <input type="text" id="faultDetailsheightExtension" name="faultDetailsheightExtension" class="form-control" placeholder="Describe the fault..." required>
                       </div>
 
                       <!-- Camera button & preview -->
@@ -915,7 +916,7 @@
                       </div>
 
                       <label for="remedialActionheightExtension" class="form-label mt-3">Remedial Action</label>
-                      <input type="text" id="remedialActionheightExtension" name="remedialActionheightExtension" class="form-control" placeholder="Please specify...">
+                      <input type="text" id="remedialActionheightExtension" name="remedialActionheightExtension" class="form-control" placeholder="Please specify..." required>
                       </div>
                 </div>
 
@@ -997,7 +998,7 @@
                       <div class="row g-2 align-items-start">
                       <!-- Fault description input -->
                       <div class="col-md-8">
-                      <input type="text" id="faultDetailsLedgers" name="faultDetailsLedgers" class="form-control" placeholder="Describe the fault...">
+                      <input type="text" id="faultDetailsLedgers" name="faultDetailsLedgers" class="form-control" placeholder="Describe the fault..." required>
                       </div>
 
                       <!-- Camera button & preview -->
@@ -1020,7 +1021,7 @@
                       </div>
 
                       <label for="remedialActionLedgers" class="form-label mt-3">Remedial Action</label>
-                      <input type="text" id="remedialActionLedgers" name="remedialActionLedgers" class="form-control" placeholder="Please specify...">
+                      <input type="text" id="remedialActionLedgers" name="remedialActionLedgers" class="form-control" placeholder="Please specify..." required>
                       </div>
                 </div>
 
@@ -1062,7 +1063,7 @@
                       <div class="row g-2 align-items-start">
                       <!-- Fault description input -->
                       <div class="col-md-8">
-                      <input type="text" id="faultDetailstransomsBoardSupport" name="faultDetailstransomsBoardSupport" class="form-control" placeholder="Describe the fault...">
+                      <input type="text" id="faultDetailstransomsBoardSupport" name="faultDetailstransomsBoardSupport" class="form-control" placeholder="Describe the fault..." required>
                       </div>
 
                       <!-- Camera button & preview -->
@@ -1085,7 +1086,7 @@
                       </div>
 
                       <label for="remedialActiontransomsBoardSupport" class="form-label mt-3">Remedial Action</label>
-                      <input type="text" id="remedialActiontransomsBoardSupport" name="remedialActiontransomsBoardSupport" class="form-control" placeholder="Please specify...">
+                      <input type="text" id="remedialActiontransomsBoardSupport" name="remedialActiontransomsBoardSupport" class="form-control" placeholder="Please specify..." required>
                       </div>
                 </div>
 
@@ -1167,7 +1168,7 @@
                       <div class="row g-2 align-items-start">
                       <!-- Fault description input -->
                       <div class="col-md-8">
-                      <input type="text" id="faultDetailsbracingInstalled" name="faultDetailsbracingInstalled" class="form-control" placeholder="Describe the fault...">
+                      <input type="text" id="faultDetailsbracingInstalled" name="faultDetailsbracingInstalled" class="form-control" placeholder="Describe the fault..." required>
                       </div>
 
                       <!-- Camera button & preview -->
@@ -1190,7 +1191,7 @@
                       </div>
 
                       <label for="remedialActionbracingInstalled" class="form-label mt-3">Remedial Action</label>
-                      <input type="text" id="remedialActionbracingInstalled" name="remedialActionbracingInstalled" class="form-control" placeholder="Please specify...">
+                      <input type="text" id="remedialActionbracingInstalled" name="remedialActionbracingInstalled" class="form-control" placeholder="Please specify..." required>
                       </div>
                 </div>
 
@@ -1232,7 +1233,7 @@
                     <div class="row g-2 align-items-start">
                       <!-- Fault description input -->
                       <div class="col-md-8">
-                      <input type="text" id="faultDetailstiesAnchors" name="faultDetailstiesAnchors" class="form-control" placeholder="Describe the fault...">
+                      <input type="text" id="faultDetailstiesAnchors" name="faultDetailstiesAnchors" class="form-control" placeholder="Describe the fault..." required>
                       </div>
 
                       <!-- Camera button & preview -->
@@ -1255,7 +1256,7 @@
                     </div>
 
                     <label for="remedialActiontiesAnchors" class="form-label mt-3">Remedial Action</label>
-                    <input type="text" id="remedialActiontiesAnchors" name="remedialActiontiesAnchors" class="form-control" placeholder="Please specify...">
+                    <input type="text" id="remedialActiontiesAnchors" name="remedialActiontiesAnchors" class="form-control" placeholder="Please specify..." required>
                     </div>
                 </div>
 
@@ -1297,7 +1298,7 @@
             <div class="row g-2 align-items-start">
             <!-- Fault description input -->
             <div class="col-md-8">
-              <input type="text" id="faultDetailsanchorIntegrity" name="faultDetailsanchorIntegrity" class="form-control" placeholder="Describe the fault...">
+              <input type="text" id="faultDetailsanchorIntegrity" name="faultDetailsanchorIntegrity" class="form-control" placeholder="Describe the fault..." required>
             </div>
 
             <!-- Camera button & preview -->
@@ -1320,7 +1321,7 @@
             </div>
 
             <label for="remedialActionanchorIntegrity" class="form-label mt-3">Remedial Action</label>
-            <input type="text" id="remedialActionanchorIntegrity" name="remedialActionanchorIntegrity" class="form-control" placeholder="Please specify...">
+            <input type="text" id="remedialActionanchorIntegrity" name="remedialActionanchorIntegrity" class="form-control" placeholder="Please specify..." required>
           </div>
                 </div>
 
@@ -1362,7 +1363,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailstiePatternAdditions" name="faultDetailstiePatternAdditions" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailstiePatternAdditions" name="faultDetailstiePatternAdditions" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -1385,7 +1386,7 @@
     </div>
 
     <label for="remedialActiontiePatternAdditions" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActiontiePatternAdditions" name="remedialActiontiePatternAdditions" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActiontiePatternAdditions" name="remedialActiontiePatternAdditions" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -1433,7 +1434,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailsstabilityAugmentations" name="faultDetailsstabilityAugmentations" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailsstabilityAugmentations" name="faultDetailsstabilityAugmentations" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -1456,7 +1457,7 @@
     </div>
 
     <label for="remedialActionstabilityAugmentations" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionstabilityAugmentations" name="remedialActionstabilityAugmentations" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActionstabilityAugmentations" name="remedialActionstabilityAugmentations" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -1538,7 +1539,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailsboardsPlacedSecure" name="faultDetailsboardsPlacedSecure" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailsboardsPlacedSecure" name="faultDetailsboardsPlacedSecure" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -1561,7 +1562,7 @@
     </div>
 
     <label for="remedialActionboardsPlacedSecure" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionboardsPlacedSecure" name="remedialActionboardsPlacedSecure" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActionboardsPlacedSecure" name="remedialActionboardsPlacedSecure" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -1603,7 +1604,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailsboardCondition" name="faultDetailsboardCondition" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailsboardCondition" name="faultDetailsboardCondition" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -1626,7 +1627,7 @@
     </div>
 
     <label for="remedialActionboardCondition" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionboardCondition" name="remedialActionboardCondition" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActionboardCondition" name="remedialActionboardCondition" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -1668,7 +1669,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailsboardGapsOverhangs" name="faultDetailsboardGapsOverhangs" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailsboardGapsOverhangs" name="faultDetailsboardGapsOverhangs" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -1691,7 +1692,7 @@
     </div>
 
     <label for="remedialActionboardGapsOverhangs" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionboardGapsOverhangs" name="remedialActionboardGapsOverhangs" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActionboardGapsOverhangs" name="remedialActionboardGapsOverhangs" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -1739,7 +1740,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailsboardRetention" name="faultDetailsboardRetention" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailsboardRetention" name="faultDetailsboardRetention" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -1762,7 +1763,7 @@
     </div>
 
     <label for="remedialActionboardRetention" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionboardRetention" name="remedialActionboardRetention" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActionboardRetention" name="remedialActionboardRetention" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -1844,7 +1845,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailsguardrails" name="faultDetailsguardrails" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailsguardrails" name="faultDetailsguardrails" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -1867,7 +1868,7 @@
     </div>
 
     <label for="remedialActionguardrails" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionguardrails" name="remedialActionguardrails" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActionguardrails" name="remedialActionguardrails" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -1909,7 +1910,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailstoeBoards" name="faultDetailstoeBoards" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailstoeBoards" name="faultDetailstoeBoards" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -1932,7 +1933,7 @@
     </div>
 
     <label for="remedialActiontoeBoards" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActiontoeBoards" name="remedialActiontoeBoards" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActiontoeBoards" name="remedialActiontoeBoards" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -1980,7 +1981,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailsbrickGuardsMesh" name="faultDetailsbrickGuardsMesh" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailsbrickGuardsMesh" name="faultDetailsbrickGuardsMesh" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -2003,7 +2004,7 @@
     </div>
 
     <label for="remedialActionbrickGuardsMesh" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionbrickGuardsMesh" name="remedialActionbrickGuardsMesh" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActionbrickGuardsMesh" name="remedialActionbrickGuardsMesh" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -2091,7 +2092,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailsladders" name="faultDetailsladders" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailsladders" name="faultDetailsladders" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -2114,7 +2115,7 @@
     </div>
 
     <label for="remedialActionladders" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionladders" name="remedialActionladders" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActionladders" name="remedialActionladders" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -2162,7 +2163,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailsstairTowers" name="faultDetailsstairTowers" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailsstairTowers" name="faultDetailsstairTowers" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -2185,7 +2186,7 @@
     </div>
 
     <label for="remedialActionstairTowers" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionstairTowers" name="remedialActionstairTowers" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActionstairTowers" name="remedialActionstairTowers" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -2233,7 +2234,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailsaccessOpenings" name="faultDetailsaccessOpenings" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailsaccessOpenings" name="faultDetailsaccessOpenings" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -2256,7 +2257,7 @@
     </div>
 
     <label for="remedialActionaccessOpenings" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionaccessOpenings" name="remedialActionaccessOpenings" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActionaccessOpenings" name="remedialActionaccessOpenings" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -2298,7 +2299,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailsLocationAccess" name="faultDetailsLocationAccess" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailsLocationAccess" name="faultDetailsLocationAccess" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -2321,7 +2322,7 @@
     </div>
 
     <label for="remedialActionLocationAccess" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionLocationAccess" name="remedialActionLocationAccess" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActionLocationAccess" name="remedialActionLocationAccess" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -2337,7 +2338,7 @@
                      data-bs-toggle="popover" 
                      data-bs-trigger="focus"
                      title="Unauthorised Access Prevention"
-                     data-bs-content="If the scaffold is in a public area, steps must be taken to stop people climbing it when not in use. This could include removing or blocking ladders, fencing off the base, or fitting a ladder guard. It’s not part of the 7-day check, but important if it’s your scaffold.">
+                     data-bs-content="If the scaffold is in a public area, steps must be taken to stop people climbing it when not in use. This could include removing or blocking ladders, fencing off the base, or fitting a ladder guard.">
                     </i>
                  </label>
                   <div class="container">
@@ -2369,7 +2370,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailsUnauthorisedAccessPrevention" name="faultDetailsUnauthorisedAccessPrevention" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailsUnauthorisedAccessPrevention" name="faultDetailsUnauthorisedAccessPrevention" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -2392,7 +2393,7 @@
     </div>
 
     <label for="remedialActionUnauthorisedAccessPrevention" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionUnauthorisedAccessPrevention" name="remedialActionUnauthorisedAccessPrevention" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActionUnauthorisedAccessPrevention" name="remedialActionUnauthorisedAccessPrevention" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -2474,7 +2475,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailsDesignLoadCompliance" name="faultDetailsDesignLoadCompliance" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailsDesignLoadCompliance" name="faultDetailsDesignLoadCompliance" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -2497,7 +2498,7 @@
     </div>
 
     <label for="remedialActionDesignLoadCompliance" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionDesignLoadCompliance" name="remedialActionDesignLoadCompliance" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActionDesignLoadCompliance" name="remedialActionDesignLoadCompliance" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -2545,7 +2546,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailsLoadingBays" name="faultDetailsLoadingBays" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailsLoadingBays" name="faultDetailsLoadingBays" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -2568,7 +2569,7 @@
     </div>
 
     <label for="remedialActionLoadingBays" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionLoadingBays" name="remedialActionLoadingBays" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActionLoadingBays" name="remedialActionLoadingBays" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -2616,7 +2617,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailsCantileversSpecialStructures" name="faultDetailsCantileversSpecialStructures" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailsCantileversSpecialStructures" name="faultDetailsCantileversSpecialStructures" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -2639,7 +2640,7 @@
     </div>
 
     <label for="remedialActionCantileversSpecialStructures" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionCantileversSpecialStructures" name="remedialActionCantileversSpecialStructures" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActionCantileversSpecialStructures" name="remedialActionCantileversSpecialStructures" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -2681,7 +2682,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailsGeneralMisuseInterference" name="faultDetailsGeneralMisuseInterference" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailsGeneralMisuseInterference" name="faultDetailsGeneralMisuseInterference" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -2704,7 +2705,7 @@
     </div>
 
     <label for="remedialActionGeneralMisuseInterference" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionGeneralMisuseInterference" name="remedialActionGeneralMisuseInterference" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActionGeneralMisuseInterference" name="remedialActionGeneralMisuseInterference" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -2792,7 +2793,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailsOverheadProtection" name="faultDetailsOverheadProtection" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailsOverheadProtection" name="faultDetailsOverheadProtection" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -2815,7 +2816,7 @@
     </div>
 
     <label for="remedialActionOverheadProtection" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionOverheadProtection" name="remedialActionOverheadProtection" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActionOverheadProtection" name="remedialActionOverheadProtection" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -2857,7 +2858,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailsSignsLighting" name="faultDetailsSignsLighting" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailsSignsLighting" name="faultDetailsSignsLighting" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -2880,7 +2881,7 @@
     </div>
 
     <label for="remedialActionSignsLighting" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionSignsLighting" name="remedialActionSignsLighting" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActionSignsLighting" name="remedialActionSignsLighting" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -2922,7 +2923,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailsElectricalHazards" name="faultDetailsElectricalHazards" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailsElectricalHazards" name="faultDetailsElectricalHazards" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -2945,7 +2946,7 @@
     </div>
 
     <label for="remedialActionElectricalHazards" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionElectricalHazards" name="remedialActionElectricalHazards" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActionElectricalHazards" name="remedialActionElectricalHazards" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -2987,7 +2988,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailsWeatherConditions" name="faultDetailsWeatherConditions" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailsWeatherConditions" name="faultDetailsWeatherConditions" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -3010,7 +3011,7 @@
     </div>
 
     <label for="remedialActionWeatherConditions" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionWeatherConditions" name="remedialActionWeatherConditions" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActionWeatherConditions" name="remedialActionWeatherConditions" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -3052,7 +3053,7 @@
     <div class="row g-2 align-items-start">
       <!-- Fault description input -->
       <div class="col-md-8">
-        <input type="text" id="faultDetailsHousekeeping" name="faultDetailsHousekeeping" class="form-control" placeholder="Describe the fault...">
+        <input type="text" id="faultDetailsHousekeeping" name="faultDetailsHousekeeping" class="form-control" placeholder="Describe the fault..." required>
       </div>
 
       <!-- Camera button & preview -->
@@ -3075,7 +3076,7 @@
     </div>
 
     <label for="remedialActionHousekeeping" class="form-label mt-3">Remedial Action</label>
-    <input type="text" id="remedialActionHousekeeping" name="remedialActionHousekeeping" class="form-control" placeholder="Please specify...">
+    <input type="text" id="remedialActionHousekeeping" name="remedialActionHousekeeping" class="form-control" placeholder="Please specify..." required>
   </div>
                 </div>
 
@@ -3356,7 +3357,7 @@
   <div class="row g-2 align-items-start">
     <!-- Fault description input -->
     <div class="col-md-8">
-      <input type="text" id="faultDetailsAncillaryEquipment" name="faultDetailsAncillaryEquipment" class="form-control" placeholder="Describe the fault...">
+      <input type="text" id="faultDetailsAncillaryEquipment" name="faultDetailsAncillaryEquipment" class="form-control" placeholder="Describe the fault..." required>
     </div>
 
     <!-- Camera button & preview -->
@@ -3379,7 +3380,7 @@
   </div>
 
   <label for="remedialActionAncillaryEquipment" class="form-label mt-3">Remedial Action</label>
-  <input type="text" id="remedialActionAncillaryEquipment" name="remedialActionAncillaryEquipment" class="form-control" placeholder="Please specify...">
+  <input type="text" id="remedialActionAncillaryEquipment" name="remedialActionAncillaryEquipment" class="form-control" placeholder="Please specify..." required>
 </div>
                 </div>
 
@@ -3480,7 +3481,7 @@
                         tabindex="0"
                         role="button"
                         data-bs-toggle="popover"
-                        data-bs-trigger="focus"
+                        data-bs-trigger="click"
                         title="Hirer Name"
                         data-bs-content="Enter the full name of the individual or company responsible for hiring the scaffold. This is required for legal and record-keeping purposes.">
                       </i>
@@ -3520,7 +3521,7 @@
                         tabindex="0"
                         role="button"
                         data-bs-toggle="popover"
-                        data-bs-trigger="focus"
+                        data-bs-trigger="click"
                         title="Scaffold Location"
                         data-bs-content="Clearly state where the scaffold is on site — for example, “North side of Unit 3” — so it’s easy to identify">
                       </i>
@@ -3598,32 +3599,38 @@
                     </div>
                     </div>
 
-                  <!-- Signature Question -->
-                  <div class="mb-4 question-container">
-                    <label class="form-label fw-bold">
-                      Inspector Signature
-                      <i
-                        class="bi bi-info-circle ms-2"
-                        tabindex="0"
-                        role="button"
-                        data-bs-toggle="popover"
-                        data-bs-trigger="focus"
-                        title="Inspector Signature"
-                        data-bs-content="Please provide your signature to confirm the accuracy of this inspection.">
-                      </i>
-                    </label>
-                    <div class="d-flex flex-column flex-md-row gap-2">
-                      <button type="button" class="btn btn-outline-primary btn-lg" data-bs-toggle="modal" data-bs-target="#signatureModal">
-                        <i class="bi bi-pencil-square me-2"></i> Add Signature
-                      </button>
-                      <button type="button" class="btn btn-outline-secondary btn-lg" id="uploadSignatureBtn">
-                        <i class="bi bi-upload me-2"></i> Upload Signature Image
-                      </button>
-                      <input type="file" accept="image/*" id="signatureImageInput" name="signatureImageInput" class="d-none">
+                    <!-- Signature Question -->
+                    <div class="mb-4 question-container">
+                      <label class="form-label fw-bold">
+                        Inspector Signature
+                        <i
+                          class="bi bi-info-circle ms-2"
+                          tabindex="0"
+                          role="button"
+                          data-bs-toggle="popover"
+                          data-bs-trigger="focus"
+                          title="Inspector Signature"
+                          data-bs-content="Please provide your signature to confirm the accuracy of this inspection.">
+                        </i>
+                      </label>
+                      <div class="container">
+                        <div class="row g-2">
+                          <div class="col-md-6">
+                            <button type="button" class="btn btn-outline-primary btn-lg w-100 answer-btn" data-bs-toggle="modal" data-bs-target="#signatureModal" style="font-weight:600;">
+                              <i class="bi bi-pencil-square me-2"></i> Add Signature
+                            </button>
+                          </div>
+                          <div class="col-md-6">
+                            <button type="button" class="btn btn-outline-secondary btn-lg w-100 answer-btn" id="uploadSignatureBtn">
+                              <i class="bi bi-upload me-2"></i> Upload Signature Image
+                            </button>
+                            <input type="file" accept="image/*" id="signatureImageInput" name="signatureImageInput" class="d-none">
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Preview area -->
+                      <div id="signaturePreview" class="mt-3"></div>
                     </div>
-                    <!-- Preview area -->
-                    <div id="signaturePreview" class="mt-3"></div>
-                  </div>
 
                   <!-- Signature Modal -->
                   <div class="modal fade" id="signatureModal" tabindex="-1" aria-labelledby="signatureModalLabel" aria-hidden="true">
@@ -3642,7 +3649,6 @@
                             </div>
                           </div>
                           <div class="text-center mt-2">
-                            <small class="text-muted">Rotate your device for best experience.</small>
                           </div>
                         </div>
                         <div class="modal-footer d-flex justify-content-between">
@@ -3661,26 +3667,39 @@
                       </div>
                     </div>
                   </div>
-
+                  <!-- Terms and Privacy Agreement Checkboxes -->
+                  <div class="mb-4 question-container">
+                    <div class="form-check mb-2">
+                      <input class="form-check-input" type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                      <label class="form-check-label fw-bold" for="agreeTerms">
+                        I agree to the <a href="terms.html" target="_blank" rel="noopener">Terms and Conditions</a>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="agreePrivacy" name="agreePrivacy" required>
+                      <label class="form-check-label fw-bold" for="agreePrivacy">
+                        I agree to the <a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>
+                      </label>
+                    </div>
+                  </div>
                 </div>
                 <!-- End Body -->
 
                 <!-- Footer -->
                 <div class="card-footer pt-0">
                   <div class="d-flex align-items-center">
-                    <button type="button" class="btn btn-ghost-secondary"
-                       data-hs-step-form-prev-options='{
-                         "targetSelector": "#scaffCheckMiscellaneous"
-                       }'>
-                      <i class="bi-chevron-left small ms-1"></i> Miscellaneous
-                    </button>
+                  <button type="button" class="btn btn-ghost-secondary"
+                     data-hs-step-form-prev-options='{
+                     "targetSelector": "#scaffCheckMiscellaneous"
+                     }'>
+                    <i class="bi-chevron-left small ms-1"></i> Miscellaneous
+                  </button>
 
-                    <div class="ms-auto">
-                      <div class="d-flex gap-2">
-                        <button type="button" class="btn btn-white">Save in drafts</button>
-                        <button id="scaffCheckFinishBtn" type="button" class="btn btn-primary">Save</button>
-                      </div>
+                  <div class="ms-auto">
+                    <div class="d-flex gap-2">
+                    <button id="scaffCheckFinishBtn" type="button" class="btn btn-primary">Submit Report</button>
                     </div>
+                  </div>
                   </div>
                 </div>
                 <!-- End Footer -->

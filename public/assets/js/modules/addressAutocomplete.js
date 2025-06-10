@@ -9,8 +9,8 @@ export function initializeGoogleAutocomplete() {
     return;
   }
 
-  // Define input field IDs
-  const inputIds = ["homeAddress", "propertyAddress"];
+  // Define input field IDs - CORRECTED to include 'siteAddress'
+  const inputIds = ["homeAddress", "propertyAddress", "siteAddress"];
 
   inputIds.forEach((id) => {
     const input = document.getElementById(id);
