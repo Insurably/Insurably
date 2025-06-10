@@ -11,7 +11,6 @@ export function initializeSignaturePad() {
         return;
     }
     // Set canvas dimensions explicitly for drawing area
-    // Using explicit width/height on canvas element, but ensuring JS also knows
     canvas.width = 600; // Match the width from your HTML
     canvas.height = 250; // Match the height from your HTML
 
@@ -64,7 +63,7 @@ export function initializeSignaturePad() {
     const point = getPoint(e);
     // Check if coordinates are finite numbers before drawing
     if (Number.isFinite(point.x) && Number.isFinite(point.y) &&
-        (lastPoint && Number.isFinite(lastPoint.x) && Number.isFinite(lastPoint.y))) { // Added check for lastPoint existence
+        (lastPoint && Number.isFinite(lastPoint.x) && Number.isFinite(lastPoint.y))) {
         ctx.lineTo(point.x, point.y);
         ctx.stroke();
         lastPoint = point; // Update lastPoint only if drawing occurred successfully
@@ -74,7 +73,7 @@ export function initializeSignaturePad() {
     }
   }
 
-  // Get references to HTML elements (outside the shown.bs.modal listener for buttons that are always present)
+  // Get references to HTML elements
   const signatureModalElement = document.getElementById('signatureModal');
   const clearBtn = document.getElementById('clearSignatureBtn');
   const saveBtn = document.getElementById('saveSignatureBtn');
@@ -85,16 +84,15 @@ export function initializeSignaturePad() {
 
   if (signatureModalElement) {
     signatureModalElement.addEventListener('shown.bs.modal', function () {
-      // CRITICAL FIX: Changed 'signatureCanvas' to 'signaturePadCanvas' to match your HTML
       canvas = document.getElementById('signaturePadCanvas');
       if (!canvas) {
         console.error("Signature canvas not found inside the modal! Check HTML ID.");
-        return; // Exit if canvas is not found
+        return;
       }
       ctx = canvas.getContext('2d');
       if (!ctx) {
         console.error("Failed to get 2D context for canvas!");
-        return; // Exit if context cannot be obtained
+        return;
       }
 
       // Set canvas drawing properties
@@ -144,6 +142,17 @@ export function initializeSignaturePad() {
       // Clear canvas and context references to avoid stale states
       canvas = null;
       ctx = null;
+
+      // --- ADDED: Explicitly ensure backdrop and body state are clean ---
+      // This is a failsafe if Bootstrap's hide doesn't fully complete.
+      document.body.classList.remove('modal-open');
+      const backdrop = document.querySelector('.modal-backdrop');
+      if (backdrop) {
+        backdrop.remove();
+      }
+      // Re-enable scrolling in case it was explicitly disabled
+      document.body.style.overflow = ''; // Remove any inline overflow style
+      // --- END ADDED ---
     });
   } else {
     console.error("Signature modal element with ID 'signatureModal' not found! Signature pad cannot be initialized.");
@@ -175,7 +184,6 @@ export function initializeSignaturePad() {
       }
       const dataURL = canvas.toDataURL('image/png');
       if (signaturePreview) {
-        // Corrected: Removed fixed max-width, relying on img-fluid.
         signaturePreview.innerHTML =
           `<img src="${dataURL}" alt="Signature" class="img-fluid rounded border" style="background: #fff;">`;
       }
@@ -194,6 +202,7 @@ export function initializeSignaturePad() {
       // Optionally close modal
       const modal = bootstrap.Modal.getInstance(signatureModalElement);
       if (modal) modal.hide();
+      // No extra cleanup needed here, as the 'hidden.bs.modal' listener handles it.
     };
   } else {
     console.warn("Save signature button not found!");
@@ -230,7 +239,6 @@ export function initializeSignaturePad() {
       const reader = new FileReader();
       reader.onload = function(evt) {
         if (signaturePreview) {
-            // Corrected: Removed fixed max-width, relying on img-fluid.
             signaturePreview.innerHTML =
               `<img src="${evt.target.result}" alt="Signature" class="img-fluid rounded border" style="background: #fff;">`;
         }
@@ -246,6 +254,7 @@ export function initializeSignaturePad() {
         // Optionally close modal
         const modal = bootstrap.Modal.getInstance(signatureModalElement);
         if (modal) modal.hide();
+        // No extra cleanup needed here, as the 'hidden.bs.modal' listener handles it.
       };
       reader.readAsDataURL(file);
     };
