@@ -10,7 +10,7 @@ import { initializePopovers } from './assets/js/modules/popoverInit.js';
 import { initializeStickyBlocks } from './assets/js/modules/stickyBlock.js';
 import { initializeSelects } from './assets/js/modules/selectInit.js';
 import { initializeAnswerButtonScroll } from './assets/js/modules/answerScroll.js';
-// (import others as you modularise)
+
 
 document.addEventListener("DOMContentLoaded", function () {
   // Load header & footer, then run page initialisers

@@ -1,80 +1,69 @@
-// stepForm.js
 import { initializeRemedialFieldToggle } from './remedialFieldToggle.js';
+import { initializeSignaturePad } from './signature-pad.js';
+
+// Utility: Clear validation states for all .question-container in all active cards
+function clearAllActiveCardValidation() {
+  document.querySelectorAll('#scaffCheckStepFormContent .card.active .question-container').forEach(container => {
+    container.classList.remove('is-invalid');
+    const label = container.querySelector('label.form-label');
+    if (label) label.classList.remove('text-danger');
+    const existingError = container.querySelector('.invalid-feedback');
+    if (existingError) existingError.remove();
+  });
+}
+
+// Add live validation to question-containers
+function attachLiveValidation(container) {
+  const label = container.querySelector('label.form-label');
+  const inputs = container.querySelectorAll('input, select, textarea');
+  inputs.forEach(input => {
+    // Remove previous listeners if they exist
+    input.removeEventListener('input', input._liveValidationHandler);
+    input.removeEventListener('change', input._liveValidationHandler);
+    input._liveValidationHandler = () => {
+      if (input.checkValidity()) {
+        container.classList.remove('is-invalid');
+        if (label) label.classList.remove('text-danger');
+        const err = container.querySelector('.invalid-feedback');
+        if (err) err.remove();
+      }
+    };
+    input.addEventListener('input', input._liveValidationHandler);
+    input.addEventListener('change', input._liveValidationHandler);
+  });
+}
 
 export function initializeStepForm(updateProgress) {
   setTimeout(() => {
     const stepForm = new HSStepForm('.js-step-form', {
       onNextStep: () => {
-        console.log('onNextStep function is running!');
+        // On successful validation and step progression:
+        // - Clear validation errors from new step
+        // - Add live validation listeners
+
+        setTimeout(() => {
+          clearAllActiveCardValidation();
+          // Attach live validation for the next step
+          const nextStep = document.querySelector('#scaffCheckStepFormContent .card.active');
+          if (nextStep) {
+            nextStep.querySelectorAll('.question-container').forEach(container => {
+              attachLiveValidation(container);
+            });
+          }
+        }, 10);
+
         window.scrollTo({ top: 0, behavior: 'smooth' });
         setTimeout(updateProgress, 750);
 
-        const currentStep = document.querySelector('.step-panel:not(.d-none)');
-        console.log("Current step found:", currentStep);
-
-        const questionContainers = currentStep.querySelectorAll('.question-container');
-        console.log("Question containers in this step:", questionContainers);
-
-        let isValid = true;
-        let firstInvalid = null;
-
-        questionContainers.forEach((container, i) => {
-          const inputs = container.querySelectorAll('input, select, textarea');
-          let containerValid = true;
-
-          // Log the question and its inputs
-          console.log(`Question ${i + 1}:`, container, "Inputs:", inputs);
-
-          inputs.forEach(input => {
-            if (!input.checkValidity()) {
-              containerValid = false;
-              if (!firstInvalid) firstInvalid = input;
-              console.log("INVALID INPUT FOUND:", input);
-            }
-          });
-
-          // Remove previous error states
-          container.classList.remove('is-invalid');
-          const label = container.querySelector('label.form-label');
-          if (label) label.classList.remove('text-danger');
-          const existingError = container.querySelector('.invalid-feedback');
-          if (existingError) existingError.remove();
-
-          // If not valid, show the error
-          if (!containerValid) {
-            console.log("ADDING is-invalid TO CONTAINER:", container);
-            container.classList.add('is-invalid');
-            if (label) label.classList.add('text-danger');
-            const error = document.createElement('div');
-            error.className = 'invalid-feedback d-block';
-            error.textContent = 'This question is required.';
-            container.appendChild(error);
-            isValid = false;
-          }
-        });
-
-        // ---- Remedial Toggle: re-initialize after validation and DOM updates ----
-        initializeRemedialFieldToggle();
-
-        if (!isValid && firstInvalid) {
-          firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          firstInvalid.focus({ preventScroll: true });
-          console.log("Blocked from going to next step because of invalid field.");
-          return false; // Block progression!
-        }
-
-        console.log("All questions valid. Proceeding.");
-
-        // Init signature pad if needed
-        if (document.getElementById("signatureCanvas") || document.getElementById("openSignatureModal")) {
-          if (typeof window.initializeSignaturePad === 'function') {
-            window.initializeSignaturePad();
-          }
-        }
-
-        // Remedial toggle may be needed on next step as well!
+        // Signature/remedial fields
         setTimeout(() => {
           initializeRemedialFieldToggle();
+          if (
+            document.getElementById("signatureCanvas") ||
+            document.getElementById("openSignatureModal")
+          ) {
+            initializeSignaturePad();
+          }
         }, 100);
 
         return true;
@@ -83,13 +72,20 @@ export function initializeStepForm(updateProgress) {
       onPrevStep: () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
         setTimeout(updateProgress, 750);
-        // Re-initialize remedial toggles for previous step
         setTimeout(() => {
-          initializeRemedialFieldToggle();
-        }, 100);
+          clearAllActiveCardValidation();
+          // Attach live validation for the previous step
+          const prevStep = document.querySelector('#scaffCheckStepFormContent .card.active');
+          if (prevStep) {
+            prevStep.querySelectorAll('.question-container').forEach(container => {
+              attachLiveValidation(container);
+            });
+          }
+        }, 10);
       },
 
       finish: () => {
+        // ... your finish code ...
         console.log("Form finished, displaying success message.");
 
         document.querySelectorAll('#scaffCheckStepFormContent .card').forEach(card => {
@@ -124,9 +120,64 @@ export function initializeStepForm(updateProgress) {
 
     setTimeout(updateProgress, 750);
 
-    // Initial remedial toggle on first load (first step)
+    // On first load: clean and attach live validation to the first step
     setTimeout(() => {
+      clearAllActiveCardValidation();
+      const currentStep = document.querySelector('#scaffCheckStepFormContent .card.active');
+      if (currentStep) {
+        currentStep.querySelectorAll('.question-container').forEach(container => {
+          attachLiveValidation(container);
+        });
+      }
       initializeRemedialFieldToggle();
     }, 100);
+
+    // ------- THE MAGIC: VALIDATION BLOCKER -------
+    // Validate current step before progressing!
+    document.querySelectorAll('[data-hs-step-form-next-options]').forEach(btn => {
+      btn.addEventListener('click', function (e) {
+        const currentStep = document.querySelector('#scaffCheckStepFormContent .card.active');
+        let isValid = true;
+        let firstInvalid = null;
+
+        // Validate all .question-container in the current step
+        currentStep.querySelectorAll('.question-container').forEach(container => {
+          // Remove previous errors
+          container.classList.remove('is-invalid');
+          const label = container.querySelector('label.form-label');
+          if (label) label.classList.remove('text-danger');
+          const existingError = container.querySelector('.invalid-feedback');
+          if (existingError) existingError.remove();
+
+          // Validate each input in the question
+          let containerValid = true;
+          container.querySelectorAll('input, select, textarea').forEach(input => {
+            if (!input.checkValidity()) {
+              containerValid = false;
+              if (!firstInvalid) firstInvalid = input;
+            }
+          });
+
+          if (!containerValid) {
+            container.classList.add('is-invalid');
+            if (label) label.classList.add('text-danger');
+            const error = document.createElement('div');
+            error.className = 'invalid-feedback d-block';
+            error.textContent = 'This question is required.';
+            container.appendChild(error);
+            isValid = false;
+          }
+        });
+
+        if (!isValid && firstInvalid) {
+          e.preventDefault(); // Block step navigation!
+          firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          firstInvalid.focus({ preventScroll: true });
+          return false;
+        }
+        // If valid, allow HSStepForm to proceed as normal.
+      });
+    });
+
   }, 500);
 }

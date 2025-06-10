@@ -1,4 +1,4 @@
-function initializeSignaturePad() {
+export function initializeSignaturePad() {
   const openBtn = document.getElementById('openSignatureModal');
   const modal = document.getElementById('signatureModal');
   const canvas = document.getElementById('signatureCanvas');
@@ -133,6 +133,3 @@ function resizeCanvas() {
     }
   });
 }
-
-// Make available globally
-window.initializeSignaturePad = initializeSignaturePad;
