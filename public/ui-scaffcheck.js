@@ -10,6 +10,7 @@ import { initializePopovers } from './assets/js/modules/popoverInit.js';
 import { initializeStickyBlocks } from './assets/js/modules/stickyBlock.js';
 import { initializeSelects } from './assets/js/modules/selectInit.js';
 import { initializeAnswerButtonScroll } from './assets/js/modules/answerScroll.js';
+import { initializeSignaturePad } from './assets/js/modules/signature-pad.js';
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -49,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initializeStickyBlocks();
     initializeSelects();
     initializeAnswerButtonScroll();
+    initializeSignaturePad();
 
     // Extra component initialisation (optional)
     if (window.HSShowAnimation) {

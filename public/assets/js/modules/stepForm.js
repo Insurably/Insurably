@@ -1,5 +1,4 @@
 import { initializeRemedialFieldToggle } from './remedialFieldToggle.js';
-import { initializeSignaturePad } from './signature-pad.js';
 
 // Utility: Clear validation states for all .question-container in all active cards
 function clearAllActiveCardValidation() {
@@ -55,15 +54,9 @@ export function initializeStepForm(updateProgress) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
         setTimeout(updateProgress, 750);
 
-        // Signature/remedial fields
+        // Remedial fields only (signature pad logic removed)
         setTimeout(() => {
           initializeRemedialFieldToggle();
-          if (
-            document.getElementById("signatureCanvas") ||
-            document.getElementById("openSignatureModal")
-          ) {
-            initializeSignaturePad();
-          }
         }, 100);
 
         return true;

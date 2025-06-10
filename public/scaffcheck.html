@@ -18,7 +18,7 @@
   <title>Weekly Scaffold Inspection Checklist | Powered by Insurably®</title>
   <script type="module" src="supascaff.js" defer></script>
   <script type="module" src="ui-scaffcheck.js" defer></script>
-  <script src="signature-pad.js" defer></script>  
+
 
   <!-- Standard Favicon -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -151,7 +151,7 @@
               "progressSelector": "#scaffCheckStepFormProgress",
               "stepsSelector": "#scaffCheckStepFormContent",
               "endSelector": "#scaffCheckFinishBtn",
-              "isValidate": true
+              "isValidate": false
             }'>
         <div class="row">
           <!-- Left column: Step progress list (visible on large screens only) -->
@@ -3598,61 +3598,69 @@
                     </div>
                     </div>
 
-                  <!-- Question: Signature -->
-<div class="mb-4 question-container">
-  <label class="form-label fw-bold">
-    Signature
-    <i
-      class="bi bi-info-circle ms-2"
-      tabindex="0"
-      role="button"
-      data-bs-toggle="popover"
-      data-bs-trigger="focus"
-      title="Signature"
-      data-bs-content="Tap to add your signature. This opens a full-screen pad for better accuracy on mobile.">
-    </i>
-  </label>
+                  <!-- Signature Question -->
+                  <div class="mb-4 question-container">
+                    <label class="form-label fw-bold">
+                      Inspector Signature
+                      <i
+                        class="bi bi-info-circle ms-2"
+                        tabindex="0"
+                        role="button"
+                        data-bs-toggle="popover"
+                        data-bs-trigger="focus"
+                        title="Inspector Signature"
+                        data-bs-content="Please provide your signature to confirm the accuracy of this inspection.">
+                      </i>
+                    </label>
+                    <div class="d-flex flex-column flex-md-row gap-2">
+                      <button type="button" class="btn btn-outline-primary btn-lg" data-bs-toggle="modal" data-bs-target="#signatureModal">
+                        <i class="bi bi-pencil-square me-2"></i> Add Signature
+                      </button>
+                      <button type="button" class="btn btn-outline-secondary btn-lg" id="uploadSignatureBtn">
+                        <i class="bi bi-upload me-2"></i> Upload Signature Image
+                      </button>
+                      <input type="file" accept="image/*" id="signatureImageInput" name="signatureImageInput" class="d-none">
+                    </div>
+                    <!-- Preview area -->
+                    <div id="signaturePreview" class="mt-3"></div>
+                  </div>
 
-  <!-- Trigger button -->
-  <button type="button" id="openSignatureModal" class="btn btn-outline-primary w-100 mb-2">
-    ✍️ Add Signature
-  </button>
-
-  <!-- Hidden input to store signature data -->
-  <input type="hidden" id="signatureData" name="signatureData">
-
-  <!-- Preview of saved signature -->
-  <img
-    id="signaturePreview"
-    class="img-thumbnail d-none mt-2"
-    alt="Signature Preview"
-    style="max-width: 100%; height: auto;">
-
-  <!-- Upload fallback option (optional) -->
-  <label for="signatureUpload" class="btn btn-outline-secondary w-100 mt-2">
-    <i class="bi bi-upload me-1"></i> Upload Signature Image
-  </label>
-  <input
-    type="file"
-    id="signatureUpload"
-    name="signatureUpload"
-    accept="image/*"
-    class="d-none">
-</div>
-
-<!-- Fullscreen Signature Modal -->
-<div id="signatureModal" class="position-fixed top-0 start-0 w-100 h-100 bg-white d-none" style="z-index: 1050;">
-  <div class="d-flex flex-column h-100 p-3">
-    <h5 class="text-center mb-3">Sign Below</h5>
-    <canvas id="signatureCanvas" class="flex-grow-1 border rounded" style="touch-action: none;" tabindex="-1"></canvas>
-    <div class="d-flex justify-content-between mt-3">
-      <button id="clearSignature" class="btn btn-outline-secondary w-25">Clear</button>
-      <button id="cancelSignature" class="btn btn-outline-danger w-25">Cancel</button>
-      <button id="saveSignature" class="btn btn-primary w-25">Use Signature</button>
-    </div>
-  </div>
-</div>
-
+                  <!-- Signature Modal -->
+                  <div class="modal fade" id="signatureModal" tabindex="-1" aria-labelledby="signatureModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" style="max-width: 700px;">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title fw-bold" id="signatureModalLabel">
+                            Draw Your Signature
+                          </h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body p-4" style="background: #f8f9fa;">
+                          <div class="d-flex justify-content-center">
+                            <div style="border: 2px dashed #377dff; border-radius: 10px; background: #fff; padding: 10px;">
+                              <canvas id="signaturePadCanvas" width="600" height="250" style="touch-action: none; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(55,125,255,0.08);"></canvas>
+                            </div>
+                          </div>
+                          <div class="text-center mt-2">
+                            <small class="text-muted">Rotate your device for best experience. Landscape only.</small>
+                          </div>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-between">
+                          <button type="button" class="btn btn-outline-danger" id="clearSignatureBtn">
+                            <i class="bi bi-eraser me-1"></i> Clear
+                          </button>
+                          <div>
+                            <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">
+                              <i class="bi bi-x-circle me-1"></i> Cancel
+                            </button>
+                            <button type="button" class="btn btn-primary" id="saveSignatureBtn">
+                              <i class="bi bi-check-circle me-1"></i> Save
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
                 </div>
                 <!-- End Body -->
