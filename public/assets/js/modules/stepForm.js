@@ -77,38 +77,41 @@ export function initializeStepForm(updateProgress) {
         }, 10);
       },
 
-      finish: () => {
-        // ... your finish code ...
-        console.log("Form finished, displaying success message.");
+finish: () => {
+  console.log("Form finished, displaying success message.");
 
-        document.querySelectorAll('#scaffCheckStepFormContent .card').forEach(card => {
-          card.style.display = 'none';
-        });
+  document.querySelectorAll('#scaffCheckStepFormContent .card').forEach(card => {
+    card.style.display = 'none';
+  });
 
-        const sidebarProgress = document.querySelector('.col-lg-4.d-none.d-lg-block');
-        if (sidebarProgress) sidebarProgress.style.display = 'none';
+  const sidebarProgress = document.querySelector('.col-lg-4.d-none.d-lg-block');
+  if (sidebarProgress) sidebarProgress.style.display = 'none';
 
-        const quoteProgress = document.getElementById("quoteStepFormProgress");
-        if (quoteProgress) quoteProgress.style.display = 'none';
+  const stickyBlock = document.querySelector('.js-sticky-block');
+  if (stickyBlock) stickyBlock.style.display = 'none';
 
-        const progressBar = document.querySelector('.progress');
-        if (progressBar) progressBar.style.display = 'none';
+  const quoteProgress = document.getElementById("quoteStepFormProgress");
+  if (quoteProgress) quoteProgress.style.display = 'none';
 
-        const formContainer = document.getElementById('formContainer');
-        if (formContainer) {
-          formContainer.classList.remove('col-lg-8');
-          formContainer.classList.add('col-lg-12');
-        }
+  const progressBar = document.querySelector('.progress');
+  if (progressBar) progressBar.style.display = 'none';
 
-        const successMessage = document.getElementById("successMessageContent");
-        if (successMessage) {
-          successMessage.style.display = 'block';
-        }
+  const formContainer = document.getElementById('formContainer');
+  if (formContainer) {
+    formContainer.classList.remove('col-lg-8');
+    formContainer.classList.add('col-lg-12');
+  }
 
-        setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }, 300);
-      }
+  const successMessage = document.getElementById("successMessageContent");
+  if (successMessage) {
+    successMessage.style.display = 'block';
+  }
+
+  setTimeout(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, 300);
+}
+
     });
 
     setTimeout(updateProgress, 750);
