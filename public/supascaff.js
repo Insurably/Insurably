@@ -77,6 +77,7 @@ if (signatureCanvas) {
     uploadedPaths['signatureImageInputUrl'] = signatureFilename;
   }
 }
+}
 
 
 // ✅ Form submission handler
