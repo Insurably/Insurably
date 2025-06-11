@@ -1,4 +1,5 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+import imageCompression from 'https://cdn.jsdelivr.net/npm/browser-image-compression/+esm';
 
 // Initialize Supabase client (anon key)
 const supabase = createClient(
@@ -21,14 +22,58 @@ function collectFormData(containerId) {
   return data;
 }
 
+// Compress and upload all file inputs, return { inputNameUrl: path }
+async function processAndUploadImages(containerId, folder = 'uploads/') {
+  const container = document.getElementById(containerId);
+  const fileInputs = container.querySelectorAll('input[type="file"]');
+  const uploadedPaths = {};
+
+  for (const input of fileInputs) {
+    const file = input.files[0];
+    if (!file) continue;
+
+    // Compress image
+    const compressedFile = await imageCompression(file, {
+      maxSizeMB: 0.5,
+      maxWidthOrHeight: 1600,
+      useWebWorker: true
+    });
+
+    // Upload to Supabase Storage
+    const filename = `${folder}${crypto.randomUUID()}_${input.name}.jpg`;
+    const { error } = await supabase.storage
+      .from('scaffold-inspections')
+      .upload(filename, compressedFile, {
+        contentType: 'image/jpeg',
+        cacheControl: '3600',
+        upsert: false
+      });
+
+    if (error) {
+      console.error(`Error uploading ${input.name}:`, error.message);
+    } else {
+      uploadedPaths[`${input.name}Url`] = filename; // e.g. photofirmFootingsUrl
+    }
+  }
+
+  return uploadedPaths;
+}
+
 // Submit to Supabase
 async function submitScaffoldInspection() {
   const formData = collectFormData('formContainer');
-  console.log('Submitting:', formData);
+  const imagePaths = await processAndUploadImages('formContainer');
+
+  const finalData = {
+    ...formData,
+    ...imagePaths
+  };
+
+  console.log('Submitting:', finalData);
 
   const { data, error } = await supabase
     .from('scaffold_inspections')
-    .insert([formData]);
+    .insert([finalData]);
 
   if (error) {
     console.error('Insert failed:', error.message);
