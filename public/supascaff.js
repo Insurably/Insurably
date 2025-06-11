@@ -51,8 +51,10 @@ async function processAndUploadImages(containerId, folder = 'uploads/') {
       });
 
     if (error) {
-      console.error(`Error uploading ${input.name}:`, error.message);
-    } else {
+  alert(`Upload failed for "${input.name}". Please try a smaller image.`);
+  console.error(`❌ Upload failed for ${input.name}:`, error.message);
+}
+ else {
       uploadedPaths[`${input.name}Url`] = filename; // e.g. photofirmFootingsUrl
     }
   }
