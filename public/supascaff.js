@@ -56,30 +56,28 @@ async function processAndUploadImages(containerId, folder = 'uploads/') {
     }
   }
 
-  // 🔹 Upload canvas signature
-  const signatureCanvas = document.getElementById('signature-pad');
-  if (signatureCanvas) {
-    const dataUrl = signatureCanvas.toDataURL('image/jpeg');
-    const blob = await (await fetch(dataUrl)).blob();
+// 🔹 Upload canvas signature
+const signatureCanvas = document.getElementById('signature-pad');
+if (signatureCanvas) {
+  const dataUrl = signatureCanvas.toDataURL('image/png'); // ✅ PNG format
+  const blob = await (await fetch(dataUrl)).blob();
 
-    const signatureFilename = `${folder}${crypto.randomUUID()}_signatureImageInput.jpg`;
-    const { error } = await supabase.storage
-      .from('scaffold-inspections')
-      .upload(signatureFilename, blob, {
-        contentType: 'image/jpeg',
-        cacheControl: '3600',
-        upsert: false
-      });
+  const signatureFilename = `${folder}${crypto.randomUUID()}_signatureImageInput.png`; // ✅ .png extension
+  const { error } = await supabase.storage
+    .from('scaffold-inspections')
+    .upload(signatureFilename, blob, {
+      contentType: 'image/png', // ✅ PNG MIME type
+      cacheControl: '3600',
+      upsert: false
+    });
 
-    if (error) {
-      console.error(`❌ Upload failed for signatureImageInput:`, error.message);
-    } else {
-      uploadedPaths['signatureImageInputUrl'] = signatureFilename;
-    }
+  if (error) {
+    console.error(`❌ Upload failed for signatureImageInput:`, error.message);
+  } else {
+    uploadedPaths['signatureImageInputUrl'] = signatureFilename;
   }
-
-  return uploadedPaths;
 }
+
 
 // ✅ Form submission handler
 async function submitScaffoldInspection() {
