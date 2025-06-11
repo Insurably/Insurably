@@ -84,7 +84,7 @@ export function initializeSignaturePad() {
 
   if (signatureModalElement) {
     signatureModalElement.addEventListener('shown.bs.modal', function () {
-      canvas = document.getElementById('signaturePadCanvas');
+      canvas = document.getElementById('signature-pad');
       if (!canvas) {
         console.error("Signature canvas not found inside the modal! Check HTML ID.");
         return;
