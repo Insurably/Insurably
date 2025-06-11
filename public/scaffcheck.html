@@ -3612,72 +3612,73 @@
                     </div>
 
                     <!-- Signature Question -->
-<div class="mb-4 question-container">
-  <label class="form-label fw-bold">
-    Inspector Signature
-    <i
-      class="bi bi-info-circle ms-2"
-      tabindex="0"
-      role="button"
-      data-bs-toggle="popover"
-      data-bs-trigger="focus"
-      title="Inspector Signature"
-      data-bs-content="Please provide your signature to confirm the accuracy of this inspection.">
-    </i>
-  </label>
-  <div class="container">
-    <div class="row g-2">
-      <div class="col-md-6">
-        <button type="button" class="btn btn-outline-primary btn-lg w-100 answer-btn" data-bs-toggle="modal" data-bs-target="#signatureModal" style="font-weight:600;">
-          <i class="bi bi-pencil-square me-2"></i> Add Signature
-        </button>
-      </div>
-      <div class="col-md-6">
-        <button type="button" class="btn btn-outline-secondary btn-lg w-100 answer-btn" id="uploadSignatureBtn">
-          <i class="bi bi-upload me-2"></i> Upload Signature Image
-        </button>
-        <input type="file" accept="image/png, image/jpeg" id="signatureImageInput" name="signatureImageInput" class="d-none">
-      </div>
-    </div>
-  </div>
-  <div id="signaturePreview" class="mt-3"></div>
-</div>
+          <div class="mb-4 question-container">
+            <label class="form-label fw-bold">
+            Inspector Signature
+            <i
+              class="bi bi-info-circle ms-2"
+              tabindex="0"
+              role="button"
+              data-bs-toggle="popover"
+              data-bs-trigger="focus"
+              title="Inspector Signature"
+              data-bs-content="Please provide your signature to confirm the accuracy of this inspection.">
+            </i>
+            </label>
+            <div class="container">
+            <div class="row g-2">
+              <div class="col-md-6">
+              <button type="button" class="btn btn-outline-primary btn-lg w-100 answer-btn" data-bs-toggle="modal" data-bs-target="#signatureModal" style="font-weight:600;">
+                <i class="bi bi-pencil-square me-2"></i> Add Signature
+              </button>
+              </div>
+              <div class="col-md-6">
+              <button type="button" class="btn btn-outline-secondary btn-lg w-100 answer-btn" id="uploadSignatureBtn">
+                <i class="bi bi-upload me-2"></i> Upload Signature Image
+              </button>
+              <input type="file" accept="image/png, image/jpeg" id="signatureImageInput" name="signatureImageInput" class="d-none">
+              </div>
+            </div>
+            </div>
+            <div id="signaturePreview" class="mt-3"></div>
+          </div>
 
-                  <!-- Signature Modal -->
-                  <div class="modal fade" id="signatureModal" tabindex="-1" aria-labelledby="signatureModalLabel" aria-hidden="true">
+                    <!-- Signature Modal -->
+                    <div class="modal fade" id="signatureModal" tabindex="-1" aria-labelledby="signatureModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg" style="max-width: 700px;">
                       <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title fw-bold" id="signatureModalLabel">
-                            Draw Your Signature
-                          </h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      <div class="modal-header">
+                        <h5 class="modal-title fw-bold" id="signatureModalLabel">
+                        Draw Your Signature
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body p-4" style="background: #f8f9fa;">
+                        <div class="d-flex justify-content-center">
+                        <div style="border: 2px dashed #377dff; border-radius: 10px; background: #fff; padding: 10px;">
+                          <!-- The required canvas element with id="signature-pad" -->
+                          <canvas id="signature-pad" width="600" height="250" style="touch-action: none; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(55,125,255,0.08);"></canvas>
                         </div>
-                        <div class="modal-body p-4" style="background: #f8f9fa;">
-                          <div class="d-flex justify-content-center">
-                            <div style="border: 2px dashed #377dff; border-radius: 10px; background: #fff; padding: 10px;">
-                              <canvas id="signaturePadCanvas" width="600" height="250" style="touch-action: none; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(55,125,255,0.08);"></canvas>
-                            </div>
-                          </div>
-                          <div class="text-center mt-2">
-                          </div>
                         </div>
-                        <div class="modal-footer d-flex justify-content-between">
-                          <button type="button" class="btn btn-outline-danger" id="clearSignatureBtn">
-                            <i class="bi bi-eraser me-1"></i> Clear
-                          </button>
-                          <div>
-                            <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">
-                              <i class="bi bi-x-circle me-1"></i> Cancel
-                            </button>
-                            <button type="button" class="btn btn-primary" id="saveSignatureBtn">
-                              <i class="bi bi-check-circle me-1"></i> Save
-                            </button>
-                          </div>
+                        <div class="text-center mt-2">
                         </div>
                       </div>
+                      <div class="modal-footer d-flex justify-content-between">
+                        <button type="button" class="btn btn-outline-danger" id="clearSignatureBtn">
+                        <i class="bi bi-eraser me-1"></i> Clear
+                        </button>
+                        <div>
+                        <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">
+                          <i class="bi bi-x-circle me-1"></i> Cancel
+                        </button>
+                        <button type="button" class="btn btn-primary" id="saveSignatureBtn">
+                          <i class="bi bi-check-circle me-1"></i> Save
+                        </button>
+                        </div>
+                      </div>
+                      </div>
                     </div>
-                  </div>
+                    </div>
                   <!-- Terms and Privacy Agreement Checkboxes -->
                   <div class="mb-4 question-container">
                     <div class="form-check mb-2">
