@@ -177,33 +177,36 @@ export function initializeSignaturePad() {
 
   // Save button logic
   if (saveBtn) {
-    saveBtn.onclick = function() {
-      if (!canvas || !ctx || isCanvasBlank(canvas)) {
-        alert('Please draw a signature before saving.');
-        return;
-      }
-      const dataURL = canvas.toDataURL('image/png');
-      if (signaturePreview) {
-        signaturePreview.innerHTML =
-          `<img src="${dataURL}" alt="Signature" class="img-fluid rounded border" style="background: #fff;">`;
-      }
+saveBtn.onclick = function () {
+  if (!canvas || !ctx || isCanvasBlank(canvas)) {
+    alert('Please draw a signature before saving.');
+    return;
+  }
 
-      // Set hidden input for form submission
-      let hidden = document.getElementById('signatureDataInput');
-      if (!hidden) {
-        hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.name = 'signatureData';
-        hidden.id = 'signatureDataInput';
-        document.querySelector('form').appendChild(hidden); // Append to the main form
-      }
-      hidden.value = dataURL;
+  const dataURL = canvas.toDataURL('image/png');
 
-      // Optionally close modal
-      const modal = bootstrap.Modal.getInstance(signatureModalElement);
-      if (modal) modal.hide();
-      // No extra cleanup needed here, as the 'hidden.bs.modal' listener handles it.
-    };
+  // ✅ Update thumbnail preview
+  const thumbnail = document.getElementById('signatureThumbnail');
+  if (thumbnail) {
+    thumbnail.src = dataURL;
+    thumbnail.style.display = 'block';
+  }
+
+  // ✅ Clear validation state if needed
+  const sigContainer = document.getElementById('signatureThumbnail')?.closest('.question-container');
+  if (sigContainer) {
+    sigContainer.classList.remove('is-invalid');
+    const label = sigContainer.querySelector('label.form-label');
+    if (label) label.classList.remove('text-danger');
+    const error = sigContainer.querySelector('.invalid-feedback');
+    if (error) error.remove();
+  }
+
+  const modal = bootstrap.Modal.getInstance(signatureModalElement);
+  if (modal) modal.hide();
+};
+
+
   } else {
     console.warn("Save signature button not found!");
   }
