@@ -80,7 +80,7 @@ async function processAndUploadImages(containerId, folder = 'uploads/') {
     if (error) {
       console.error(`❌ Upload failed for signatureCanvas:`, error.message);
     } else {
-      uploadedPaths['signatureImageInputUrl'] = filename;
+      uploadedPaths['signatureImageInputUrl'] = `scaffold-inspections/${filename}`;
     }
   }
 
