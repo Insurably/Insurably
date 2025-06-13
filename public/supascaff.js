@@ -164,6 +164,14 @@ async function submitScaffoldInspection() {
     ...imagePaths
   };
 
+  // 🔄 Convert dateOfInspection from DD/MM/YYYY to YYYY-MM-DD
+  if (finalData.dateOfInspection) {
+    const parts = finalData.dateOfInspection.split('/');
+    if (parts.length === 3) {
+      finalData.dateOfInspection = `${parts[2]}-${parts[1]}-${parts[0]}`;
+    }
+  }
+
   console.log('📤 Submitting to Supabase:', finalData);
 
   const { data, error } = await supabase
@@ -179,6 +187,7 @@ async function submitScaffoldInspection() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
+
 
 // ✅ Attach validation + submission to submit button
 document.addEventListener('DOMContentLoaded', () => {
