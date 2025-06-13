@@ -164,11 +164,11 @@ async function submitScaffoldInspection() {
     ...imagePaths
   };
 
-  // 🔄 Convert dateOfInspection from DD/MM/YYYY to YYYY-MM-DD
-  if (finalData.dateOfInspection) {
-    const parts = finalData.dateOfInspection.split('/');
+  // ✅ Convert dateErected from DD/MM/YYYY to YYYY-MM-DD
+  if (finalData.dateErected) {
+    const parts = finalData.dateErected.split('/');
     if (parts.length === 3) {
-      finalData.dateOfInspection = `${parts[2]}-${parts[1]}-${parts[0]}`;
+      finalData.dateErected = `${parts[2]}-${parts[1]}-${parts[0]}`;
     }
   }
 
